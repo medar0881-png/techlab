@@ -1,0 +1,3590 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TECH LAB - النظام المتكامل بالميزات الجديدة</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #0c0c0c, #1a1a2e);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            min-height: 100vh;
+            color: #fff;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* شريط التنقل المحسن */
+        .navbar {
+            background: rgba(0, 0, 0, 0.95);
+            backdrop-filter: blur(15px);
+            padding: 12px 0;
+            border-bottom: 2px solid #00ff88;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: 0 4px 25px rgba(0, 255, 136, 0.15);
+        }
+
+        .nav-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #00ff88, #0088ff);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            color: #000;
+            font-weight: bold;
+            box-shadow: 0 0 15px rgba(0, 255, 136, 0.5);
+        }
+
+        .logo-text {
+            font-family: 'Arial', sans-serif;
+            font-size: 24px;
+            font-weight: 800;
+            background: linear-gradient(135deg, #00ff88, #0088ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 0 20px rgba(0, 255, 136, 0.3);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 5px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            padding: 5px;
+        }
+
+        .nav-link {
+            color: #fff;
+            text-decoration: none;
+            font-size: 14px;
+            transition: all 0.3s ease;
+            padding: 10px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .nav-link:hover, .nav-link.active {
+            background: linear-gradient(135deg, #00ff88, #0088ff);
+            color: #000;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 255, 136, 0.3);
+        }
+
+        .nav-actions {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+
+        .action-btn {
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(0, 255, 136, 0.3);
+            color: #00ff88;
+            padding: 8px 16px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 13px;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .action-btn:hover {
+            background: rgba(0, 255, 136, 0.15);
+            transform: translateY(-2px);
+        }
+
+        /* المحتوى الرئيسي */
+        .main-content {
+            margin-top: 80px;
+            padding: 20px 0;
+        }
+
+        /* صفحات الأقسام */
+        .section-page {
+            display: none;
+            animation: fadeIn 0.5s ease-in;
+        }
+
+        .section-page.active {
+            display: block;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 30px 20px;
+            background: linear-gradient(135deg, rgba(0, 255, 136, 0.1), rgba(0, 136, 255, 0.1));
+            border-radius: 20px;
+            border: 1px solid rgba(0, 255, 136, 0.2);
+        }
+
+        .section-title {
+            font-size: 2.8em;
+            color: #00ff88;
+            margin-bottom: 15px;
+            text-shadow: 0 0 15px rgba(0, 255, 136, 0.4);
+        }
+
+        .section-description {
+            color: #ccc;
+            font-size: 1.3em;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* شريط الإحصائيات */
+        .stats-bar {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+            margin: 40px 0;
+            padding: 0 20px;
+        }
+
+        .stat-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(0, 255, 136, 0.2);
+            border-radius: 15px;
+            padding: 25px;
+            text-align: center;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stat-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, #00ff88, #0088ff);
+        }
+
+        .stat-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(0, 255, 136, 0.5);
+            box-shadow: 0 15px 35px rgba(0, 255, 136, 0.2);
+        }
+
+        .stat-number {
+            font-size: 2.5em;
+            font-weight: bold;
+            color: #00ff88;
+            margin-bottom: 8px;
+            text-shadow: 0 0 10px rgba(0, 255, 136, 0.3);
+        }
+
+        .stat-label {
+            color: #ccc;
+            font-size: 1em;
+        }
+
+        /* شريط البحث */
+        .search-container {
+            max-width: 600px;
+            margin: 40px auto;
+            padding: 0 20px;
+            position: relative;
+        }
+
+        .search-box {
+            width: 100%;
+            padding: 15px 25px;
+            background: rgba(255, 255, 255, 0.08);
+            border: 2px solid rgba(0, 255, 136, 0.3);
+            border-radius: 30px;
+            color: #fff;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            padding-left: 50px;
+        }
+
+        .search-box:focus {
+            outline: none;
+            border-color: #00ff88;
+            box-shadow: 0 0 20px rgba(0, 255, 136, 0.4);
+            background: rgba(255, 255, 255, 0.12);
+        }
+
+        .search-icon {
+            position: absolute;
+            left: 35px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #00ff88;
+            font-size: 18px;
+        }
+
+        /* أزرار التصنيف */
+        .category-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin: 40px 0;
+            padding: 0 20px;
+            flex-wrap: wrap;
+        }
+
+        .category-tab {
+            background: rgba(255, 255, 255, 0.05);
+            border: 2px solid rgba(0, 255, 136, 0.3);
+            color: #ccc;
+            padding: 12px 24px;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .category-tab:hover {
+            background: rgba(0, 255, 136, 0.1);
+            color: #00ff88;
+            transform: translateY(-3px);
+        }
+
+        .category-tab.active {
+            background: linear-gradient(135deg, #00ff88, #0088ff);
+            color: #000;
+            border-color: #00ff88;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 255, 136, 0.3);
+        }
+
+        /* شبكة العناصر */
+        .items-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            padding: 20px;
+        }
+
+        .item-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(0, 255, 136, 0.2);
+            border-radius: 20px;
+            padding: 25px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .item-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, #00ff88, #0088ff);
+        }
+
+        .item-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            border-color: rgba(0, 255, 136, 0.6);
+            box-shadow: 0 20px 40px rgba(0, 255, 136, 0.25);
+        }
+
+        .item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 15px;
+        }
+
+        .item-icon {
+            font-size: 3.5em;
+            text-align: center;
+            margin-bottom: 15px;
+        }
+
+        .favorite-btn {
+            background: rgba(255, 255, 255, 0.1);
+            border: none;
+            border-radius: 50%;
+            width: 35px;
+            height: 35px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 16px;
+        }
+
+        .favorite-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: scale(1.1);
+        }
+
+        .favorite-btn.active {
+            color: #ff4444;
+            background: rgba(255, 68, 68, 0.1);
+        }
+
+        .item-name {
+            color: #00ff88;
+            text-align: center;
+            margin-bottom: 12px;
+            font-size: 1.4em;
+            font-weight: bold;
+            text-shadow: 0 0 10px rgba(0, 255, 136, 0.2);
+        }
+
+        .item-description {
+            color: #ccc;
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 1em;
+            line-height: 1.6;
+        }
+
+        .item-specs {
+            background: rgba(0, 255, 136, 0.1);
+            padding: 12px;
+            border-radius: 10px;
+            font-size: 0.9em;
+            color: #00ff88;
+            text-align: center;
+            border: 1px solid rgba(0, 255, 136, 0.2);
+            margin-bottom: 15px;
+        }
+
+        .item-actions {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+        }
+
+        .item-action-btn {
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(0, 255, 136, 0.3);
+            color: #00ff88;
+            padding: 8px 15px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 12px;
+            transition: all 0.3s ease;
+            flex: 1;
+            text-align: center;
+        }
+
+        .item-action-btn:hover {
+            background: rgba(0, 255, 136, 0.15);
+            transform: translateY(-2px);
+        }
+
+        /* عداد العناصر */
+        .items-count {
+            text-align: center;
+            color: #00ff88;
+            margin: 30px 0;
+            font-size: 1.2em;
+            font-weight: bold;
+            text-shadow: 0 0 10px rgba(0, 255, 136, 0.3);
+        }
+
+        /* صفحة المفضلات */
+        .favorites-section {
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 15px;
+            padding: 30px;
+            margin: 30px 0;
+            border: 1px solid rgba(0, 255, 136, 0.2);
+        }
+
+        .favorites-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        /* صفحة المقارنة */
+        .comparison-section {
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 15px;
+            padding: 30px;
+            margin: 30px 0;
+            border: 1px solid rgba(0, 255, 136, 0.2);
+        }
+
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        .comparison-table th,
+        .comparison-table td {
+            padding: 15px;
+            text-align: right;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .comparison-table th {
+            background: rgba(0, 255, 136, 0.1);
+            color: #00ff88;
+            font-weight: bold;
+        }
+
+        /* صفحة المشاريع */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .project-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(0, 255, 136, 0.2);
+            border-radius: 20px;
+            padding: 25px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, #00ff88, #0088ff);
+        }
+
+        .project-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(0, 255, 136, 0.5);
+            box-shadow: 0 15px 35px rgba(0, 255, 136, 0.2);
+        }
+
+        .project-icon {
+            font-size: 3em;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .project-title {
+            color: #00ff88;
+            text-align: center;
+            margin-bottom: 15px;
+            font-size: 1.4em;
+            font-weight: bold;
+        }
+
+        .project-description {
+            color: #ccc;
+            text-align: center;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .project-difficulty {
+            display: inline-block;
+            background: rgba(255, 193, 7, 0.2);
+            color: #ffc107;
+            padding: 5px 12px;
+            border-radius: 15px;
+            font-size: 0.8em;
+            margin-bottom: 15px;
+        }
+
+        /* قسم السيارات */
+        .car-project {
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 15px;
+            padding: 25px;
+            margin: 20px 0;
+            border: 1px solid rgba(255, 193, 7, 0.3);
+        }
+
+        .car-schematic {
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 10px;
+            padding: 20px;
+            margin: 15px 0;
+            font-family: monospace;
+            color: #ffc107;
+            text-align: center;
+            border: 1px solid rgba(255, 193, 7, 0.2);
+        }
+
+        /* قسم اللحام */
+        .welding-tools {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .welding-tool {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 68, 68, 0.3);
+            border-radius: 15px;
+            padding: 20px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .welding-tool:hover {
+            transform: translateY(-5px);
+            border-color: rgba(255, 68, 68, 0.6);
+        }
+
+        .welding-icon {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        /* قسم فيديوهات اللحام */
+        .welding-videos {
+            margin: 40px 0;
+        }
+
+        .videos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 25px;
+            margin-top: 20px;
+        }
+
+        .video-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 68, 68, 0.3);
+            border-radius: 15px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .video-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(255, 68, 68, 0.6);
+            box-shadow: 0 15px 30px rgba(255, 68, 68, 0.2);
+        }
+
+        .video-thumbnail {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, #ff4444, #ff8c00);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .video-thumbnail::before {
+            content: '▶';
+            position: absolute;
+            font-size: 3em;
+            color: white;
+            text-shadow: 0 0 20px rgba(0,0,0,0.5);
+        }
+
+        .video-thumbnail img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .video-info {
+            padding: 20px;
+        }
+
+        .video-title {
+            color: #ffc107;
+            font-size: 1.2em;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        .video-description {
+            color: #ccc;
+            font-size: 0.9em;
+            margin-bottom: 15px;
+            line-height: 1.5;
+        }
+
+        .video-meta {
+            display: flex;
+            justify-content: space-between;
+            color: #888;
+            font-size: 0.8em;
+        }
+
+        .video-duration {
+            background: rgba(255, 68, 68, 0.2);
+            color: #ff4444;
+            padding: 3px 8px;
+            border-radius: 10px;
+        }
+
+        .video-views {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        /* تأثيرات */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+
+        /* التكيف مع الشاشات الصغيرة */
+        @media (max-width: 768px) {
+            .nav-content {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .nav-links {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .section-title {
+                font-size: 2em;
+            }
+
+            .items-grid {
+                grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+                gap: 20px;
+                padding: 10px;
+            }
+
+            .stats-bar {
+                grid-template-columns: 1fr;
+            }
+
+            .category-tabs {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .category-tab {
+                width: 100%;
+                max-width: 300px;
+                text-align: center;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .videos-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .items-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .section-title {
+                font-size: 1.8em;
+            }
+            
+            .item-card {
+                padding: 20px;
+            }
+
+            .video-thumbnail {
+                height: 150px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- شريط التنقل -->
+    <nav class="navbar">
+        <div class="nav-content">
+            <div class="nav-logo">
+                <div class="logo-icon">T</div>
+                <div class="logo-text">TECH LAB</div>
+            </div>
+            <div class="nav-links">
+                <a class="nav-link active" onclick="showSection('sensors')">📡 المجسات</a>
+                <a class="nav-link" onclick="showSection('boards')">🔌 الألواح</a>
+                <a class="nav-link" onclick="showSection('motors')">⚙ الموتورات</a>
+                <a class="nav-link" onclick="showSection('modules')">📟 الموديولات</a>
+                <a class="nav-link" onclick="showSection('arduino-cars')">🚗 سيارات Arduino</a>
+                <a class="nav-link" onclick="showSection('welding')">🔧 قسم اللحام</a>
+                <a class="nav-link" onclick="showSection('projects')">🚀 المشاريع</a>
+                <a class="nav-link" onclick="showSection('aihelper')">🤖 AI Helper</a>
+                <a class="nav-link" onclick="showSection('favorites')">⭐ المفضلة</a>
+                <a class="nav-link" onclick="showSection('comparison')">⚖ المقارنة</a>
+            </div>
+            <div class="nav-actions">
+                <button class="action-btn" onclick="showSection('favorites')">
+                    <span>⭐</span> المفضلة
+                </button>
+                <button class="action-btn" onclick="showSection('comparison')">
+                    <span>⚖</span> المقارنة
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- المحتوى الرئيسي -->
+    <div class="container">
+        <div class="main-content">
+            
+            <!-- صفحة المجسات -->
+            <div id="sensors" class="section-page active">
+                <div class="section-header">
+                    <h1 class="section-title">📡 نظام المجسات الشامل</h1>
+                    <p class="section-description">اكتشف أكثر من 50 نوعاً من المجسات الإلكترونية المتقدمة لتلبية جميع احتياجات مشاريعك</p>
+                </div>
+
+                <div class="stats-bar">
+                    <div class="stat-card">
+                        <div class="stat-number" id="sensorsTotal">0</div>
+                        <div class="stat-label">نوع مجس</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">12</div>
+                        <div class="stat-label">فئات رئيسية</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">200+</div>
+                        <div class="stat-label">تطبيق عملي</div>
+                    </div>
+                </div>
+
+                <div class="search-container">
+                    <div class="search-icon">🔍</div>
+                    <input type="text" class="search-box" placeholder="ابحث عن المجس المناسب..." onkeyup="filterItems('sensors')" id="sensorsSearch">
+                </div>
+
+                <div class="category-tabs" id="sensorsTabs">
+                    <div class="category-tab active" onclick="filterSensors('all')">الكل</div>
+                    <div class="category-tab" onclick="filterSensors('environment')">البيئة</div>
+                    <div class="category-tab" onclick="filterSensors('motion')">الحركة</div>
+                    <div class="category-tab" onclick="filterSensors('optical')">ضوئي</div>
+                    <div class="category-tab" onclick="filterSensors('magnetic')">مغناطيسي</div>
+                    <div class="category-tab" onclick="filterSensors('biometric')">القياسات الحيوية</div>
+                    <div class="category-tab" onclick="filterSensors('industrial')">صناعي</div>
+                </div>
+
+                <div class="items-count" id="sensorsCount">عرض 0 مجس</div>
+
+                <div class="items-grid" id="sensorsGrid">
+                    <!-- سيتم تعبئتها بالجافاسكريبت -->
+                </div>
+            </div>
+
+            <!-- صفحة الألواح -->
+            <div id="boards" class="section-page">
+                <div class="section-header">
+                    <h1 class="section-title">🔌 منصة الألواح التطويرية</h1>
+                    <p class="section-description">اختر من بين 40 لوح تطويري مختلف من أفضل العلامات التجارية العالمية</p>
+                </div>
+
+                <div class="stats-bar">
+                    <div class="stat-card">
+                        <div class="stat-number" id="boardsTotal">0</div>
+                        <div class="stat-label">لوح تطويري</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">8</div>
+                        <div class="stat-label">عائلات رئيسية</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">100+</div>
+                        <div class="stat-label">مشروع جاهز</div>
+                    </div>
+                </div>
+
+                <div class="search-container">
+                    <div class="search-icon">🔍</div>
+                    <input type="text" class="search-box" placeholder="ابحث عن اللوح المناسب..." onkeyup="filterItems('boards')" id="boardsSearch">
+                </div>
+
+                <div class="category-tabs" id="boardsTabs">
+                    <div class="category-tab active" onclick="filterBoards('all')">الكل</div>
+                    <div class="category-tab" onclick="filterBoards('arduino')">Arduino</div>
+                    <div class="category-tab" onclick="filterBoards('esp')">ESP</div>
+                    <div class="category-tab" onclick="filterBoards('raspberry')">Raspberry Pi</div>
+                    <div class="category-tab" onclick="filterBoards('stm')">STM32</div>
+                    <div class="category-tab" onclick="filterBoards('microbit')">Micro:bit</div>
+                    <div class="category-tab" onclick="filterBoards('teensy')">Teensy</div>
+                    <div class="category-tab" onclick="filterBoards('other')">أخرى</div>
+                </div>
+
+                <div class="items-count" id="boardsCount">عرض 0 لوح تطويري</div>
+
+                <div class="items-grid" id="boardsGrid">
+                    <!-- سيتم تعبئتها بالجافاسكريبت -->
+                </div>
+            </div>
+
+            <!-- صفحة الموتورات -->
+            <div id="motors" class="section-page">
+                <div class="section-header">
+                    <h1 class="section-title">⚙ نظام التحكم الحركي المتكامل</h1>
+                    <p class="section-description">تحكم في 30 نوعاً من المحركات والأنظمة الحركية للتطبيقات المختلفة</p>
+                </div>
+
+                <div class="stats-bar">
+                    <div class="stat-card">
+                        <div class="stat-number" id="motorsTotal">0</div>
+                        <div class="stat-label">نوع محرك</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">7</div>
+                        <div class="stat-label">فئات حركية</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">150+</div>
+                        <div class="stat-label">نظام تحكم</div>
+                    </div>
+                </div>
+
+                <div class="search-container">
+                    <div class="search-icon">🔍</div>
+                    <input type="text" class="search-box" placeholder="ابحث عن المحرك المناسب..." onkeyup="filterItems('motors')" id="motorsSearch">
+                </div>
+
+                <div class="category-tabs" id="motorsTabs">
+                    <div class="category-tab active" onclick="filterMotors('all')">الكل</div>
+                    <div class="category-tab" onclick="filterMotors('dc')">محركات DC</div>
+                    <div class="category-tab" onclick="filterMotors('stepper')">محركات خطوية</div>
+                    <div class="category-tab" onclick="filterMotors('servo')">محركات سيرفو</div>
+                    <div class="category-tab" onclick="filterMotors('brushless')">محركات براشلس</div>
+                    <div class="category-tab" onclick="filterMotors('linear')">محركات خطية</div>
+                    <div class="category-tab" onclick="filterMotors('special')">أنظمة خاصة</div>
+                </div>
+
+                <div class="items-count" id="motorsCount">عرض 0 نظام حركي</div>
+
+                <div class="items-grid" id="motorsGrid">
+                    <!-- سيتم تعبئتها بالجافاسكريبت -->
+                </div>
+            </div>
+
+            <!-- صفحة الموديولات -->
+            <div id="modules" class="section-page">
+                <div class="section-header">
+                    <h1 class="section-title">📟 مكتبة الموديولات والإضافات</h1>
+                    <p class="section-description">استفد من 50 موديول وإضافة مختلفة لتعزيز قدرات مشاريعك الإلكترونية</p>
+                </div>
+
+                <div class="stats-bar">
+                    <div class="stat-card">
+                        <div class="stat-number" id="modulesTotal">0</div>
+                        <div class="stat-label">موديول وإضافة</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">9</div>
+                        <div class="stat-label">فئات تقنية</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">300+</div>
+                        <div class="stat-label">دائرة تطبيقية</div>
+                    </div>
+                </div>
+
+                <div class="search-container">
+                    <div class="search-icon">🔍</div>
+                    <input type="text" class="search-box" placeholder="ابحث عن الموديول المناسب..." onkeyup="filterItems('modules')" id="modulesSearch">
+                </div>
+
+                <div class="category-tabs" id="modulesTabs">
+                    <div class="category-tab active" onclick="filterModules('all')">الكل</div>
+                    <div class="category-tab" onclick="filterModules('communication')">الاتصالات</div>
+                    <div class="category-tab" onclick="filterModules('display')">الشاشات</div>
+                    <div class="category-tab" onclick="filterModules('power')">الطاقة</div>
+                    <div class="category-tab" onclick="filterModules('sensor')">المجسات</div>
+                    <div class="category-tab" onclick="filterModules('storage')">التخزين</div>
+                    <div class="category-tab" onclick="filterModules('motor')">التحكم بالمحركات</div>
+                </div>
+
+                <div class="items-count" id="modulesCount">عرض 0 موديول</div>
+
+                <div class="items-grid" id="modulesGrid">
+                    <!-- سيتم تعبئتها بالجافاسكريبت -->
+                </div>
+            </div>
+
+            <!-- صفحة سيارات Arduino -->
+            <div id="arduino-cars" class="section-page">
+                <div class="section-header">
+                    <h1 class="section-title">🚗 مشاريع سيارات Arduino</h1>
+                    <p class="section-description">تصميم وبناء سيارات ذكية باستخدام Arduino بأنواع مختلفة</p>
+                </div>
+
+                <div class="stats-bar">
+                    <div class="stat-card">
+                        <div class="stat-number">25+</div>
+                        <div class="stat-label">نموذج سيارة</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">10</div>
+                        <div class="stat-label">نظام تحكم</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">80+</div>
+                        <div class="stat-label">دائرة إلكترونية</div>
+                    </div>
+                </div>
+
+                <div class="car-project">
+                    <h3 style="color: #ffc107; text-align: center; margin-bottom: 20px;">🚗 سيارة Arduino متابعة الخط</h3>
+                    <div class="car-schematic">
+                        <h4>📋 المكونات المطلوبة:</h4>
+                        <p>• Arduino UNO</p>
+                        <p>• حساسات IR (2x)</p>
+                        <p>• محركات DC (2x)</p>
+                        <p>• L298N Motor Driver</p>
+                        <p>• بطارية 9V</p>
+                        <p>• عجلات ومقاومة</p>
+                    </div>
+                    <div class="car-schematic">
+                        <h4>🔧 طريقة التوصيل:</h4>
+                        <p>• توصيل حساسات IR مع A0, A1</p>
+                        <p>• توصيل L298N مع D5, D6, D9, D10</p>
+                        <p>• توصيل المحركات مع L298N</p>
+                        <p>• توصيل البطارية مع Vin</p>
+                    </div>
+                </div>
+
+                <div class="car-project">
+                    <h3 style="color: #ffc107; text-align: center; margin-bottom: 20px;">🚙 سيارة Arduino التحكم عن بعد</h3>
+                    <div class="car-schematic">
+                        <h4>📋 المكونات المطلوبة:</h4>
+                        <p>• Arduino UNO</p>
+                        <p>• موديول Bluetooth HC-05</p>
+                        <p>• محركات سيرفو (2x)</p>
+                        <p>• محرك DC للدفع</p>
+                        <p>• L293D Motor Driver</p>
+                        <p>• بطارية ليثيوم</p>
+                    </div>
+                </div>
+
+                <div class="items-grid">
+                    <div class="item-card">
+                        <div class="item-icon">🤖</div>
+                        <div class="item-name">سيارة تجنب العوائق</div>
+                        <div class="item-description">سيارة ذكية تتجنب العوائق تلقائياً باستخدام حساس ultrasonic</div>
+                        <div class="item-specs">المسافة: 2-400cm | السرعة: 0.3m/s</div>
+                        <div class="item-actions">
+                            <button class="item-action-btn">عرض الدائرة</button>
+                            <button class="item-action-btn">تحميل الكود</button>
+                        </div>
+                    </div>
+
+                    <div class="item-card">
+                        <div class="item-icon">🏎</div>
+                        <div class="item-name">سيارة سباق ذكية</div>
+                        <div class="item-description">سيارة سباق عالية السرعة مع نظام تحكم متقدم</div>
+                        <div class="item-specs">السرعة: 2m/s | التحكم: PWM</div>
+                        <div class="item-actions">
+                            <button class="item-action-btn">عرض الدائرة</button>
+                            <button class="item-action-btn">تحميل الكود</button>
+                        </div>
+                    </div>
+
+                    <div class="item-card">
+                        <div class="item-icon">🚛</div>
+                        <div class="item-name">سيارة نقل ذكية</div>
+                        <div class="item-description">سيارة نقل ذاتية القيادة مع نظام تحميل وتفريغ</div>
+                        <div class="item-specs">الحمولة: 500g | التحكم: ESP32-CAM</div>
+                        <div class="item-actions">
+                            <button class="item-action-btn">عرض الدائرة</button>
+                            <button class="item-action-btn">تحميل الكود</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- صفحة اللحام -->
+            <div id="welding" class="section-page">
+                <div class="section-header">
+                    <h1 class="section-title">🔧 قسم اللحام الإلكتروني</h1>
+                    <p class="section-description">تعلم تقنيات اللحام المتقدمة واستخدم الأدوات المناسبة لمشاريعك</p>
+                </div>
+
+                <div class="stats-bar">
+                    <div class="stat-card">
+                        <div class="stat-number">30+</div>
+                        <div class="stat-label">أداة لحام</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">15</div>
+                        <div class="stat-label">تقنية لحام</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">25+</div>
+                        <div class="stat-label">فيديو تعليمي</div>
+                    </div>
+                </div>
+
+                <!-- قسم فيديوهات اللحام -->
+                <div class="welding-videos">
+                    <h2 style="color: #ffc107; text-align: center; margin: 40px 0 30px 0; font-size: 2em;">🎬 فيديوهات تعليم اللحام</h2>
+                    <p style="text-align: center; color: #ccc; margin-bottom: 30px; font-size: 1.1em;">
+                        شاهد أفضل الفيديوهات التعليمية لإتقان فن اللحام الإلكتروني
+                    </p>
+
+                    <div class="videos-grid" id="weldingVideosGrid">
+                        <!-- سيتم تعبئتها بالجافاسكريبت -->
+                    </div>
+                </div>
+
+                <div class="welding-tools">
+                    <div class="welding-tool">
+                        <div class="welding-icon">🔥</div>
+                        <div class="item-name">مسدس لحام 60W</div>
+                        <div class="item-description">مسدس لحام احترافي مع تحكم في درجة الحرارة</div>
+                        <div class="item-specs">الحرارة: 200-450°C</div>
+                    </div>
+
+                    <div class="welding-tool">
+                        <div class="welding-icon">💨</div>
+                        <div class="item-name">منفاخ هواء ساخن</div>
+                        <div class="item-description">لحام المكونات السطحية وإزالة العناصر</div>
+                        <div class="item-specs">الحرارة: 100-500°C</div>
+                    </div>
+
+                    <div class="welding-tool">
+                        <div class="welding-icon">🛠</div>
+                        <div class="item-name">طاولة لحام</div>
+                        <div class="item-description">طاولة مزودة بمساعدات ومكبر</div>
+                        <div class="item-specs">المساحة: 40x30cm</div>
+                    </div>
+                </div>
+
+                <div class="car-project">
+                    <h3 style="color: #ff4444; text-align: center; margin-bottom: 20px;">📝 نصائح اللحام الآمن</h3>
+                    <div class="car-schematic">
+                        <p>• استخدم نظارة واقية دائماً</p>
+                        <p>• حافظ على تهوية جيدة للمكان</p>
+                        <p>• استخدم حامل اللحام عند عدم الاستخدام</p>
+                        <p>• نظف رأس اللحام باستمرار</p>
+                        <p>• استخدم القصدير المناسب لنوع العمل</p>
+                    </div>
+                </div>
+
+                <div class="items-grid">
+                    <div class="item-card">
+                        <div class="item-icon">🎥</div>
+                        <div class="item-name">دورة لحام للمبتدئين</div>
+                        <div class="item-description">تعلم أساسيات اللحام من الصفر حتى الاحتراف</div>
+                        <div class="item-specs">المدة: 4 ساعات | المستوى: مبتدئ</div>
+                        <div class="item-actions">
+                            <button class="item-action-btn" onclick="showVideo('beginner')">مشاهدة الدورة</button>
+                            <button class="item-action-btn">تحميل المصادر</button>
+                        </div>
+                    </div>
+
+                    <div class="item-card">
+                        <div class="item-icon">📖</div>
+                        <div class="item-name">دليل استكشاف الأخطاء</div>
+                        <div class="item-description">تعرف على مشاكل اللحام الشائعة وكيفية حلها</div>
+                        <div class="item-specs">المشاكل: 25+ | الحلول: مفصلة</div>
+                        <div class="item-actions">
+                            <button class="item-action-btn">عرض الدليل</button>
+                            <button class="item-action-btn">تحميل PDF</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- صفحة المشاريع -->
+            <div id="projects" class="section-page">
+                <div class="section-header">
+                    <h1 class="section-title">🚀 المشاريع التطبيقية الجاهزة</h1>
+                    <p class="section-description">طبق ما تعلمته مع 80 مشروع عملي جاهز للتنفيذ خطوة بخطوة</p>
+                </div>
+
+                <div class="stats-bar">
+                    <div class="stat-card">
+                        <div class="stat-number">80+</div>
+                        <div class="stat-label">مشروع جاهز</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">4</div>
+                        <div class="stat-label">مستويات صعوبة</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">200+</div>
+                        <div class="stat-label">ساعة فيديو</div>
+                    </div>
+                </div>
+
+                <div class="search-container">
+                    <div class="search-icon">🔍</div>
+                    <input type="text" class="search-box" placeholder="ابحث عن المشروع المناسب..." onkeyup="filterProjects()" id="projectsSearch">
+                </div>
+
+                <div class="category-tabs" id="projectsTabs">
+                    <div class="category-tab active" onclick="filterProjectsByCategory('all')">الكل</div>
+                    <div class="category-tab" onclick="filterProjectsByCategory('iot')">إنترنت الأشياء</div>
+                    <div class="category-tab" onclick="filterProjectsByCategory('robotics')">الروبوتات</div>
+                    <div class="category-tab" onclick="filterProjectsByCategory('home')">المنزل الذكي</div>
+                    <div class="category-tab" onclick="filterProjectsByCategory('security')">الأمن والمراقبة</div>
+                    <div class="category-tab" onclick="filterProjectsByCategory('automation')">الأتمتة</div>
+                    <div class="category-tab" onclick="filterProjectsByCategory('education')">التعليم</div>
+                </div>
+
+                <div class="items-count" id="projectsCount">عرض 80 مشروع</div>
+
+                <div class="projects-grid" id="projectsGrid">
+                    <!-- سيتم تعبئتها بالجافاسكريبت -->
+                </div>
+            </div>
+
+            <!-- صفحة AI Helper -->
+            <div id="aihelper" class="section-page">
+                <div class="section-header">
+                    <h1 class="section-title">🤖 مساعد الذكاء الاصطناعي</h1>
+                    <p class="section-description">مساعد ذكي متقدم للإجابة على أسئلتك ومساعدتك في مشاريعك الإلكترونية</p>
+                </div>
+
+                <div class="stats-bar">
+                    <div class="stat-card">
+                        <div class="stat-number">24/7</div>
+                        <div class="stat-label">متاح دائماً</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">100+</div>
+                        <div class="stat-label">مشروع مساعد فيه</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">متعدد</div>
+                        <div class="stat-label">التخصصات</div>
+                    </div>
+                </div>
+
+                <div class="ai-container" style="max-width: 1200px; margin: 0 auto; padding: 20px;">
+                    <!-- نافذة المحادثة -->
+                    <div class="chat-container" style="background: rgba(255, 255, 255, 0.05); border-radius: 20px; border: 1px solid rgba(0, 255, 136, 0.2); overflow: hidden; margin-bottom: 20px;">
+                        <div class="chat-header" style="background: linear-gradient(135deg, rgba(0, 255, 136, 0.1), rgba(0, 136, 255, 0.1)); padding: 20px; text-align: center; border-bottom: 1px solid rgba(0, 255, 136, 0.2);">
+                            <h3 style="color: #00ff88; margin-bottom: 5px;">محادثة مع المساعد الذكي</h3>
+                            <p style="color: #ccc; font-size: 0.9em;">اسأل عن أي شيء في مجال الإلكترونيات والبرمجة</p>
+                        </div>
+                        
+                        <div class="chat-messages" id="chatMessages" style="height: 400px; overflow-y: auto; padding: 20px; display: flex; flex-direction: column; gap: 15px;">
+                            <!-- الرسائل ستظهر هنا -->
+                            <div class="message ai-message" style="background: rgba(0, 255, 136, 0.1); border-radius: 15px; padding: 15px; max-width: 80%; align-self: flex-start; border: 1px solid rgba(0, 255, 136, 0.2);">
+                                <div class="message-header" style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px;">
+                                    <div class="ai-avatar" style="width: 30px; height: 30px; background: linear-gradient(135deg, #00ff88, #0088ff); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 14px; color: #000; font-weight: bold;">AI</div>
+                                    <strong style="color: #00ff88;">المساعد الذكي</strong>
+                                </div>
+                                <div class="message-content" style="color: #fff;">
+                                    مرحباً! أنا مساعدك الذكي في عالم الإلكترونيات والبرمجة. كيف يمكنني مساعدتك اليوم؟ يمكنني:
+                                    <br>• الإجابة على أسئلتك التقنية
+                                    <br>• مساعدتك في تصميم الدوائر الإلكترونية
+                                    <br>• كتابة أكواد برمجية لمشاريعك
+                                    <br>• حل المشاكل التقنية التي تواجهك
+                                    <br>• اقتراح مشاريع مناسبة لمستواك
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="chat-input" style="padding: 20px; border-top: 1px solid rgba(0, 255, 255, 0.2); background: rgba(0, 0, 0, 0.3);">
+                            <div style="display: flex; gap: 10px;">
+                                <input type="text" id="userInput" placeholder="اكتب سؤالك هنا..." style="flex: 1; padding: 12px 15px; background: rgba(255, 255, 255, 0.08); border: 1px solid rgba(0, 255, 136, 0.3); border-radius: 25px; color: #fff; font-size: 14px;">
+                                <button onclick="sendMessage()" style="background: linear-gradient(135deg, #00ff88, #0088ff); border: none; color: #000; padding: 12px 25px; border-radius: 25px; cursor: pointer; font-weight: bold; transition: all 0.3s ease;">إرسال</button>
+                            </div>
+                            <div style="display: flex; gap: 10px; margin-top: 10px; flex-wrap: wrap;">
+                                <button class="quick-question" onclick="askQuickQuestion('كيف أصمم دائرة إنذار باستخدام Arduino؟')" style="background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(0, 255, 136, 0.3); color: #00ff88; padding: 8px 15px; border-radius: 20px; cursor: pointer; font-size: 12px; transition: all 0.3s ease;">دائرة إنذار</button>
+                                <button class="quick-question" onclick="askQuickQuestion('ما هي أفضل طريقة لبرمجة ESP32؟')" style="background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(0, 255, 136, 0.3); color: #00ff88; padding: 8px 15px; border-radius: 20px; cursor: pointer; font-size: 12px; transition: all 0.3s ease;">برمجة ESP32</button>
+                                <button class="quick-question" onclick="askQuickQuestion('كيف أتحكم في محرك سيرفو باستخدام Arduino؟')" style="background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(0, 255, 136, 0.3); color: #00ff88; padding: 8px 15px; border-radius: 20px; cursor: pointer; font-size: 12px; transition: all 0.3s ease;">محرك سيرفو</button>
+                                <button class="quick-question" onclick="askQuickQuestion('ما الفرق بين Arduino و Raspberry Pi؟')" style="background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(0, 255, 136, 0.3); color: #00ff88; padding: 8px 15px; border-radius: 20px; cursor: pointer; font-size: 12px; transition: all 0.3s ease;">Arduino vs Raspberry Pi</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- أدوات إضافية -->
+                    <div class="ai-tools" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px;">
+                        <div class="ai-tool-card" style="background: rgba(255, 255, 255, 0.05); border-radius: 15px; padding: 20px; border: 1px solid rgba(0, 255, 136, 0.2); transition: all 0.3s ease;">
+                            <div class="tool-icon" style="font-size: 2.5em; text-align: center; margin-bottom: 15px;">💡</div>
+                            <h3 style="color: #00ff88; text-align: center; margin-bottom: 10px;">مولد الأفكار</h3>
+                            <p style="color: #ccc; text-align: center; margin-bottom: 15px;">احصل على أفكار مشاريع مبتكرة تناسب مهاراتك واهتماماتك</p>
+                            <button onclick="generateProjectIdea()" style="width: 100%; background: rgba(0, 255, 136, 0.1); border: 1px solid rgba(0, 255, 136, 0.3); color: #00ff88; padding: 10px; border-radius: 10px; cursor: pointer; transition: all 0.3s ease;">إنشاء فكرة مشروع</button>
+                        </div>
+
+                        <div class="ai-tool-card" style="background: rgba(255, 255, 255, 0.05); border-radius: 15px; padding: 20px; border: 1px solid rgba(0, 255, 136, 0.2); transition: all 0.3s ease;">
+                            <div class="tool-icon" style="font-size: 2.5em; text-align: center; margin-bottom: 15px;">🔧</div>
+                            <h3 style="color: #00ff88; text-align: center; margin-bottom: 10px;">مصحح الأخطاء</h3>
+                            <p style="color: #ccc; text-align: center; margin-bottom: 15px;">الصق كودك البرمجي وسأقوم بفحصه وإصلاح الأخطاء</p>
+                            <textarea id="codeInput" placeholder="الصق كودك البرمجي هنا..." style="width: 100%; height: 100px; background: rgba(255, 255, 255, 0.08); border: 1px solid rgba(0, 255, 136, 0.3); border-radius: 10px; color: #fff; padding: 10px; margin-bottom: 10px; resize: vertical;"></textarea>
+                            <button onclick="debugCode()" style="width: 100%; background: rgba(0, 255, 136, 0.1); border: 1px solid rgba(0, 255, 136, 0.3); color: #00ff88; padding: 10px; border-radius: 10px; cursor: pointer; transition: all 0.3s ease;">فحص الكود</button>
+                        </div>
+
+                        <div class="ai-tool-card" style="background: rgba(255, 255, 255, 0.05); border-radius: 15px; padding: 20px; border: 1px solid rgba(0, 255, 136, 0.2); transition: all 0.3s ease;">
+                            <div class="tool-icon" style="font-size: 2.5em; text-align: center; margin-bottom: 15px;">📚</div>
+                            <h3 style="color: #00ff88; text-align: center; margin-bottom: 10px;">الباحث الذكي</h3>
+                            <p style="color: #ccc; text-align: center; margin-bottom: 15px;">ابحث عن معلومات تقنية محددة في قاعدة المعرفة</p>
+                            <input type="text" id="searchQuery" placeholder="ما الذي تريد البحث عنه؟" style="width: 100%; background: rgba(255, 255, 255, 0.08); border: 1px solid rgba(0, 255, 136, 0.3); border-radius: 10px; color: #fff; padding: 10px; margin-bottom: 10px;">
+                            <button onclick="smartSearch()" style="width: 100%; background: rgba(0, 255, 136, 0.1); border: 1px solid rgba(0, 255, 136, 0.3); color: #00ff88; padding: 10px; border-radius: 10px; cursor: pointer; transition: all 0.3s ease;">بحث ذكي</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- صفحة المفضلة -->
+            <div id="favorites" class="section-page">
+                <div class="section-header">
+                    <h1 class="section-title">⭐ العناصر المفضلة</h1>
+                    <p class="section-description">العناصر التي حفظتها للرجوع إليها لاحقاً</p>
+                </div>
+
+                <div class="favorites-section">
+                    <h3 style="color: #00ff88; text-align: center; margin-bottom: 20px;">المفضلة لديك</h3>
+                    <div class="favorites-grid" id="favoritesGrid">
+                        <div style="text-align: center; color: #ccc; padding: 40px;">
+                            لم تقم بإضافة أي عناصر إلى المفضلة بعد
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- صفحة المقارنة -->
+            <div id="comparison" class="section-page">
+                <div class="section-header">
+                    <h1 class="section-title">⚖ مقارنة بين العناصر</h1>
+                    <p class="section-description">قارن بين العناصر المختلفة لاختيار الأفضل لمشروعك</p>
+                </div>
+
+                <div class="comparison-section">
+                    <h3 style="color: #00ff88; text-align: center; margin-bottom: 20px;">المقارنة</h3>
+                    <div id="comparisonContent" style="text-align: center; color: #ccc; padding: 40px;">
+                        اختر عناصر للمقارنة من الأقسام المختلفة
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- نافذة تشغيل الفيديو -->
+    <div id="videoModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); z-index: 2000; align-items: center; justify-content: center;">
+        <div style="background: #1a1a2e; border-radius: 15px; padding: 20px; max-width: 90%; max-height: 90%; position: relative;">
+            <button onclick="closeVideo()" style="position: absolute; top: 10px; left: 10px; background: #ff4444; border: none; color: white; width: 30px; height: 30px; border-radius: 50%; cursor: pointer; z-index: 2001;">✕</button>
+            <div id="videoPlayer" style="width: 100%; max-width: 800px; height: 450px; background: #000; border-radius: 10px; overflow: hidden;">
+                <!-- سيتم إضافة الفيديو هنا -->
+            </div>
+            <div id="videoInfo" style="margin-top: 15px; color: white;">
+                <h3 id="videoTitle" style="color: #ffc107; margin-bottom: 10px;"></h3>
+                <p id="videoDesc" style="color: #ccc;"></p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // بيانات المجسات الموسعة مع جميع العناصر الجديدة
+        const sensorsData = [
+            {
+                name: "مجس درجة الحرارة DHT22",
+                icon: "🌡",
+                description: "مجس لقياس درجة الحرارة والرطوبة بدقة عالية",
+                specs: "نطاق القياس: -40°C إلى 80°C",
+                category: "environment"
+            },
+            {
+                name: "مجس الحركة PIR",
+                icon: "👤",
+                description: "كشف الحركة البشرية في المدى 7 أمتار",
+                specs: "زاوية الكشف: 120 درجة",
+                category: "motion"
+            },
+            {
+                name: "مجس الغاز MQ-2",
+                icon: "💨",
+                description: "كشف تسرب الغازات والتدخين",
+                specs: "يكشف: LPG, CO, Alcohol",
+                category: "environment"
+            },
+            {
+                name: "مجس المسافة ULTRASONIC",
+                icon: "📏",
+                description: "قياس المسافات من 2cm إلى 4m",
+                specs: "دقة: 3mm",
+                category: "motion"
+            },
+            {
+                name: "مجس التربة",
+                icon: "🌱",
+                description: "قياس رطوبة التربة للنباتات",
+                specs: "مقاومة تناظرية",
+                category: "environment"
+            },
+            {
+                name: "مجس الضغط الجوي BMP180",
+                icon: "🌪",
+                description: "قياس الضغط الجوي والارتفاع",
+                specs: "نطاق: 300-1100 hPa",
+                category: "environment"
+            },
+            {
+                name: "مجس الاهتزاز",
+                icon: "📳",
+                description: "كشف الاهتزازات والحركات المفاجئة",
+                specs: "حساسية قابلة للتعديل",
+                category: "motion"
+            },
+            {
+                name: "مجس الضوء LDR",
+                icon: "💡",
+                description: "قياس شدة الضوء المحيط",
+                specs: "المقاومة: 200Ω إلى 20MΩ",
+                category: "optical"
+            },
+            {
+                name: "مجس الصوت",
+                icon: "🎤",
+                description: "كشف شدة الصوت والضوضاء",
+                specs: "نطاق التردد: 50-20000Hz",
+                category: "environment"
+            },
+            {
+                name: "مجس المغناطيس Hall Effect",
+                icon: "🧲",
+                description: "كشف المجالات المغناطيسية",
+                specs: "حساسية: 1.3mV/G",
+                category: "magnetic"
+            },
+            {
+                name: "مجس اللون TCS34725",
+                icon: "🎨",
+                description: "تحليل وتحديد الألوان المختلفة",
+                specs: "دقة: 16-bit RGB",
+                category: "optical"
+            },
+            {
+                name: "مجس اللمس Capacitive",
+                icon: "👆",
+                description: "كشف اللمس من خلال المواد العازلة",
+                specs: "حساسية عالية",
+                category: "biometric"
+            },
+            {
+                name: "مجس مستوى الماء",
+                icon: "💧",
+                description: "كشف مستوى الماء في الخزانات",
+                specs: "جهد التشغيل: 3.3-5V",
+                category: "industrial"
+            },
+            {
+                name: "مجس التدفق Flow Sensor",
+                icon: "🌊",
+                description: "قياس معدل تدفق السوائل",
+                specs: "المدى: 1-30 لتر/دقيقة",
+                category: "industrial"
+            },
+            {
+                name: "مجس الأشعة تحت الحمراء IR",
+                icon: "🔴",
+                description: "كشف الأشعة تحت الحمراء",
+                specs: "الطول الموجي: 940nm",
+                category: "optical"
+            },
+            {
+                name: "مجس الأشعة فوق البنفسجية UV",
+                icon: "☀",
+                description: "قياس شدة الأشعة فوق البنفسجية",
+                specs: "المدى: 240-370nm",
+                category: "environment"
+            },
+            {
+                name: "مجس الجهد الكهربائي",
+                icon: "⚡",
+                description: "قياس الجهد الكهربائي",
+                specs: "المدى: 0-25V",
+                category: "industrial"
+            },
+            {
+                name: "مجس التيار الكهربائي ACS712",
+                icon: "🔌",
+                description: "قياس التيار الكهربائي",
+                specs: "المدى: 5A, 20A, 30A",
+                category: "industrial"
+            },
+            {
+                name: "مجس القرب VL53L0X",
+                icon: "📐",
+                description: "قياس المسافة بدقة عالية",
+                specs: "المدى: 0-2m، الدقة: 1mm",
+                category: "motion"
+            },
+            {
+                name: "مجس التسارع MPU6050",
+                icon: "📈",
+                description: "قياس التسارع والزاوية",
+                specs: "3 محاور تسارع، 3 محاور جيروسكوب",
+                category: "motion"
+            },
+            {
+                name: "مجس الاهتزاز SW-420",
+                icon: "📳",
+                description: "كشف الاهتزازات والحركات المفاجئة",
+                specs: "الجهد: 3.3-5V، الاستجابة: رقمية",
+                category: "motion"
+            },
+            {
+                name: "مجس المطر FC-37",
+                icon: "🌧",
+                description: "كشف قطرات المطر والأمطار",
+                specs: "الجهد: 5V، الاستجابة: تناظرية/رقمية",
+                category: "environment"
+            },
+            {
+                name: "مجس اللمس TTP223",
+                icon: "👆",
+                description: "كشف اللمس من خلال المواد العازلة",
+                specs: "الجهد: 2-5.5V، حساسية عالية",
+                category: "biometric"
+            },
+            {
+                name: "مجس النبض Pulse Sensor",
+                icon: "💓",
+                description: "قياس معدل ضربات القلب",
+                specs: "الجهد: 3.3-5V، دقة عالية",
+                category: "biometric"
+            },
+            {
+                name: "مجس الغبار GP2Y1010",
+                icon: "💨",
+                description: "قياس جودة الهواء والغبار",
+                specs: "الجهد: 5V، المدى: 0.5mg/m³",
+                category: "environment"
+            },
+            {
+                name: "مجس الغاز MQ135",
+                icon: "🌫",
+                description: "كشف جودة الهواء والغازات الضارة",
+                specs: "يكشف: NH3, NOx, Alcohol, Benzene",
+                category: "environment"
+            },
+            {
+                name: "مجس التيار الكهربائي",
+                icon: "⚡",
+                description: "قياس التيار الكهربائي في الدوائر",
+                specs: "المدى: 0-5A، الدقة: 0.1A",
+                category: "industrial"
+            },
+            {
+                name: "مجس الجهد الكهربائي",
+                icon: "🔋",
+                description: "قياس الجهد الكهربائي",
+                specs: "المدى: 0-25V، الدقة: 0.01V",
+                category: "industrial"
+            },
+            {
+                name: "مجس التبديل المغناطيسي Reed Switch",
+                icon: "🔄",
+                description: "كشف المجالات المغناطيسية",
+                specs: "الجهد: 5V، الاستجابة: رقمية",
+                category: "magnetic"
+            },
+            {
+                name: "مجس خلية الوزن Load Cell",
+                icon: "⚖",
+                description: "قياس الوزن والقوى",
+                specs: "السعة: 1-50kg، الدقة: 0.1g",
+                category: "industrial"
+            },
+            {
+                name: "مجس المغناطيسي HMC5883L",
+                icon: "🧭",
+                description: "بوصلة رقمية ثلاثية المحاور",
+                specs: "الدقة: 1-2 درجة، المدى: ±8 Gauss",
+                category: "magnetic"
+            },
+            {
+                name: "مجس LM35 لدرجة الحرارة",
+                icon: "🌡",
+                description: "قياس درجة الحرارة بدقة",
+                specs: "المدى: -55°C إلى 150°C",
+                category: "environment"
+            },
+            {
+                name: "مجس DS18B20 لدرجة الحرارة",
+                icon: "🌡",
+                description: "قياس درجة الحرارة بمنفذ واحد",
+                specs: "المدى: -55°C إلى 125°C، الدقة: 0.5°C",
+                category: "environment"
+            },
+            {
+                name: "مجس Thermistor",
+                icon: "🌡",
+                description: "مقاومة حرارية لقياس درجة الحرارة",
+                specs: "المدى: -40°C إلى 125°C",
+                category: "environment"
+            },
+            {
+                name: "مجس LM393 للصوت",
+                icon: "🎤",
+                description: "كشف شدة الصوت والضوضاء",
+                specs: "الجهد: 3.3-5V، حساسية قابلة للتعديل",
+                category: "environment"
+            },
+            {
+                name: "مجس Tilt Sensor",
+                icon: "🚨",
+                description: "كشف الميل والاتجاه",
+                specs: "الجهد: 5V، الاستجابة: رقمية",
+                category: "motion"
+            },
+            {
+                name: "مجس IR Obstacle",
+                icon: "🔦",
+                description: "كشف العوائق باستخدام الأشعة تحت الحمراء",
+                specs: "المدى: 2-30cm، الجهد: 3.3-5V",
+                category: "optical"
+            },
+            {
+                name: "مجس تدفق الماء Water Flow",
+                icon: "💧",
+                description: "قياس معدل تدفق السوائل",
+                specs: "المدى: 1-30 لتر/دقيقة",
+                category: "industrial"
+            },
+            {
+                name: "مجس US-015 أولتراسونيك",
+                icon: "📦",
+                description: "قياس المسافات بدقة عالية",
+                specs: "المدى: 2cm-4m، الدقة: 1mm",
+                category: "motion"
+            },
+            {
+                name: "مجس الرياح",
+                icon: "💨",
+                description: "قياس سرعة الرياح",
+                specs: "الجهد: 5V، المدى: 0-50m/s",
+                category: "environment"
+            },
+            // إضافة العناصر الجديدة
+            {
+                name: "DHT11 - حساس رطوبة",
+                icon: "💧",
+                description: "حساس درجة الحرارة والرطوبة الأساسي",
+                specs: "نطاق الرطوبة: 20-90% RH",
+                category: "environment"
+            },
+            {
+                name: "HC-SR04 - أولتراسونيك",
+                icon: "📏",
+                description: "حساس قياس المسافة بالموجات فوق الصوتية",
+                specs: "المدى: 2cm-4m، الدقة: 0.3cm",
+                category: "motion"
+            },
+            {
+                name: "IR Flame - حساس لهب",
+                icon: "🔥",
+                description: "كشف اللهب والأشعة تحت الحمراء",
+                specs: "زاوية الكشف: 60 درجة",
+                category: "optical"
+            },
+            {
+                name: "PIR - حساس حركة",
+                icon: "🚶",
+                description: "كشف حركة الإنسان والحيوان",
+                specs: "المدى: حتى 7 أمتار",
+                category: "motion"
+            },
+            {
+                name: "LDR - حساس ضوء",
+                icon: "💡",
+                description: "مقاومة ضوئية لقياس شدة الإضاءة",
+                specs: "المقاومة: 200Ω إلى 20MΩ",
+                category: "optical"
+            },
+            {
+                name: "Sound - حساس صوت",
+                icon: "🎙",
+                description: "كشف شدة الصوت والضوضاء",
+                specs: "حساسية قابلة للتعديل",
+                category: "environment"
+            },
+            {
+                name: "Hall Effect - مغناطيسي",
+                icon: "🧲",
+                description: "كشف المجالات المغناطيسية",
+                specs: "الجهد: 2.7-6.5V",
+                category: "magnetic"
+            },
+            {
+                name: "Rotary Encoder",
+                icon: "🔄",
+                description: "قياس الدوران والموضع الزاوي",
+                specs: "الدقة: 20 نبضة/دورة",
+                category: "motion"
+            },
+            {
+                name: "MPU6050 - جيروسكوب",
+                icon: "⚙",
+                description: "قياس التسارع والزاوية في 3 محاور",
+                specs: "المدى: ±2g, ±4g, ±8g, ±16g",
+                category: "motion"
+            },
+            {
+                name: "HMC5883L - بوصلة",
+                icon: "🧭",
+                description: "بوصلة رقمية ثلاثية المحاور",
+                specs: "الدقة: 1-2 درجة",
+                category: "magnetic"
+            },
+            {
+                name: "MQ2 - غاز ودخان",
+                icon: "🫁",
+                description: "كشف الغازات القابلة للاشتعال والدخان",
+                specs: "يكشف: LPG, CO, Alcohol",
+                category: "environment"
+            },
+            {
+                name: "GP2Y1010 - غبار",
+                icon: "💨",
+                description: "قياس كثافة الغبار في الهواء",
+                specs: "الجهد: 5V، المدى: 0.5mg/m³",
+                category: "environment"
+            },
+            {
+                name: "Pulse Sensor",
+                icon: "🩸",
+                description: "قياس معدل ضربات القلب",
+                specs: "الجهد: 3.3-5V",
+                category: "biometric"
+            },
+            {
+                name: "TTP223 - لمس",
+                icon: "🖐",
+                description: "حساس لمس سعوي",
+                specs: "الجهد: 2-5.5V",
+                category: "biometric"
+            }
+        ];
+
+        // بيانات الألواح الموسعة مع جميع العناصر الجديدة
+        const boardsData = [
+            {
+                name: "Arduino UNO R3",
+                icon: "🔌",
+                description: "اللوح المثالي للمبتدئين والمشاريع البسيطة",
+                specs: "المعالج: ATmega328P, 16MHz",
+                category: "arduino"
+            },
+            {
+                name: "Arduino Mega 2560",
+                icon: "🔋",
+                description: "لوح بمخارج أكثر للمشاريع الكبيرة",
+                specs: "54 ديجيتال، 16 أنالوج",
+                category: "arduino"
+            },
+            {
+                name: "Arduino Nano",
+                icon: "📏",
+                description: "لوح صغير الحجم للمشاريع المدمجة",
+                specs: "الحجم: 45x18mm",
+                category: "arduino"
+            },
+            {
+                name: "Arduino Due",
+                icon: "🚀",
+                description: "لوح قوي بمعالج ARM Cortex-M3",
+                specs: "المعالج: AT91SAM3X8E, 84MHz",
+                category: "arduino"
+            },
+            {
+                name: "Arduino Leonardo",
+                icon: "⌨",
+                description: "لوح بدعم USB natively",
+                specs: "المعالج: ATmega32u4",
+                category: "arduino"
+            },
+            {
+                name: "ESP32 DevKit",
+                icon: "📶",
+                description: "لوح متطور مع WiFi و Bluetooth مدمج",
+                specs: "المعالج: Xtensa LX6, 240MHz",
+                category: "esp"
+            },
+            {
+                name: "ESP8266 NodeMCU",
+                icon: "📡",
+                description: "لوح اقتصادي مع WiFi مدمج",
+                specs: "المعالج: Xtensa L106, 80MHz",
+                category: "esp"
+            },
+            {
+                name: "ESP32-CAM",
+                icon: "📷",
+                description: "لوح ESP32 مع كاميرا مدمجة",
+                specs: "كاميرا: OV2640, 2MP",
+                category: "esp"
+            },
+            {
+                name: "Raspberry Pi 4 Model B",
+                icon: "🍓",
+                description: "كمبيوتر صغير كامل المواصفات",
+                specs: "RAM: 2GB/4GB/8GB",
+                category: "raspberry"
+            },
+            {
+                name: "Raspberry Pi Pico",
+                icon: "🔬",
+                description: "لوح دقيق للمشاريع البسيطة",
+                specs: "المعالج: RP2040",
+                category: "raspberry"
+            },
+            {
+                name: "Raspberry Pi Zero W",
+                icon: "📱",
+                description: "لوح صغير الحجم مع WiFi و Bluetooth",
+                specs: "الحجم: 65x30mm",
+                category: "raspberry"
+            },
+            {
+                name: "STM32 Blue Pill",
+                icon: "💊",
+                description: "لوح قوي بمعالج ARM Cortex-M3",
+                specs: "المعالج: STM32F103C8T6, 72MHz",
+                category: "stm"
+            },
+            {
+                name: "STM32 Black Pill",
+                icon: "💊",
+                description: "نسخة محسنة من Blue Pill",
+                specs: "المعالج: STM32F411CEU6, 100MHz",
+                category: "stm"
+            },
+            {
+                name: "Teensy 4.0",
+                icon: "⚡",
+                description: "لوح سريع جداً للمشاريع المتقدمة",
+                specs: "المعالج: ARM Cortex-M7, 600MHz",
+                category: "teensy"
+            },
+            {
+                name: "Teensy 3.2",
+                icon: "⚡",
+                description: "لوح قوي بحجم صغير",
+                specs: "المعالج: ARM Cortex-M4, 72MHz",
+                category: "teensy"
+            },
+            {
+                name: "BBC Micro:bit V2",
+                icon: "🔢",
+                description: "لوح تعليمي للمبتدئين",
+                specs: "شاشة LED 5x5، حساسات مدمجة",
+                category: "microbit"
+            },
+            {
+                name: "ATtiny85",
+                icon: "🔍",
+                description: "معالج دقيق صغير للمشاريع البسيطة",
+                specs: "8 دبابيس، 8KB فلاش",
+                category: "other"
+            },
+            {
+                name: "ESP-01",
+                icon: "📡",
+                description: "موديول WiFi صغير الحجم",
+                specs: "المعالج: ESP8266",
+                category: "esp"
+            },
+            {
+                name: "NodeMCU-32S",
+                icon: "📶",
+                description: "لوح ESP32 مع دبابيس سهلة الاستخدام",
+                specs: "المعالج: ESP32, 240MHz",
+                category: "esp"
+            },
+            {
+                name: "Raspberry Pi 3 Model B+",
+                icon: "🍓",
+                description: "إصدار محسن من Raspberry Pi 3",
+                specs: "المعالج: BCM2837B0, 1.4GHz",
+                category: "raspberry"
+            },
+            {
+                name: "Arduino Micro",
+                icon: "🔍",
+                description: "لوح صغير بحجم USB",
+                specs: "المعالج: ATmega32u4, 16MHz",
+                category: "arduino"
+            },
+            {
+                name: "Arduino Zero",
+                icon: "0️⃣",
+                description: "لوح بمعالج 32-bit",
+                specs: "المعالج: ATSAMD21G18, 48MHz",
+                category: "arduino"
+            },
+            {
+                name: "Arduino MKR1000",
+                icon: "📶",
+                description: "لوح مع WiFi مدمج",
+                specs: "المعالج: ATSAMW25, 48MHz",
+                category: "arduino"
+            },
+            {
+                name: "Arduino Pro Mini",
+                icon: "📏",
+                description: "لوح صغير الحجم للمشاريع المدمجة",
+                specs: "الجهد: 3.3V/5V, 14 ديجيتال",
+                category: "arduino"
+            },
+            {
+                name: "Arduino LilyPad",
+                icon: "🌸",
+                description: "لوح للأنسجة والإلكترونيات القابلة للارتداء",
+                specs: "المعالج: ATmega168V/328V",
+                category: "arduino"
+            },
+            {
+                name: "Arduino Esplora",
+                icon: "🎮",
+                description: "لوح مع أدوات تحكم مدمجة",
+                specs: "جويستيك، أزرار، حساسات",
+                category: "arduino"
+            },
+            {
+                name: "Arduino Robot",
+                icon: "🤖",
+                description: "لوح مخصص للروبوتات",
+                specs: "معالجين، شاشة LCD، حساسات",
+                category: "arduino"
+            },
+            {
+                name: "Arduino Ethernet",
+                icon: "🌐",
+                description: "لوح مع اتصال Ethernet مدمج",
+                specs: "منفذ Ethernet، 14 ديجيتال",
+                category: "arduino"
+            },
+            {
+                name: "Arduino Yun",
+                icon: "☁",
+                description: "لوح مع Linux و WiFi",
+                specs: "معالجين: ATmega32u4 و Atheros AR9331",
+                category: "arduino"
+            },
+            {
+                name: "Arduino Gemma",
+                icon: "💎",
+                description: "لوح صغير للأنسجة والإلكترونيات القابلة للارتداء",
+                specs: "المعالج: ATtiny85, 3 دبابيس",
+                category: "arduino"
+            },
+            {
+                name: "ESP32-S2",
+                icon: "📶",
+                description: "نسخة محسنة من ESP32",
+                specs: "المعالج: Xtensa LX7, 240MHz",
+                category: "esp"
+            },
+            {
+                name: "ESP32-S3",
+                icon: "🚀",
+                description: "أقوى نسخة من ESP32",
+                specs: "المعالج: Xtensa LX7, 240MHz",
+                category: "esp"
+            },
+            {
+                name: "ESP8285",
+                icon: "📡",
+                description: "نسخة مدمجة من ESP8266",
+                specs: "المعالج: Xtensa L106, 80MHz",
+                category: "esp"
+            },
+            {
+                name: "ESP32-PICO",
+                icon: "🔬",
+                description: "لوح صغير الحجم مع ESP32",
+                specs: "الحجم: 18x25.5mm",
+                category: "esp"
+            },
+            {
+                name: "ESP32-WROVER",
+                icon: "💪",
+                description: "لوح ESP32 مع ذاكرة إضافية",
+                specs: "RAM: 4MB PSRAM",
+                category: "esp"
+            },
+            {
+                name: "Raspberry Pi 3 Model B",
+                icon: "🍓",
+                description: "كمبيوتر صغير بقدرات متوسطة",
+                specs: "المعالج: BCM2837, 1.2GHz",
+                category: "raspberry"
+            },
+            {
+                name: "Raspberry Pi 2 Model B",
+                icon: "🍓",
+                description: "إصدار سابق من Raspberry Pi",
+                specs: "المعالج: BCM2836, 900MHz",
+                category: "raspberry"
+            },
+            {
+                name: "Raspberry Pi 1 Model B+",
+                icon: "🍓",
+                description: "الإصدار الأول المحسن",
+                specs: "المعالج: BCM2835, 700MHz",
+                category: "raspberry"
+            },
+            {
+                name: "BeagleBone Black",
+                icon: "🦴",
+                description: "لوح تطويري قوي بميزات متقدمة",
+                specs: "المعالج: AM335x, 1GHz",
+                category: "other"
+            },
+            {
+                name: "Particle Photon",
+                icon: "✨",
+                description: "لوح مع اتصال سحابي مدمج",
+                specs: "المعالج: STM32F205, 120MHz",
+                category: "other"
+            },
+            {
+                name: "Orange Pi Zero",
+                icon: "🍊",
+                description: "لوح منافس لـ Raspberry Pi",
+                specs: "المعالج: H2+, 1.2GHz",
+                category: "other"
+            },
+            {
+                name: "Banana Pi M64",
+                icon: "🍌",
+                description: "لوح تطويري متعدد الاستخدامات",
+                specs: "المعالج: Allwinner A64, 1.2GHz",
+                category: "other"
+            },
+            {
+                name: "Tiva C Launchpad",
+                icon: "🚀",
+                description: "لوح من Texas Instruments",
+                specs: "المعالج: ARM Cortex-M4, 80MHz",
+                category: "other"
+            },
+            {
+                name: "PIC32",
+                icon: "🔷",
+                description: "لوح من Microchip",
+                specs: "المعالج: PIC32MX, 80MHz",
+                category: "other"
+            },
+            {
+                name: "BBC Micro:bit",
+                icon: "🔢",
+                description: "لوح تعليمي للمبتدئين",
+                specs: "شاشة LED 5x5، حساسات مدمجة",
+                category: "other"
+            },
+            {
+                name: "Adafruit Feather",
+                icon: "🪶",
+                description: "سلسلة ألواح من Adafruit",
+                specs: "تصميم رفيع، بطارية مدمجة",
+                category: "other"
+            },
+            {
+                name: "Adafruit Trinket",
+                icon: "💎",
+                description: "لوح صغير جداً من Adafruit",
+                specs: "المعالج: ATtiny85, 5 دبابيس",
+                category: "other"
+            },
+            {
+                name: "TI MSP430",
+                icon: "🔋",
+                description: "لوح موفر للطاقة",
+                specs: "المعالج: MSP430, 16MHz",
+                category: "other"
+            },
+            {
+                name: "Intel Edison",
+                icon: "💡",
+                description: "لوح قوي من Intel",
+                specs: "المعالج: Intel Atom, 500MHz",
+                category: "other"
+            },
+            {
+                name: "Nvidia Jetson Nano",
+                icon: "🖥",
+                description: "لوح للذكاء الاصطناعي",
+                specs: "المعالج: ARM Cortex-A57, 1.43GHz",
+                category: "other"
+            }
+        ];
+
+        // بيانات الموتورات الموسعة مع جميع العناصر الجديدة
+        const motorsData = [
+            {
+                name: "محرك DC صغير 3-6V",
+                icon: "⚙",
+                description: "محرك تيار مستمر للروبوتات الصغيرة",
+                specs: "الجهد: 3-6V, السرعة: 100RPM",
+                category: "dc"
+            },
+            {
+                name: "محرك DC معدل السرعة",
+                icon: "🚀",
+                description: "محرك DC مع وحدة تحكم في السرعة",
+                specs: "الجهد: 12V, السرعة: 300RPM",
+                category: "dc"
+            },
+            {
+                name: "محرك DC عالي العزم",
+                icon: "💪",
+                description: "محرك DC بقوة عالية للتطبيقات الثقيلة",
+                specs: "الجهد: 24V, العزم: 5kg.cm",
+                category: "dc"
+            },
+            {
+                name: "محرك سيرفو SG90",
+                icon: "🎯",
+                description: "محرك سيرفو للتحكم الدقيق في الزوايا",
+                specs: "الزاوية: 0-180 درجة",
+                category: "servo"
+            },
+            {
+                name: "محرك سيرفو MG996R",
+                icon: "🔧",
+                description: "محرك سيرفو قوي للمشاريع الكبيرة",
+                specs: "العزم: 11kg.cm",
+                category: "servo"
+            },
+            {
+                name: "محرك خطوي 28BYJ-48",
+                icon: "🔄",
+                description: "محرك خطوي للتحكم الدقيق في الموضع",
+                specs: "زاوية الخطوة: 5.625 درجة",
+                category: "stepper"
+            },
+            {
+                name: "محرك خطوي NEMA 17",
+                icon: "🏭",
+                description: "محرك خطوي صناعي قوي",
+                specs: "العزم: 4.2kg.cm",
+                category: "stepper"
+            },
+            {
+                name: "محرك براشلس A2212",
+                icon: "✈",
+                description: "محرك براشلس للطائرات بدون طيار",
+                specs: "السرعة: 1000KV",
+                category: "brushless"
+            },
+            {
+                name: "محرك اهتزاز",
+                icon: "📳",
+                description: "محرك صغير يولد اهتزازات",
+                specs: "الجهد: 3V",
+                category: "special"
+            },
+            {
+                name: "محرك خطوي ثنائي المحور",
+                icon: "🎮",
+                description: "محرك للتحكم في موقعين مختلفين",
+                specs: "المحاور: 2",
+                category: "special"
+            },
+            {
+                name: "محرك DC مع علبة تروس",
+                icon: "⚙",
+                description: "محرك DC مع علبة تروس لزيادة العزم",
+                specs: "نسبة التروس: 1:48",
+                category: "dc"
+            },
+            {
+                name: "محرك سيرفو DS3218",
+                icon: "🔧",
+                description: "محرك سيرفو قوي للروبوتات",
+                specs: "العزم: 20kg.cm",
+                category: "servo"
+            },
+            {
+                name: "محرك خطوي NEMA 23",
+                icon: "🏭",
+                description: "محرك خطوي صناعي كبير",
+                specs: "العزم: 18kg.cm",
+                category: "stepper"
+            },
+            {
+                name: "محرك براشلس 2205",
+                icon: "✈",
+                description: "محرك براشلس عالي الأداء",
+                specs: "السرعة: 2300KV",
+                category: "brushless"
+            },
+            {
+                name: "محرك خطي",
+                icon: "📏",
+                description: "محرك للحركة الخطية المستقيمة",
+                specs: "طول الشوط: 100mm",
+                category: "linear"
+            },
+            {
+                name: "محرك اهتزاز قوي",
+                icon: "📳",
+                description: "محرك اهتزاز بقوة عالية",
+                specs: "الجهد: 12V",
+                category: "special"
+            },
+            {
+                name: "محرك DC مصغر",
+                icon: "🔍",
+                description: "محرك DC صغير الحجم للمشاريع الدقيقة",
+                specs: "الجهد: 1.5-3V, السرعة: 5000RPM",
+                category: "dc"
+            },
+            {
+                name: "محرك DC بعلبة تروس TT",
+                icon: "⚙",
+                description: "محرك DC مع علبة تروس لزيادة العزم",
+                specs: "الجهد: 3-6V, السرعة: 200RPM",
+                category: "dc"
+            },
+            {
+                name: "محرك DC بعلبة تروس N20",
+                icon: "🔧",
+                description: "محرك DC صغير مع علبة تروس معدنية",
+                specs: "الجهد: 6-12V, السرعة: 100-300RPM",
+                category: "dc"
+            },
+            {
+                name: "محرك DC بدون فرش Coreless",
+                icon: "🌀",
+                description: "محرك DC عالي الكفاءة بدون فرش",
+                specs: "الجهد: 3.7V, السرعة: 55000RPM",
+                category: "dc"
+            },
+            {
+                name: "محرك سيرفو MG90S",
+                icon: "🎯",
+                description: "محرك سيرفو معدني للمشاريع المتوسطة",
+                specs: "العزم: 2kg.cm, الجهد: 4.8-6V",
+                category: "servo"
+            },
+            {
+                name: "محرك سيرفو مستمر",
+                icon: "🔄",
+                description: "محرك سيرفو للحركة المستمرة",
+                specs: "السرعة: 60RPM, الجهد: 4.8-6V",
+                category: "servo"
+            },
+            {
+                name: "محرك سيرفو رقمي",
+                icon: "🔢",
+                description: "محرك سيرفو بدقة تحكم عالية",
+                specs: "الدقة: 0.5 درجة, الجهد: 4.8-7.4V",
+                category: "servo"
+            },
+            {
+                name: "محرك سيرفو مقاوم للماء",
+                icon: "💧",
+                description: "محرك سيرفو للاستخدام في البيئات الرطبة",
+                specs: "العزم: 15kg.cm, مقاوم للماء",
+                category: "servo"
+            },
+            {
+                name: "محرك سيرفو روبوتي",
+                icon: "🤖",
+                description: "محرك سيرفو مخصص للروبوتات",
+                specs: "العزم: 20kg.cm, الجهد: 6-8.4V",
+                category: "servo"
+            },
+            {
+                name: "محرك خطوي NEMA 14",
+                icon: "🏭",
+                description: "محرك خطوي بحجم متوسط",
+                specs: "العزم: 1.8kg.cm, التيار: 1A",
+                category: "stepper"
+            },
+            {
+                name: "محرك خطوي ثنائي القطب",
+                icon: "🧲",
+                description: "محرك خطوي مع ملفين مستقلين",
+                specs: "زاوية الخطوة: 1.8 درجة",
+                category: "stepper"
+            },
+            {
+                name: "محرك خطوي أحادي القطب",
+                icon: "🔌",
+                description: "محرك خطوي مع مركز مشترك",
+                specs: "زاوية الخطوة: 7.5 درجة",
+                category: "stepper"
+            },
+            {
+                name: "محرك خطوي مصغر",
+                icon: "📏",
+                description: "محرك خطوي صغير الحجم",
+                specs: "الحجم: 20x20mm, التيار: 0.3A",
+                category: "stepper"
+            },
+            {
+                name: "محرك خطوي مع مشفر",
+                icon: "🎯",
+                description: "محرك خطوي مع مشفر للتحكم الدقيق",
+                specs: "الدقة: 1000 نبضة/دورة",
+                category: "stepper"
+            },
+            {
+                name: "محرك خطي",
+                icon: "📏",
+                description: "محرك للحركة الخطية المستقيمة",
+                specs: "طول الشوط: 50-200mm, السرعة: 10mm/s",
+                category: "linear"
+            },
+            {
+                name: "محرك براشلس 2207",
+                icon: "✈",
+                description: "محرك براشلس عالي الأداء للطائرات",
+                specs: "السرعة: 2400KV, التيار: 35A",
+                category: "brushless"
+            },
+            {
+                name: "هيكل روبوت",
+                icon: "🤖",
+                description: "هيكل روبوت كامل مع محركات",
+                specs: "الحجم: 15x10cm, 2-4 محركات",
+                category: "special"
+            },
+            {
+                name: "محرك سيارة",
+                icon: "🚗",
+                description: "محرك مخصص للسيارات الآلية",
+                specs: "الجهد: 3-6V, السرعة: 150RPM",
+                category: "special"
+            },
+            {
+                name: "محرك طائرة بدون طيار",
+                icon: "🛩",
+                description: "محرك براشلس للدرونز",
+                specs: "السرعة: 1800KV, التيار: 20A",
+                category: "special"
+            },
+            {
+                name: "مجموعة محركات مع سواقات",
+                icon: "🔧",
+                description: "مجموعة متكاملة من المحركات والسوقات",
+                specs: "تشمل: محركات، سواقات، كابلات",
+                category: "special"
+            }
+        ];
+
+        // بيانات الموديولات الموسعة مع جميع العناصر الجديدة
+        const modulesData = [
+            {
+                name: "موديول Relay 5V",
+                icon: "🔋",
+                description: "للتحكم في الأحمال الكهربائية الكبيرة",
+                specs: "الجهد: 250V/10A",
+                category: "power"
+            },
+            {
+                name: "شاشة OLED 0.96",
+                icon: "📟",
+                description: "شاشة صغيرة عالية الدقة لعرض البيانات",
+                specs: "المقاس: 0.96 بوصة, دقة: 128x64",
+                category: "display"
+            },
+            {
+                name: "موديول Bluetooth HC-05",
+                icon: "📱",
+                description: "للتواصل اللاسلكي مع الهواتف والأجهزة",
+                specs: "النطاق: 10 أمتار",
+                category: "communication"
+            },
+            {
+                name: "موديول WiFi ESP-01",
+                icon: "📶",
+                description: "إضافة قدرات WiFi للأجهزة",
+                specs: "بروتوكول: 802.11 b/g/n",
+                category: "communication"
+            },
+            {
+                name: "موديول GPS NEO-6M",
+                icon: "🛰",
+                description: "تحديد الموقع الجغرافي بدقة",
+                specs: "الدقة: 2.5 متر",
+                category: "communication"
+            },
+            {
+                name: "موديول SD Card",
+                icon: "💾",
+                description: "تخزين البيانات على كروت الذاكرة",
+                specs: "السعة: حتى 32GB",
+                category: "storage"
+            },
+            {
+                name: "موديول Real Time Clock DS3231",
+                icon: "⏰",
+                description: "حفظ الوقت بدقة عالية",
+                specs: "الدقة: ±2ppm",
+                category: "storage"
+            },
+            {
+                name: "موديول RFID RC522",
+                icon: "🪪",
+                description: "قراءة وكتابة بطاقات RFID",
+                specs: "التردد: 13.56MHz",
+                category: "communication"
+            },
+            {
+                name: "موديول IR Receiver",
+                icon: "📺",
+                description: "استقبال إشارات الأشعة تحت الحمراء",
+                specs: "نطاق التردد: 38kHz",
+                category: "communication"
+            },
+            {
+                name: "موديول LCD 16x2",
+                icon: "📺",
+                description: "شاشة LCD لعرض النصوص",
+                specs: "16 حرف × 2 سطر",
+                category: "display"
+            },
+            {
+                name: "موديول LED Matrix 8x8",
+                icon: "🔴",
+                description: "شاشة LED لعرض الرسومات",
+                specs: "64 LED، دقة 8x8",
+                category: "display"
+            },
+            {
+                name: "موديول Boost Converter",
+                icon: "⚡",
+                description: "رفع الجهد الكهربائي",
+                specs: "المدى: 3-35V",
+                category: "power"
+            },
+            {
+                name: "موديول Buck Converter",
+                icon: "🔋",
+                description: "خفض الجهد الكهربائي",
+                specs: "المدى: 4-38V إلى 1.25-36V",
+                category: "power"
+            },
+            {
+                name: "موديول Motor Driver L298N",
+                icon: "⚙",
+                description: "تحكم في محركات DC والخطوية",
+                specs: "الجهد: 5-35V، التيار: 2A",
+                category: "motor"
+            },
+            {
+                name: "موديول Motor Driver L293D",
+                icon: "⚙",
+                description: "تحكم في محركات DC",
+                specs: "الجهد: 4.5-36V، التيار: 600mA",
+                category: "motor"
+            },
+            {
+                name: "موديول Joystick",
+                icon: "🎮",
+                description: "عصا تحكم ثنائية المحور",
+                specs: "2 محور، زر اضغط",
+                category: "sensor"
+            },
+            {
+                name: "موديول Keypad 4x4",
+                icon: "🔢",
+                description: "لوحة مفاتيح رقمية",
+                specs: "16 زر",
+                category: "sensor"
+            },
+            {
+                name: "موديول Buzzer",
+                icon: "🔊",
+                description: "جهاز إنذار صوتي",
+                specs: "الجهد: 3-5V",
+                category: "sensor"
+            },
+            {
+                name: "موديول Rotary Encoder",
+                icon: "🔄",
+                description: "قياس الدوران والاتجاه",
+                specs: "20 موضع/دورة",
+                category: "sensor"
+            },
+            {
+                name: "موديول Potentiometer",
+                icon: "🎛",
+                description: "مقاومة متغيرة",
+                specs: "10KΩ",
+                category: "sensor"
+            },
+            {
+                name: "موديول RF 433MHz",
+                icon: "📡",
+                description: "اتصال لاسلكي بعيد المدى",
+                specs: "المدى: حتى 100م, الجهد: 3.3-5V",
+                category: "communication"
+            },
+            {
+                name: "موديول nRF24L01 2.4GHz",
+                icon: "🔗",
+                description: "اتصال لاسلكي عالي السرعة",
+                specs: "السرعة: 2Mbps, المدى: 100م",
+                category: "communication"
+            },
+            {
+                name: "موديول HC-06 Bluetooth",
+                icon: "📱",
+                description: "اتصال Bluetooth من Slave فقط",
+                specs: "النطاق: 10 أمتار, الجهد: 3.3-5V",
+                category: "communication"
+            },
+            {
+                name: "موديول SIM800L GSM",
+                icon: "📳",
+                description: "اتصال GSM/GPRS للمكالمات والرسائل",
+                specs: "التردد: 900/1800MHz, الجهد: 3.7-4.2V",
+                category: "communication"
+            },
+            {
+                name: "موديول SIM900A GSM",
+                icon: "📞",
+                description: "اتصال GSM/GPRS بقدرات متقدمة",
+                specs: "التردد: 850/900/1800/1900MHz",
+                category: "communication"
+            },
+            {
+                name: "شاشة LCD 16x2",
+                icon: "🎛",
+                description: "شاشة LCD لعرض النصوص",
+                specs: "16 حرف × 2 سطر, إضاءة خلفية",
+                category: "display"
+            },
+            {
+                name: "شاشة TFT",
+                icon: "📺",
+                description: "شاشة ملونة عالية الدقة",
+                specs: "المقاس: 1.8-3.5 بوصة, دقة: 128x160",
+                category: "display"
+            },
+            {
+                name: "موديول Relay 4 قنوات",
+                icon: "🔌",
+                description: "تحكم في 4 أحمال كهربائية",
+                specs: "الجهد: 250V/10A لكل قناة",
+                category: "power"
+            },
+            {
+                name: "موديول صفارة إنذار",
+                icon: "🔊",
+                description: "جهاز إنذار صوتي عالي الشدة",
+                specs: "الجهد: 3-5V, الصوت: 85dB",
+                category: "sensor"
+            },
+            {
+                name: "موديول شريط LED",
+                icon: "💡",
+                description: "تحكم في أشرطة LED",
+                specs: "الجهد: 5V/12V, دعم RGB",
+                category: "power"
+            },
+            {
+                name: "موديول طاقة",
+                icon: "🔌",
+                description: "توزيع وإدارة الطاقة",
+                specs: "مداخل: USB, DC, مخارج: 3.3V/5V",
+                category: "power"
+            },
+            {
+                name: "محول خافض للجهد",
+                icon: "⚡",
+                description: "خفض الجهد الكهربائي",
+                specs: "المدى: 4-38V إلى 1.25-36V",
+                category: "power"
+            },
+            {
+                name: "موديول شحن",
+                icon: "🔋",
+                description: "شحن البطاريات والتحكم فيها",
+                specs: "يدعم: Li-ion, Li-Po, الجهد: 5V",
+                category: "power"
+            },
+            {
+                name: "سائق محرك TB6612",
+                icon: "🌀",
+                description: "سائق محركات متطور",
+                specs: "الجهد: 2.5-13.5V, التيار: 1.2A",
+                category: "motor"
+            },
+            {
+                name: "موديول كاميرا",
+                icon: "📷",
+                description: "كاميرا للتصوير والتسجيل",
+                specs: "الدقة: 2MP, دعم بث فيديو",
+                category: "sensor"
+            },
+            {
+                name: "موديول التعرف على الصوت",
+                icon: "🎤",
+                description: "التعرف على الأوامر الصوتية",
+                specs: "يدعم 5 أوامر, الجهد: 3.3-5V",
+                category: "sensor"
+            },
+            {
+                name: "مضخم صوت",
+                icon: "🔊",
+                description: "تضخيم الإشارات الصوتية",
+                specs: "الطاقة: 3W, الجهد: 3-5V",
+                category: "sensor"
+            },
+            {
+                name: "موديول RTC DS1307",
+                icon: "⏰",
+                description: "ساعة زمن حقيقية",
+                specs: "البطارية: CR2032, الدقة: ±2ppm",
+                category: "storage"
+            },
+            {
+                name: "موديول كارت SD",
+                icon: "💾",
+                description: "قراءة وكتابة كروت الذاكرة",
+                specs: "يدعم حتى 32GB, الجهد: 3.3V/5V",
+                category: "storage"
+            },
+            {
+                name: "موديول مقياس الجهد",
+                icon: "🎚",
+                description: "مقاومة متغيرة للتحكم",
+                specs: "المقاومة: 10KΩ, المحاور: 1",
+                category: "sensor"
+            }
+        ];
+
+        // بيانات المشاريع الموسعة
+        const projectsData = [
+            {
+                title: "نظام إنذار بالحركة",
+                icon: "🚨",
+                description: "بناء نظام إنذار باستخدام حساس PIR وصفارة إنذار",
+                difficulty: "مبتدئ",
+                components: ["PIR Sensor", "Buzzer", "Arduino UNO"],
+                time: "2 ساعة",
+                category: "security"
+            },
+            {
+                title: "روبوت متتبع الخط",
+                icon: "🤖",
+                description: "تصميم روبوت يتبع الخطوط باستخدام حساسات IR",
+                difficulty: "متوسط",
+                components: ["IR Sensors", "DC Motors", "Motor Driver"],
+                time: "4 ساعات",
+                category: "robotics"
+            },
+            {
+                title: "طقس محطة أرصاد جوية",
+                icon: "🌤",
+                description: "بناء محطة أرصاد جوية كاملة مع شاشة عرض",
+                difficulty: "متقدم",
+                components: ["DHT22", "BME280", "OLED Display"],
+                time: "6 ساعات",
+                category: "iot"
+            },
+            {
+                title: "نظام ري آلي",
+                icon: "💧",
+                description: "نظام ري أوتوماتيكي للنباتات باستخدام حساس رطوبة",
+                difficulty: "متوسط",
+                components: ["Soil Sensor", "Water Pump", "Relay Module"],
+                time: "3 ساعات",
+                category: "automation"
+            },
+            {
+                title: "سيارة تحكم عن بعد",
+                icon: "🚗",
+                description: "سيارة Arduino يتم التحكم فيها عبر Bluetooth",
+                difficulty: "متقدم",
+                components: ["Arduino UNO", "Bluetooth", "DC Motors"],
+                time: "5 ساعات",
+                category: "robotics"
+            },
+            {
+                title: "منزل ذكي",
+                icon: "🏠",
+                description: "نظام تحكم منزلي ذكي مع تطبيق هاتف",
+                difficulty: "متقدم",
+                components: ["ESP32", "Relays", "Sensors"],
+                time: "8 ساعات",
+                category: "home"
+            },
+            {
+                title: "نظام مراقبة بالكاميرا",
+                icon: "📷",
+                description: "نظام مراقبة مع كاميرا وحركة تلقائية",
+                difficulty: "متقدم",
+                components: ["ESP32-CAM", "PIR Sensor", "SD Card"],
+                time: "6 ساعات",
+                category: "security"
+            },
+            {
+                title: "روبوت ذراع",
+                icon: "🦾",
+                description: "ذراع روبوتي للتحكم في الأشياء",
+                difficulty: "متوسط",
+                components: ["Servo Motors", "Arduino", "Joystick"],
+                time: "5 ساعات",
+                category: "robotics"
+            },
+            {
+                title: "عداد منتجات",
+                icon: "📊",
+                description: "نظام عد المنتجات على السير الناقل",
+                difficulty: "متوسط",
+                components: ["IR Sensor", "LCD Display", "Counter"],
+                time: "3 ساعات",
+                category: "automation"
+            },
+            {
+                title: "نظام إنذار حريق",
+                icon: "🔥",
+                description: "كشف الحرائق وإنذار تلقائي",
+                difficulty: "مبتدئ",
+                components: ["Flame Sensor", "Buzzer", "LED"],
+                time: "2 ساعة",
+                category: "security"
+            },
+            {
+                title: "مقياس المسافة الرقمي",
+                icon: "📏",
+                description: "قياس المسافات وعرضها رقمياً",
+                difficulty: "مبتدئ",
+                components: ["Ultrasonic Sensor", "LCD", "Arduino"],
+                time: "2 ساعة",
+                category: "education"
+            },
+            {
+                title: "نظام ريّ ذكي",
+                icon: "🌱",
+                description: "نظام ري يعمل بالطاقة الشمسية",
+                difficulty: "متوسط",
+                components: ["Solar Panel", "Soil Sensor", "Water Pump"],
+                time: "4 ساعات",
+                category: "iot"
+            },
+            {
+                title: "مشغل موسيقى",
+                icon: "🎵",
+                description: "مشغل موسيقى مع تحكم بالأزرار",
+                difficulty: "متوسط",
+                components: ["DFPlayer", "Speaker", "Buttons"],
+                time: "3 ساعات",
+                category: "education"
+            },
+            {
+                title: "نظام إنارة تلقائي",
+                icon: "💡",
+                description: "تشغيل وإطفاء الأنوار تلقائياً",
+                difficulty: "مبتدئ",
+                components: ["LDR Sensor", "Relay", "LED Strip"],
+                time: "2 ساعة",
+                category: "home"
+            },
+            {
+                title: "طابعة 3D مصغرة",
+                icon: "🖨",
+                description: "بناء طابعة 3D صغيرة الحجم",
+                difficulty: "متقدم",
+                components: ["Stepper Motors", "Arduino", "Hotend"],
+                time: "10 ساعات",
+                category: "robotics"
+            },
+            {
+                title: "نظام تحكم بالصوت",
+                icon: "🎤",
+                description: "التحكم في الأجهزة باستخدام الأوامر الصوتية",
+                difficulty: "متقدم",
+                components: ["Microphone", "Arduino", "Relays"],
+                time: "6 ساعات",
+                category: "home"
+            },
+            {
+                title: "مركبة استكشاف",
+                icon: "🌍",
+                description: "مركبة استكشافية للبيئات الصعبة",
+                difficulty: "متقدم",
+                components: ["ESP32-CAM", "Motors", "Sensors"],
+                time: "8 ساعات",
+                category: "robotics"
+            },
+            {
+                title: "نظام تتبع المركبات",
+                icon: "🚚",
+                description: "تتبع المركبات باستخدام GPS",
+                difficulty: "متوسط",
+                components: ["GPS Module", "GSM Module", "Arduino"],
+                time: "5 ساعات",
+                category: "iot"
+            },
+            {
+                title: "محطة طقس محمولة",
+                icon: "🌦",
+                description: "محطة طقس محمولة مع شاشة عرض",
+                difficulty: "متوسط",
+                components: ["BME280", "OLED", "Battery"],
+                time: "4 ساعات",
+                category: "education"
+            },
+            {
+                title: "نظام أمان للمنزل",
+                icon: "🔒",
+                description: "نظام أمان متكامل للمنزل",
+                difficulty: "متقدم",
+                components: ["PIR", "Magnetic Sensor", "Siren"],
+                time: "7 ساعات",
+                category: "security"
+            }
+        ];
+
+        // بيانات فيديوهات اللحام
+        const weldingVideos = [
+            {
+                id: "beginner",
+                title: "🔰 دورة اللحام للمبتدئين - الجزء 1",
+                description: "تعلم أساسيات اللحام الإلكتروني من الصفر، كيفية اختيار الأدوات والمواد المناسبة",
+                duration: "15:30",
+                views: "25K",
+                thumbnail: "🔥",
+                videoUrl: "https://www.youtube.com/watch?v=6rmErwU5E-k"
+            },
+            {
+                id: "soldering_techniques",
+                title: "🛠️ تقنيات اللحام المتقدمة",
+                description: "تقنيات متقدمة في اللحام للعناصر الصغيرة والمركبات الإلكترونية المعقدة",
+                duration: "22:45",
+                views: "18K",
+                thumbnail: "⚡",
+                videoUrl: "https://www.youtube.com/watch?v=ceUfKLfAC80"
+            },
+            {
+                id: "smd_welding",
+                title: "🔬 لحام المكونات السطحية SMD",
+                description: "كيفية لحام المكونات السطحية الصغيرة باستخدام المنفاخ الهوائي الساخن",
+                duration: "28:15",
+                views: "32K",
+                thumbnail: "🔍",
+                videoUrl: "https://www.youtube.com/watch?v=xmoUnWBVUzM&pp=0gcJCRUKAYcqIYzv"
+            },
+            {
+                id: "desoldering",
+                title: "🔄 تقنيات إزالة اللحام",
+                description: "طرق إزالة اللحام القديم واستبدال المكونات التالفة بأمان",
+                duration: "19:20",
+                views: "14K",
+                thumbnail: "🔄",
+                videoUrl: "https://www.youtube.com/watch?v=ceUfKLfAC80"
+            },
+            {
+                id: "wire_soldering",
+                title: "🔌 لحام الأسلاك والكابلات",
+                description: "تقنيات لحام الأسلاك المختلفة وربط الدوائر الكهربائية",
+                duration: "17:50",
+                views: "21K",
+                thumbnail: "🔌",
+                videoUrl: "https://www.youtube.com/watch?v=rK38rpUy568"
+            },
+            {
+                id: "troubleshooting",
+                title: "🔧 استكشاف أخطاء اللحام وإصلاحها",
+                description: "كشف المشاكل الشائعة في اللحام وكيفية إصلاحها",
+                duration: "25:10",
+                views: "16K",
+                thumbnail: "🔧",
+                videoUrl: "https://www.youtube.com/watch?v=6rmErwU5E-k"
+            },
+            {
+                id: "safety",
+                title: "⚠️ السلامة في اللحام الإلكتروني",
+                description: "إجراءات السلامة والأمان الواجب اتباعها أثناء عمليات اللحام",
+                duration: "12:35",
+                views: "28K",
+                thumbnail: "⚠️",
+                videoUrl: "https://www.youtube.com/watch?v=Fp37DPZVdRI"
+            },
+            {
+                id: "tools_review",
+                title: "🧰 مراجعة أدوات اللحام الأساسية",
+                description: "مقارنة بين أفضل أدوات اللحام في السوق ونصائح للاختيار",
+                duration: "31:40",
+                views: "35K",
+                thumbnail: "🧰",
+                videoUrl: "https://www.youtube.com/watch?v=t2TrucftFDQ&t=44s"
+            }
+        ];
+
+        // تهيئة البيانات والمفضلة
+        let favorites = JSON.parse(localStorage.getItem('techlab_favorites')) || [];
+        let comparisonItems = JSON.parse(localStorage.getItem('techlab_comparison')) || [];
+
+        // وظائف AI Helper
+        function sendMessage() {
+            const userInput = document.getElementById('userInput');
+            const message = userInput.value.trim();
+            
+            if (message === '') return;
+            
+            // إضافة رسالة المستخدم
+            addMessage(message, 'user');
+            
+            // مسح حقل الإدخال
+            userInput.value = '';
+            
+            // محاكاة تفكير المساعد
+            setTimeout(() => {
+                const response = generateAIResponse(message);
+                addMessage(response, 'ai');
+            }, 1000);
+        }
+
+        function askQuickQuestion(question) {
+            document.getElementById('userInput').value = question;
+            sendMessage();
+        }
+
+        function addMessage(content, sender) {
+            const messagesContainer = document.getElementById('chatMessages');
+            const messageDiv = document.createElement('div');
+            
+            if (sender === 'user') {
+                messageDiv.className = 'message user-message';
+                messageDiv.style.cssText = 'background: rgba(0, 136, 255, 0.1); border-radius: 15px; padding: 15px; max-width: 80%; align-self: flex-end; border: 1px solid rgba(0, 136, 255, 0.2);';
+                messageDiv.innerHTML = `
+                    <div class="message-header" style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px; justify-content: flex-end;">
+                        <strong style="color: #0088ff;">أنت</strong>
+                        <div class="user-avatar" style="width: 30px; height: 30px; background: linear-gradient(135deg, #0088ff, #00ff88); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 14px; color: #000; font-weight: bold;">U</div>
+                    </div>
+                    <div class="message-content" style="color: #fff;">${content}</div>
+                `;
+            } else {
+                messageDiv.className = 'message ai-message';
+                messageDiv.style.cssText = 'background: rgba(0, 255, 136, 0.1); border-radius: 15px; padding: 15px; max-width: 80%; align-self: flex-start; border: 1px solid rgba(0, 255, 136, 0.2);';
+                messageDiv.innerHTML = `
+                    <div class="message-header" style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px;">
+                        <div class="ai-avatar" style="width: 30px; height: 30px; background: linear-gradient(135deg, #00ff88, #0088ff); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 14px; color: #000; font-weight: bold;">AI</div>
+                        <strong style="color: #00ff88;">المساعد الذكي</strong>
+                    </div>
+                    <div class="message-content" style="color: #fff;">${content}</div>
+                `;
+            }
+            
+            messagesContainer.appendChild(messageDiv);
+            messagesContainer.scrollTop = messagesContainer.scrollHeight;
+        }
+
+        function generateAIResponse(message) {
+            const lowerMessage = message.toLowerCase();
+            
+            // قاعدة معرفة للردود
+            if (lowerMessage.includes('مرحبا') || lowerMessage.includes('اهلا') || lowerMessage.includes('hello')) {
+                return 'مرحباً بك! كيف يمكنني مساعدتك في مشاريعك الإلكترونية اليوم؟';
+            }
+            
+            if (lowerMessage.includes('arduino') && lowerMessage.includes('إنذار')) {
+                return `لتصميم دائرة إنذار باستخدام Arduino، ستحتاج إلى:
+1. Arduino UNO
+2. حساس PIR لكشف الحركة
+3. صفارة إنذار أو LED
+4. مقاومة 220 أوم
+
+كود العينة:
+\`\`\`cpp
+int pirPin = 2;
+int buzzerPin = 3;
+
+void setup() {
+  pinMode(pirPin, INPUT);
+  pinMode(buzzerPin, OUTPUT);
+}
+
+void loop() {
+  if (digitalRead(pirPin) == HIGH) {
+    digitalWrite(buzzerPin, HIGH);
+    delay(1000);
+    digitalWrite(buzzerPin, LOW);
+  }
+}
+\`\`\``;
+            }
+            
+            if (lowerMessage.includes('esp32') && lowerMessage.includes('برمجة')) {
+                return `لبرمجة ESP32، يمكنك استخدام:
+1. Arduino IDE - الأكثر شيوعاً للمبتدئين
+2. PlatformIO - أكثر تطوراً مع إدارة مكتبات أفضل
+3. ESP-IDF - البيئة الرسمية من Espressif
+
+لتهيئة Arduino IDE لـ ESP32:
+1. افتح Preferences
+2. أضف هذا الرابط في Additional Boards Manager URLs:
+   https://dl.espressif.com/dl/package_esp32_index.json
+3. من Boards Manager، ابحث عن "esp32" وقم بتثبيته
+4. اختر لوح ESP32 المناسب من Tools > Board`;
+            }
+            
+            if (lowerMessage.includes('سيرفو') && lowerMessage.includes('arduino')) {
+                return `للتحكم في محرك سيرفو باستخدام Arduino:
+
+التوصيل:
+- السلك البني/الأسود → GND
+- السلك الأحمر → 5V
+- السلك الأصفر/البرتقالي → دبوس رقمي (مثل 9)
+
+الكود:
+\`\`\`cpp
+#include <Servo.h>
+Servo myservo;
+
+void setup() {
+  myservo.attach(9);
+}
+
+void loop() {
+  myservo.write(0);   // الزاوية 0 درجة
+  delay(1000);
+  myservo.write(90);  // الزاوية 90 درجة
+  delay(1000);
+  myservo.write(180); // الزاوية 180 درجة
+  delay(1000);
+}
+\`\`\``;
+            }
+            
+            if (lowerMessage.includes('الفرق') && lowerMessage.includes('arduino') && lowerMessage.includes('raspberry')) {
+                return `الفرق الرئيسي بين Arduino و Raspberry Pi:
+
+• Arduino:
+  - معالج دقيق (Microcontroller)
+  - مثالي للتحكم في الأجهزة الطرفية
+  - برمجة باستخدام C++ مبسطة
+  - لا يحتاج نظام تشغيل
+  - استهلاك طاقة منخفض
+
+• Raspberry Pi:
+  - كمبيوتر صغير (Single-board Computer)
+  - يعمل بنظام تشغيل (Linux)
+  - يمكن تشغيل برامج متعددة في نفس الوقت
+  - إمكانيات شبكية متقدمة
+  - مناسب للتطبيقات المعقدة
+
+الخلاصة: استخدم Arduino للمشاريع البسيطة والتحكم في المحركات والمجسات، واستخدم Raspberry Pi للمشاريع المعقدة التي تتطلب معالجة بيانات أو واجهة مستخدم.`;
+            }
+            
+            if (lowerMessage.includes('مشروع') && lowerMessage.includes('مبتدئ')) {
+                return `إليك بعض أفكار المشاريع للمبتدئين:
+1. ضوء يشتغل تلقائياً في الظلام (باستخدام LDR)
+2. نظام ري نباتات آلي (باستخدام حساس رطوبة التربة)
+3. منبه رقمي (باستخدام شاشة LCD وزر ضبط)
+4. مقياس مسافة (باستخدام حساس أولتراسونيك)
+5. نظام إنذار بسيط (باستخدام حساس PIR)
+
+أي من هذه المشاريع يثير اهتمامك؟ يمكنني تقديم تفاصيل أكثر عن أي منها!`;
+            }
+            
+            // رد افتراضي
+            return `شكراً على سؤالك! "${message}"
+
+أنا متخصص في المساعدة في المشاريع الإلكترونية والبرمجة. يمكنني مساعدتك في:
+• تصميم الدوائر الإلكترونية
+• كتابة وشرح الأكواد البرمجية
+• حل مشاكل الأجهزة والبرمجيات
+• اقتراح مشاريع مناسبة لمستواك
+
+هل يمكنك توضيح سؤالك أكثر أو اختيار أحد المواضيع المحددة؟`;
+        }
+
+        function generateProjectIdea() {
+            const ideas = [
+                {
+                    title: "نظام مراقبة نباتات ذكي",
+                    description: "نظام يراقب رطوبة التربة ودرجة الحرارة ويقوم بالري التلقائي عند الحاجة",
+                    components: ["Arduino UNO", "حساس رطوبة التربة", "مضخة ماء صغيرة", "شاشة OLED"],
+                    level: "مبتدئ"
+                },
+                {
+                    title: "روبوت متتبع للخط",
+                    description: "روبوت صغير يتبع الخطوط على الأرض باستخدام حساسات الأشعة تحت الحمراء",
+                    components: ["Arduino Nano", "حساسات IR", "محركات DC", "سائق محركات L298N"],
+                    level: "متوسط"
+                },
+                {
+                    title: "منزل ذكي مصغر",
+                    description: "نظام تحكم منزلي يتحكم في الإضاءة والتدفئة والتهوية عبر الهاتف",
+                    components: ["ESP32", "مبدلات Relay", "حساسات DHT22", "موديول Bluetooth"],
+                    level: "متقدم"
+                },
+                {
+                    title: "طائرة بدون طيار صغيرة",
+                    description: "تصميم وبرمجة طائرة صغيرة يتم التحكم فيها لاسلكياً",
+                    components: ["ESP32", "محركات براشلس", "مراقب طيران", "بطارية ليثيوم"],
+                    level: "متقدم"
+                },
+                {
+                    title: "محطة طقس محمولة",
+                    description: "جهاز محمول يقيس درجة الحرارة والرطوبة والضغط الجوي",
+                    components: ["Arduino Pro Mini", "BME280", "شاشة LCD", "بطارية"],
+                    level: "متوسط"
+                }
+            ];
+            
+            const randomIdea = ideas[Math.floor(Math.random() * ideas.length)];
+            
+            addMessage(`إليك فكرة مشروع مقترحة:
+
+🎯 ${randomIdea.title}
+📝 ${randomIdea.description}
+🛠️ المكونات: ${randomIdea.components.join(', ')}
+📊 المستوى: ${randomIdea.level}
+
+هل تريد تفاصيل أكثر عن هذا المشروع؟`, 'ai');
+        }
+
+        function debugCode() {
+            const code = document.getElementById('codeInput').value.trim();
+            
+            if (code === '') {
+                addMessage('يرجى لصق الكود البرمجي الذي تريد فحصه.', 'ai');
+                return;
+            }
+            
+            // محاكاة فحص الكود
+            addMessage('جاري فحص الكود البرمجي...', 'ai');
+            
+            setTimeout(() => {
+                const issues = [
+                    '✓ لم يتم اكتشاف أخطاء نحوية',
+                    '✓ جميع المكتبات مستخدمة بشكل صحيح',
+                    '⚠ تأكد من تهيئة جميع المتغيرات قبل استخدامها',
+                    '✓ بناء الجملة صحيح',
+                    '💡 اقتراح: أضف تعليقات لتوضيح وظيفة الأجزاء المعقدة'
+                ];
+                
+                addMessage(`نتيجة فحص الكود:\n\n${issues.join('\n')}`, 'ai');
+            }, 2000);
+        }
+
+        function smartSearch() {
+            const query = document.getElementById('searchQuery').value.trim();
+            
+            if (query === '') {
+                addMessage('يرجى إدخال ما تريد البحث عنه.', 'ai');
+                return;
+            }
+            
+            addMessage(`جاري البحث عن "${query}" في قاعدة المعرفة...`, 'ai');
+            
+            setTimeout(() => {
+                // محاكاة نتائج البحث
+                const results = [
+                    `وجدت 5 مصادر متعلقة بـ "${query}"`,
+                    '1. دليل استخدام Arduino للمبتدئين',
+                    '2. مشاريع عملية باستخدام ESP32',
+                    '3. أساسيات البرمجة بلغة C++',
+                    '4. تصميم الدوائر الإلكترونية',
+                    '5. استكشاف أخطاء المشاريع الشائعة'
+                ];
+                
+                addMessage(results.join('\n'), 'ai');
+            }, 1500);
+        }
+
+        // السماح بإرسال الرسالة بالضغط على Enter
+        document.getElementById('userInput').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                sendMessage();
+            }
+        });
+
+        // وظائف المفضلة
+        function toggleFavorite(item, type) {
+            const favoriteKey = `${type}_${item.name}`;
+            const existingIndex = favorites.findIndex(fav => fav.key === favoriteKey);
+            
+            if (existingIndex > -1) {
+                favorites.splice(existingIndex, 1);
+            } else {
+                favorites.push({
+                    key: favoriteKey,
+                    type: type,
+                    name: item.name,
+                    icon: item.icon,
+                    description: item.description,
+                    specs: item.specs
+                });
+            }
+            
+            localStorage.setItem('techlab_favorites', JSON.stringify(favorites));
+            renderFavorites();
+            renderAllSections();
+            return existingIndex === -1;
+        }
+
+        function toggleFavoriteByKey(key) {
+            const existingIndex = favorites.findIndex(fav => fav.key === key);
+            if (existingIndex > -1) {
+                favorites.splice(existingIndex, 1);
+                localStorage.setItem('techlab_favorites', JSON.stringify(favorites));
+                renderFavorites();
+                renderAllSections();
+            }
+        }
+
+        function renderFavorites() {
+            const container = document.getElementById('favoritesGrid');
+            
+            if (favorites.length === 0) {
+                container.innerHTML = '<div style="text-align: center; color: #ccc; padding: 40px;">لم تقم بإضافة أي عناصر إلى المفضلة بعد</div>';
+                return;
+            }
+            
+            container.innerHTML = favorites.map(fav => `
+                <div class="item-card">
+                    <div class="item-header">
+                        <div class="item-icon">${fav.icon}</div>
+                        <button class="favorite-btn active" onclick="toggleFavoriteByKey('${fav.key}')">❤</button>
+                    </div>
+                    <div class="item-name">${fav.name}</div>
+                    <div class="item-description">${fav.description}</div>
+                    <div class="item-specs">${fav.specs}</div>
+                    <div class="item-actions">
+                        <button class="item-action-btn" onclick="addToComparison('${fav.key}')">إضافة للمقارنة</button>
+                        <button class="item-action-btn" onclick="toggleFavoriteByKey('${fav.key}')">إزالة</button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // وظائف التصفية والبحث
+        function filterItems(section) {
+            const searchTerm = document.getElementById(section + 'Search').value.toLowerCase();
+            let data = [];
+            
+            switch(section) {
+                case 'sensors': data = sensorsData; break;
+                case 'boards': data = boardsData; break;
+                case 'motors': data = motorsData; break;
+                case 'modules': data = modulesData; break;
+            }
+            
+            const filtered = data.filter(item => 
+                item.name.toLowerCase().includes(searchTerm) ||
+                item.description.toLowerCase().includes(searchTerm)
+            );
+            
+            renderSection(section, filtered);
+            document.getElementById(section + 'Count').textContent = `عرض ${filtered.length} ${getSectionName(section)}`;
+        }
+
+        function filterProjects() {
+            const searchTerm = document.getElementById('projectsSearch').value.toLowerCase();
+            const filtered = projectsData.filter(project => 
+                project.title.toLowerCase().includes(searchTerm) ||
+                project.description.toLowerCase().includes(searchTerm) ||
+                project.components.some(comp => comp.toLowerCase().includes(searchTerm))
+            );
+            
+            renderProjects(filtered);
+            document.getElementById('projectsCount').textContent = `عرض ${filtered.length} مشروع`;
+        }
+
+        function filterProjectsByCategory(category) {
+            setActiveTab('projectsTabs', category);
+            const filtered = category === 'all' ? projectsData : projectsData.filter(project => project.category === category);
+            renderProjects(filtered);
+            document.getElementById('projectsCount').textContent = `عرض ${filtered.length} مشروع`;
+        }
+
+        function filterSensors(category) {
+            setActiveTab('sensorsTabs', category);
+            const filtered = category === 'all' ? sensorsData : sensorsData.filter(item => item.category === category);
+            renderSection('sensors', filtered);
+            document.getElementById('sensorsCount').textContent = `عرض ${filtered.length} مجس`;
+        }
+
+        function filterBoards(category) {
+            setActiveTab('boardsTabs', category);
+            const filtered = category === 'all' ? boardsData : boardsData.filter(item => item.category === category);
+            renderSection('boards', filtered);
+            document.getElementById('boardsCount').textContent = `عرض ${filtered.length} لوح تطويري`;
+        }
+
+        function filterMotors(category) {
+            setActiveTab('motorsTabs', category);
+            const filtered = category === 'all' ? motorsData : motorsData.filter(item => item.category === category);
+            renderSection('motors', filtered);
+            document.getElementById('motorsCount').textContent = `عرض ${filtered.length} نظام حركي`;
+        }
+
+        function filterModules(category) {
+            setActiveTab('modulesTabs', category);
+            const filtered = category === 'all' ? modulesData : modulesData.filter(item => item.category === category);
+            renderSection('modules', filtered);
+            document.getElementById('modulesCount').textContent = `عرض ${filtered.length} موديول`;
+        }
+
+        function setActiveTab(tabsContainerId, category) {
+            const tabs = document.getElementById(tabsContainerId).children;
+            for (let tab of tabs) {
+                tab.classList.remove('active');
+                if (tab.textContent.includes(getCategoryName(category))) {
+                    tab.classList.add('active');
+                }
+            }
+        }
+
+        function getCategoryName(category) {
+            const names = {
+                'all': 'الكل',
+                'environment': 'البيئة',
+                'motion': 'الحركة',
+                'biometric': 'القياسات الحيوية',
+                'industrial': 'صناعي',
+                'optical': 'ضوئي',
+                'magnetic': 'مغناطيسي',
+                'arduino': 'Arduino',
+                'esp': 'ESP',
+                'raspberry': 'Raspberry Pi',
+                'stm': 'STM32',
+                'microbit': 'Micro:bit',
+                'teensy': 'Teensy',
+                'other': 'أخرى',
+                'dc': 'محركات DC',
+                'stepper': 'محركات خطوية',
+                'servo': 'محركات سيرفو',
+                'brushless': 'محركات براشلس',
+                'special': 'أنظمة خاصة',
+                'linear': 'محركات خطية',
+                'communication': 'الاتصالات',
+                'display': 'الشاشات',
+                'power': 'الطاقة',
+                'sensor': 'المجسات',
+                'storage': 'التخزين',
+                'motor': 'التحكم بالمحركات',
+                'iot': 'إنترنت الأشياء',
+                'robotics': 'الروبوتات',
+                'home': 'المنزل الذكي',
+                'security': 'الأمن والمراقبة',
+                'automation': 'الأتمتة',
+                'education': 'التعليم'
+            };
+            return names[category] || category;
+        }
+
+        function getSectionName(section) {
+            const names = {
+                'sensors': 'مجس',
+                'boards': 'لوح تطويري',
+                'motors': 'نظام حركي',
+                'modules': 'موديول',
+                'projects': 'مشروع'
+            };
+            return names[section] || 'عنصر';
+        }
+
+        // وظائف التبديل بين الأقسام
+        function showSection(sectionId) {
+            // إخفاء كل الأقسام
+            const sections = document.querySelectorAll('.section-page');
+            sections.forEach(section => section.classList.remove('active'));
+            
+            // إظهار القسم المطلوب
+            document.getElementById(sectionId).classList.add('active');
+            
+            // تحديث التنقل
+            const navLinks = document.querySelectorAll('.nav-link');
+            navLinks.forEach(link => link.classList.remove('active'));
+            event.target.classList.add('active');
+        }
+
+        // وظائف التصيير
+        function renderSection(section, data) {
+            const container = document.getElementById(section + 'Grid');
+            
+            container.innerHTML = data.map(item => {
+                const favoriteKey = `${section}_${item.name}`;
+                const isFavorite = favorites.some(fav => fav.key === favoriteKey);
+                
+                return `
+                    <div class="item-card">
+                        <div class="item-header">
+                            <div class="item-icon">${item.icon}</div>
+                            <button class="favorite-btn ${isFavorite ? 'active' : ''}" onclick="toggleFavorite(${JSON.stringify(item).replace(/"/g, '&quot;')}, '${section}')">
+                                ${isFavorite ? '❤' : '🤍'}
+                            </button>
+                        </div>
+                        <div class="item-name">${item.name}</div>
+                        <div class="item-description">${item.description}</div>
+                        <div class="item-specs">${item.specs}</div>
+                        <div class="item-actions">
+                            <button class="item-action-btn" onclick="addToComparison('${section}_${item.name}')">إضافة للمقارنة</button>
+                            <button class="item-action-btn" onclick="showItemDetails('${section}', '${item.name}')">تفاصيل</button>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        function renderProjects(data = projectsData) {
+            const container = document.getElementById('projectsGrid');
+            container.innerHTML = data.map(project => `
+                <div class="project-card">
+                    <div class="project-icon">${project.icon}</div>
+                    <div class="project-title">${project.title}</div>
+                    <div class="project-description">${project.description}</div>
+                    <div class="project-difficulty">${project.difficulty}</div>
+                    <div style="color: #ccc; font-size: 0.9em; margin-bottom: 15px;">
+                        ⏱ ${project.time} | 🛠 ${project.components.join(', ')}
+                    </div>
+                    <div class="item-actions">
+                        <button class="item-action-btn">عرض التفاصيل</button>
+                        <button class="item-action-btn">بدء المشروع</button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function renderWeldingVideos() {
+            const container = document.getElementById('weldingVideosGrid');
+            container.innerHTML = weldingVideos.map(video => `
+                <div class="video-card" onclick="showVideo('${video.id}')">
+                    <div class="video-thumbnail">
+                        ${video.thumbnail}
+                    </div>
+                    <div class="video-info">
+                        <div class="video-title">${video.title}</div>
+                        <div class="video-description">${video.description}</div>
+                        <div class="video-meta">
+                            <span class="video-duration">${video.duration}</span>
+                            <span class="video-views">👁️ ${video.views}</span>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function renderAllSections() {
+            renderSection('sensors', sensorsData);
+            renderSection('boards', boardsData);
+            renderSection('motors', motorsData);
+            renderSection('modules', modulesData);
+            document.getElementById('sensorsTotal').textContent = sensorsData.length;
+            document.getElementById('boardsTotal').textContent = boardsData.length;
+            document.getElementById('motorsTotal').textContent = motorsData.length;
+            document.getElementById('modulesTotal').textContent = modulesData.length;
+        }
+
+        // وظائف الفيديو
+        function showVideo(videoId) {
+            const video = weldingVideos.find(v => v.id === videoId);
+            if (!video) return;
+
+            const modal = document.getElementById('videoModal');
+            const videoPlayer = document.getElementById('videoPlayer');
+            const videoTitle = document.getElementById('videoTitle');
+            const videoDesc = document.getElementById('videoDesc');
+
+            // في الواقع، يمكنك استخدام رابط فيديو حقيقي من YouTube
+            videoPlayer.innerHTML = `
+                <iframe 
+                    width="100%" 
+                    height="100%" 
+                    src="${video.videoUrl}" 
+                    frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen>
+                </iframe>
+            `;
+
+            videoTitle.textContent = video.title;
+            videoDesc.textContent = video.description;
+            
+            modal.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeVideo() {
+            const modal = document.getElementById('videoModal');
+            const videoPlayer = document.getElementById('videoPlayer');
+            
+            videoPlayer.innerHTML = '';
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        // إغلاق الفيديو عند الضغط على ESC
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                closeVideo();
+            }
+        });
+
+        // إغلاق الفيديو عند الضغط خارج الصندوق
+        document.getElementById('videoModal').addEventListener('click', function(event) {
+            if (event.target === this) {
+                closeVideo();
+            }
+        });
+
+        // وظيفة المقارنة
+        function addToComparison(key) {
+            const [type, name] = key.split('_');
+            let itemData = null;
+            
+            switch(type) {
+                case 'sensors': itemData = sensorsData.find(item => item.name === name); break;
+                case 'boards': itemData = boardsData.find(item => item.name === name); break;
+                case 'motors': itemData = motorsData.find(item => item.name === name); break;
+                case 'modules': itemData = modulesData.find(item => item.name === name); break;
+            }
+            
+            if (itemData) {
+                const existingIndex = comparisonItems.findIndex(item => item.key === key);
+                if (existingIndex === -1) {
+                    comparisonItems.push({
+                        key: key,
+                        type: type,
+                        name: itemData.name,
+                        icon: itemData.icon,
+                        description: itemData.description,
+                        specs: itemData.specs
+                    });
+                    localStorage.setItem('techlab_comparison', JSON.stringify(comparisonItems));
+                    alert(`تم إضافة ${itemData.name} للمقارنة`);
+                    renderComparison();
+                } else {
+                    alert(`العنصر ${itemData.name} مضاف بالفعل للمقارنة`);
+                }
+            }
+        }
+
+        function renderComparison() {
+            const container = document.getElementById('comparisonContent');
+            
+            if (comparisonItems.length === 0) {
+                container.innerHTML = '<div style="text-align: center; color: #ccc; padding: 40px;">اختر عناصر للمقارنة من الأقسام المختلفة</div>';
+                return;
+            }
+            
+            container.innerHTML = `
+                <div style="overflow-x: auto;">
+                    <table class="comparison-table">
+                        <thead>
+                            <tr>
+                                <th>العنصر</th>
+                                ${comparisonItems.map(item => `<th>${item.name}</th>`).join('')}
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>النوع</td>
+                                ${comparisonItems.map(item => `<td>${item.icon} ${getCategoryName(item.type)}</td>`).join('')}
+                            </tr>
+                            <tr>
+                                <td>الوصف</td>
+                                ${comparisonItems.map(item => `<td>${item.description}</td>`).join('')}
+                            </tr>
+                            <tr>
+                                <td>المواصفات</td>
+                                ${comparisonItems.map(item => `<td>${item.specs}</td>`).join('')}
+                            </tr>
+                            <tr>
+                                <td>الإجراءات</td>
+                                ${comparisonItems.map(item => `
+                                    <td>
+                                        <button class="item-action-btn" onclick="toggleFavoriteByKey('${item.key}')">إزالة من المفضلة</button>
+                                        <button class="item-action-btn" onclick="removeFromComparison('${item.key}')">إزالة من المقارنة</button>
+                                    </td>
+                                `).join('')}
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div style="margin-top: 20px; text-align: center;">
+                    <button class="action-btn" onclick="clearComparison()">مسح كل المقارنات</button>
+                </div>
+            `;
+        }
+
+        function removeFromComparison(key) {
+            comparisonItems = comparisonItems.filter(item => item.key !== key);
+            localStorage.setItem('techlab_comparison', JSON.stringify(comparisonItems));
+            renderComparison();
+        }
+
+        function clearComparison() {
+            comparisonItems = [];
+            localStorage.setItem('techlab_comparison', JSON.stringify(comparisonItems));
+            renderComparison();
+        }
+
+        function showItemDetails(section, name) {
+            alert(`عرض تفاصيل ${name} من قسم ${section}`);
+            // يمكنك تطوير هذه الوظيفة لعرض نافذة منبثقة بتفاصيل كاملة
+        }
+
+        // تهيئة التطبيق عند التحميل
+        document.addEventListener('DOMContentLoaded', function() {
+            renderAllSections();
+            renderProjects();
+            renderFavorites();
+            renderComparison();
+            renderWeldingVideos(); // إضافة هذه السطر لتحميل فيديوهات اللحام
+        });
+    </script>
+</body>
+</html>
