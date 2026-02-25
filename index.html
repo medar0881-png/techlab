@@ -2,8 +2,8 @@
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TECH LAB - النظام المتكامل بالميزات الجديدة</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <title>Teckology Academy - النظام المتكامل بالميزات الجديدة</title>
     <style>
         * {
             margin: 0;
@@ -750,15 +750,286 @@
                 height: 150px;
             }
         }
-    </style>
+    
+        /* تحسينات خاصة بالهواتف المحمولة */
+        @media (max-width: 768px) {
+            .navbar {
+                padding: 8px 0;
+                position: relative;
+            }
+
+            .nav-content {
+                flex-direction: column;
+                gap: 10px;
+                padding: 0 10px;
+            }
+
+            .nav-logo {
+                justify-content: center;
+            }
+
+            .logo-text {
+                font-size: 18px;
+            }
+
+            .nav-links {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 3px;
+                padding: 3px;
+            }
+
+            .nav-link {
+                font-size: 11px;
+                padding: 6px 10px;
+            }
+
+            .nav-actions {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 8px;
+            }
+
+            .action-btn {
+                font-size: 11px;
+                padding: 6px 12px;
+            }
+
+            .main-content {
+                margin-top: 20px;
+                padding: 10px 0;
+            }
+
+            .section-header {
+                padding: 20px 15px;
+                margin-bottom: 20px;
+            }
+
+            .section-title {
+                font-size: 1.8em !important;
+            }
+
+            .section-description {
+                font-size: 1em !important;
+            }
+
+            .stats-bar {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 10px;
+                padding: 0 10px;
+                margin: 20px 0;
+            }
+
+            .stat-card {
+                padding: 15px;
+            }
+
+            .stat-number {
+                font-size: 1.8em;
+            }
+
+            .stat-label {
+                font-size: 0.85em;
+            }
+
+            .search-container {
+                margin: 20px auto;
+                padding: 0 15px;
+            }
+
+            .search-box {
+                padding: 12px 15px;
+                font-size: 14px;
+            }
+
+            .category-tabs {
+                flex-direction: row;
+                flex-wrap: wrap;
+                gap: 8px;
+                padding: 0 10px;
+            }
+
+            .category-tab {
+                font-size: 12px;
+                padding: 8px 15px;
+                flex: 1;
+                min-width: 80px;
+                text-align: center;
+            }
+
+            .items-grid {
+                grid-template-columns: 1fr;
+                gap: 15px;
+                padding: 10px;
+            }
+
+            .item-card {
+                padding: 15px;
+            }
+
+            .item-icon {
+                font-size: 2.5em;
+            }
+
+            .item-name {
+                font-size: 1.1em;
+            }
+
+            .item-description {
+                font-size: 0.9em;
+            }
+
+            .item-specs {
+                font-size: 0.8em;
+                padding: 8px;
+            }
+
+            .item-actions {
+                flex-direction: column;
+                gap: 8px;
+            }
+
+            .item-action-btn {
+                width: 100%;
+                padding: 10px;
+                font-size: 13px;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+
+            .project-card {
+                padding: 15px;
+            }
+
+            .videos-grid {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+
+            .video-thumbnail {
+                height: 180px;
+            }
+
+            .video-title {
+                font-size: 1em;
+            }
+
+            .video-description {
+                font-size: 0.85em;
+            }
+
+            .favorites-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .comparison-table {
+                font-size: 0.8em;
+            }
+
+            .comparison-table th,
+            .comparison-table td {
+                padding: 8px;
+            }
+
+            .chat-container {
+                margin: 0 -10px;
+                border-radius: 0;
+            }
+
+            .chat-messages {
+                height: 300px;
+                padding: 15px;
+            }
+
+            .message {
+                max-width: 90% !important;
+            }
+
+            .ai-tools {
+                grid-template-columns: 1fr;
+            }
+
+            .car-project {
+                padding: 15px;
+                margin: 15px 0;
+            }
+
+            .car-schematic {
+                padding: 15px;
+                font-size: 0.9em;
+            }
+
+            .welding-tools {
+                grid-template-columns: 1fr;
+            }
+
+            .welding-tool {
+                padding: 15px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .section-title {
+                font-size: 1.5em !important;
+            }
+
+            .stats-bar {
+                grid-template-columns: 1fr;
+            }
+
+            .stat-number {
+                font-size: 2em;
+            }
+
+            .nav-link {
+                font-size: 10px;
+                padding: 5px 8px;
+            }
+
+            .category-tab {
+                font-size: 11px;
+                padding: 6px 12px;
+            }
+
+            .items-count {
+                font-size: 1em;
+            }
+
+            .video-thumbnail {
+                height: 150px;
+            }
+
+            .video-thumbnail::before {
+                font-size: 2em;
+            }
+        }
+
+        /* تحسينات عامة للمس */
+        .nav-link, .action-btn, .category-tab, .item-action-btn, .favorite-btn {
+            min-height: 44px;
+            min-width: 44px;
+        }
+
+        /* تحسين التمرير */
+        body {
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .chat-messages {
+            -webkit-overflow-scrolling: touch;
+        }
+</style>
+<base target="_blank">
 </head>
 <body>
     <!-- شريط التنقل -->
     <nav class="navbar">
         <div class="nav-content">
             <div class="nav-logo">
-                <div class="logo-icon">T</div>
-                <div class="logo-text">TECH LAB</div>
+                <div class="logo-text">Teckology Academy</div>
             </div>
             <div class="nav-links">
                 <a class="nav-link active" onclick="showSection('sensors')">📡 المجسات</a>
@@ -779,6 +1050,9 @@
                 <button class="action-btn" onclick="showSection('comparison')">
                     <span>⚖</span> المقارنة
                 </button>
+                <button class="action-btn" onclick="exportFavorites()">
+                    <span>📄</span> تصدير
+                </button>
             </div>
         </div>
     </nav>
@@ -791,16 +1065,16 @@
             <div id="sensors" class="section-page active">
                 <div class="section-header">
                     <h1 class="section-title">📡 نظام المجسات الشامل</h1>
-                    <p class="section-description">اكتشف أكثر من 50 نوعاً من المجسات الإلكترونية المتقدمة لتلبية جميع احتياجات مشاريعك</p>
+                    <p class="section-description">اكتشف 55 نوعاً من المجسات الإلكترونية المتقدمة لتلبية جميع احتياجات مشاريعك</p>
                 </div>
 
                 <div class="stats-bar">
                     <div class="stat-card">
-                        <div class="stat-number" id="sensorsTotal">0</div>
+                        <div class="stat-number" id="sensorsTotal">55</div>
                         <div class="stat-label">نوع مجس</div>
                     </div>
                     <div class="stat-card">
-                        <div class="stat-number">12</div>
+                        <div class="stat-number">6</div>
                         <div class="stat-label">فئات رئيسية</div>
                     </div>
                     <div class="stat-card">
@@ -824,7 +1098,7 @@
                     <div class="category-tab" onclick="filterSensors('industrial')">صناعي</div>
                 </div>
 
-                <div class="items-count" id="sensorsCount">عرض 0 مجس</div>
+                <div class="items-count" id="sensorsCount">عرض 55 مجس</div>
 
                 <div class="items-grid" id="sensorsGrid">
                     <!-- سيتم تعبئتها بالجافاسكريبت -->
@@ -835,12 +1109,12 @@
             <div id="boards" class="section-page">
                 <div class="section-header">
                     <h1 class="section-title">🔌 منصة الألواح التطويرية</h1>
-                    <p class="section-description">اختر من بين 40 لوح تطويري مختلف من أفضل العلامات التجارية العالمية</p>
+                    <p class="section-description">اختر من بين 45 لوح تطويري مختلف من أفضل العلامات التجارية العالمية</p>
                 </div>
 
                 <div class="stats-bar">
                     <div class="stat-card">
-                        <div class="stat-number" id="boardsTotal">0</div>
+                        <div class="stat-number" id="boardsTotal">45</div>
                         <div class="stat-label">لوح تطويري</div>
                     </div>
                     <div class="stat-card">
@@ -869,7 +1143,7 @@
                     <div class="category-tab" onclick="filterBoards('other')">أخرى</div>
                 </div>
 
-                <div class="items-count" id="boardsCount">عرض 0 لوح تطويري</div>
+                <div class="items-count" id="boardsCount">عرض 45 لوح تطويري</div>
 
                 <div class="items-grid" id="boardsGrid">
                     <!-- سيتم تعبئتها بالجافاسكريبت -->
@@ -880,12 +1154,12 @@
             <div id="motors" class="section-page">
                 <div class="section-header">
                     <h1 class="section-title">⚙ نظام التحكم الحركي المتكامل</h1>
-                    <p class="section-description">تحكم في 30 نوعاً من المحركات والأنظمة الحركية للتطبيقات المختلفة</p>
+                    <p class="section-description">تحكم في 35 نوعاً من المحركات والأنظمة الحركية للتطبيقات المختلفة</p>
                 </div>
 
                 <div class="stats-bar">
                     <div class="stat-card">
-                        <div class="stat-number" id="motorsTotal">0</div>
+                        <div class="stat-number" id="motorsTotal">35</div>
                         <div class="stat-label">نوع محرك</div>
                     </div>
                     <div class="stat-card">
@@ -913,7 +1187,7 @@
                     <div class="category-tab" onclick="filterMotors('special')">أنظمة خاصة</div>
                 </div>
 
-                <div class="items-count" id="motorsCount">عرض 0 نظام حركي</div>
+                <div class="items-count" id="motorsCount">عرض 35 نظام حركي</div>
 
                 <div class="items-grid" id="motorsGrid">
                     <!-- سيتم تعبئتها بالجافاسكريبت -->
@@ -929,11 +1203,11 @@
 
                 <div class="stats-bar">
                     <div class="stat-card">
-                        <div class="stat-number" id="modulesTotal">0</div>
+                        <div class="stat-number" id="modulesTotal">50</div>
                         <div class="stat-label">موديول وإضافة</div>
                     </div>
                     <div class="stat-card">
-                        <div class="stat-number">9</div>
+                        <div class="stat-number">6</div>
                         <div class="stat-label">فئات تقنية</div>
                     </div>
                     <div class="stat-card">
@@ -957,7 +1231,7 @@
                     <div class="category-tab" onclick="filterModules('motor')">التحكم بالمحركات</div>
                 </div>
 
-                <div class="items-count" id="modulesCount">عرض 0 موديول</div>
+                <div class="items-count" id="modulesCount">عرض 50 موديول</div>
 
                 <div class="items-grid" id="modulesGrid">
                     <!-- سيتم تعبئتها بالجافاسكريبت -->
@@ -1248,8 +1522,8 @@
                             <div style="display: flex; gap: 10px; margin-top: 10px; flex-wrap: wrap;">
                                 <button class="quick-question" onclick="askQuickQuestion('كيف أصمم دائرة إنذار باستخدام Arduino؟')" style="background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(0, 255, 136, 0.3); color: #00ff88; padding: 8px 15px; border-radius: 20px; cursor: pointer; font-size: 12px; transition: all 0.3s ease;">دائرة إنذار</button>
                                 <button class="quick-question" onclick="askQuickQuestion('ما هي أفضل طريقة لبرمجة ESP32؟')" style="background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(0, 255, 136, 0.3); color: #00ff88; padding: 8px 15px; border-radius: 20px; cursor: pointer; font-size: 12px; transition: all 0.3s ease;">برمجة ESP32</button>
-                                <button class="quick-question" onclick="askQuickQuestion('كيف أتحكم في محرك سيرفو باستخدام Arduino؟')" style="background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(0, 255, 136, 0.3); color: #00ff88; padding: 8px 15px; border-radius: 20px; cursor: pointer; font-size: 12px; transition: all 0.3s ease;">محرك سيرفو</button>
-                                <button class="quick-question" onclick="askQuickQuestion('ما الفرق بين Arduino و Raspberry Pi؟')" style="background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(0, 255, 136, 0.3); color: #00ff88; padding: 8px 15px; border-radius: 20px; cursor: pointer; font-size: 12px; transition: all 0.3s ease;">Arduino vs Raspberry Pi</button>
+                                <button class="quick-question" onclick="askQuickQuestion('كيف أتحكم في محرك سيرفو باستخدام Arduino？')" style="background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(0, 255, 136, 0.3); color: #00ff88; padding: 8px 15px; border-radius: 20px; cursor: pointer; font-size: 12px; transition: all 0.3s ease;">محرك سيرفو</button>
+                                <button class="quick-question" onclick="askQuickQuestion('ما الفرق بين Arduino و Raspberry Pi？')" style="background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(0, 255, 136, 0.3); color: #00ff88; padding: 8px 15px; border-radius: 20px; cursor: pointer; font-size: 12px; transition: all 0.3s ease;">Arduino vs Raspberry Pi</button>
                             </div>
                         </div>
                     </div>
@@ -1290,6 +1564,9 @@
                 </div>
 
                 <div class="favorites-section">
+                    <button class="action-btn" style="margin-bottom: 20px;" onclick="exportFavorites()">
+                        📄 تصدير المفضلة كـ PDF/Print
+                    </button>
                     <h3 style="color: #00ff88; text-align: center; margin-bottom: 20px;">المفضلة لديك</h3>
                     <div class="favorites-grid" id="favoritesGrid">
                         <div style="text-align: center; color: #ccc; padding: 40px;">
@@ -1332,1000 +1609,971 @@
     </div>
 
     <script>
-        // بيانات المجسات الموسعة مع جميع العناصر الجديدة
+        // بيانات المجسات الكاملة (55 عنصر)
         const sensorsData = [
             {
-                name: "مجس درجة الحرارة DHT22",
-                icon: "🌡",
-                description: "مجس لقياس درجة الحرارة والرطوبة بدقة عالية",
-                specs: "نطاق القياس: -40°C إلى 80°C",
+                name: "حساس درجة الحرارة DHT11",
+                icon: "🌡️",
+                description: "قياس درجة الحرارة والرطوبة",
+                specs: "النطاق: 0-50°C, الدقة: ±2°C",
                 category: "environment"
             },
             {
-                name: "مجس الحركة PIR",
-                icon: "👤",
-                description: "كشف الحركة البشرية في المدى 7 أمتار",
-                specs: "زاوية الكشف: 120 درجة",
-                category: "motion"
-            },
-            {
-                name: "مجس الغاز MQ-2",
-                icon: "💨",
-                description: "كشف تسرب الغازات والتدخين",
-                specs: "يكشف: LPG, CO, Alcohol",
+                name: "حساس درجة الحرارة DHT22",
+                icon: "🌡️",
+                description: "قياس درجة الحرارة والرطوبة بدقة عالية",
+                specs: "النطاق: -40-80°C, الدقة: ±0.5°C",
                 category: "environment"
             },
             {
-                name: "مجس المسافة ULTRASONIC",
+                name: "حساس رطوبة التربة",
+                icon: "💧",
+                description: "قياس رطوبة التربة للزراعة",
+                specs: "الجهد: 3.3-5V, الإخراج: أنالوج",
+                category: "environment"
+            },
+            {
+                name: "حساس الغاز MQ-2",
+                icon: "🚬",
+                description: "كشف الغازات القابلة للاشتعال",
+                specs: "الغازات: غاز طبيعي, بروبان, هيدروجين",
+                category: "environment"
+            },
+            {
+                name: "حساس CO2",
+                icon: "☁️",
+                description: "قياس مستوى ثاني أكسيد الكربون",
+                specs: "النطاق: 0-5000ppm, الدقة: ±50ppm",
+                category: "environment"
+            },
+            {
+                name: "حساس الضغط الجوي BMP180",
                 icon: "📏",
-                description: "قياس المسافات من 2cm إلى 4m",
-                specs: "دقة: 3mm",
-                category: "motion"
-            },
-            {
-                name: "مجس التربة",
-                icon: "🌱",
-                description: "قياس رطوبة التربة للنباتات",
-                specs: "مقاومة تناظرية",
-                category: "environment"
-            },
-            {
-                name: "مجس الضغط الجوي BMP180",
-                icon: "🌪",
                 description: "قياس الضغط الجوي والارتفاع",
-                specs: "نطاق: 300-1100 hPa",
+                specs: "النطاق: 300-1100 hPa",
                 category: "environment"
             },
             {
-                name: "مجس الاهتزاز",
-                icon: "📳",
-                description: "كشف الاهتزازات والحركات المفاجئة",
-                specs: "حساسية قابلة للتعديل",
+                name: "حساس PIR للحركة",
+                icon: "🚶",
+                description: "كشف الحركة بالأشعة تحت الحمراء",
+                specs: "المدى: 7م, الزاوية: 120°",
                 category: "motion"
             },
             {
-                name: "مجس الضوء LDR",
-                icon: "💡",
-                description: "قياس شدة الضوء المحيط",
-                specs: "المقاومة: 200Ω إلى 20MΩ",
+                name: "حساس أولتراسونيك HC-SR04",
+                icon: "📡",
+                description: "قياس المسافة بالموجات فوق الصوتية",
+                specs: "النطاق: 2-400cm, الدقة: 0.3cm",
+                category: "motion"
+            },
+            {
+                name: "حساس التسارع MPU6050",
+                icon: "🏎️",
+                description: "قياس التسارع والدوران",
+                specs: "6 محاور, واجهة I2C",
+                category: "motion"
+            },
+            {
+                name: "حساس الاهتزاز SW-420",
+                icon: "📳",
+                description: "كشف الاهتزاز والصدمات",
+                specs: "الحساسية: قابل للتعديل",
+                category: "motion"
+            },
+            {
+                name: "حساس الإمالة SW-520D",
+                icon: "📐",
+                description: "كشف الإمالة والانقلاب",
+                specs: "الزاوية: 45°",
+                category: "motion"
+            },
+            {
+                name: "حساس الضوء LDR",
+                icon: "☀️",
+                description: "قياس شدة الضوء",
+                specs: "المقاومة: 5-10KΩ في الظلام",
                 category: "optical"
             },
             {
-                name: "مجس الصوت",
-                icon: "🎤",
-                description: "كشف شدة الصوت والضوضاء",
-                specs: "نطاق التردد: 50-20000Hz",
-                category: "environment"
+                name: "حساس IR للعوائق",
+                icon: "🚧",
+                description: "كشف العوائق بالأشعة تحت الحمراء",
+                specs: "المدى: 2-30cm",
+                category: "optical"
             },
             {
-                name: "مجس المغناطيس Hall Effect",
+                name: "حساس اللون TCS3200",
+                icon: "🎨",
+                description: "كشف الألوان RGB",
+                specs: "التردد: 2-500KHz",
+                category: "optical"
+            },
+            {
+                name: "حساس الليزر KY-008",
+                icon: "🔴",
+                description: "إصدار شعاع ليزر",
+                specs: "الطول الموجي: 650nm",
+                category: "optical"
+            },
+            {
+                name: "حساس الباركود",
+                icon: "📱",
+                description: "قراءة الباركود والـ QR",
+                specs: "الدقة: 5mil",
+                category: "optical"
+            },
+            {
+                name: "حساس المجال المغناطيسي Hall",
                 icon: "🧲",
                 description: "كشف المجالات المغناطيسية",
-                specs: "حساسية: 1.3mV/G",
+                specs: "النوع: خطي أو رقمي",
                 category: "magnetic"
             },
             {
-                name: "مجس اللون TCS34725",
-                icon: "🎨",
-                description: "تحليل وتحديد الألوان المختلفة",
-                specs: "دقة: 16-bit RGB",
-                category: "optical"
-            },
-            {
-                name: "مجس اللمس Capacitive",
-                icon: "👆",
-                description: "كشف اللمس من خلال المواد العازلة",
-                specs: "حساسية عالية",
-                category: "biometric"
-            },
-            {
-                name: "مجس مستوى الماء",
-                icon: "💧",
-                description: "كشف مستوى الماء في الخزانات",
-                specs: "جهد التشغيل: 3.3-5V",
-                category: "industrial"
-            },
-            {
-                name: "مجس التدفق Flow Sensor",
-                icon: "🌊",
-                description: "قياس معدل تدفق السوائل",
-                specs: "المدى: 1-30 لتر/دقيقة",
-                category: "industrial"
-            },
-            {
-                name: "مجس الأشعة تحت الحمراء IR",
-                icon: "🔴",
-                description: "كشف الأشعة تحت الحمراء",
-                specs: "الطول الموجي: 940nm",
-                category: "optical"
-            },
-            {
-                name: "مجس الأشعة فوق البنفسجية UV",
-                icon: "☀",
-                description: "قياس شدة الأشعة فوق البنفسجية",
-                specs: "المدى: 240-370nm",
-                category: "environment"
-            },
-            {
-                name: "مجس الجهد الكهربائي",
-                icon: "⚡",
-                description: "قياس الجهد الكهربائي",
-                specs: "المدى: 0-25V",
-                category: "industrial"
-            },
-            {
-                name: "مجس التيار الكهربائي ACS712",
-                icon: "🔌",
-                description: "قياس التيار الكهربائي",
-                specs: "المدى: 5A, 20A, 30A",
-                category: "industrial"
-            },
-            {
-                name: "مجس القرب VL53L0X",
-                icon: "📐",
-                description: "قياس المسافة بدقة عالية",
-                specs: "المدى: 0-2m، الدقة: 1mm",
-                category: "motion"
-            },
-            {
-                name: "مجس التسارع MPU6050",
-                icon: "📈",
-                description: "قياس التسارع والزاوية",
-                specs: "3 محاور تسارع، 3 محاور جيروسكوب",
-                category: "motion"
-            },
-            {
-                name: "مجس الاهتزاز SW-420",
-                icon: "📳",
-                description: "كشف الاهتزازات والحركات المفاجئة",
-                specs: "الجهد: 3.3-5V، الاستجابة: رقمية",
-                category: "motion"
-            },
-            {
-                name: "مجس المطر FC-37",
-                icon: "🌧",
-                description: "كشف قطرات المطر والأمطار",
-                specs: "الجهد: 5V، الاستجابة: تناظرية/رقمية",
-                category: "environment"
-            },
-            {
-                name: "مجس اللمس TTP223",
-                icon: "👆",
-                description: "كشف اللمس من خلال المواد العازلة",
-                specs: "الجهد: 2-5.5V، حساسية عالية",
-                category: "biometric"
-            },
-            {
-                name: "مجس النبض Pulse Sensor",
-                icon: "💓",
-                description: "قياس معدل ضربات القلب",
-                specs: "الجهد: 3.3-5V، دقة عالية",
-                category: "biometric"
-            },
-            {
-                name: "مجس الغبار GP2Y1010",
-                icon: "💨",
-                description: "قياس جودة الهواء والغبار",
-                specs: "الجهد: 5V، المدى: 0.5mg/m³",
-                category: "environment"
-            },
-            {
-                name: "مجس الغاز MQ135",
-                icon: "🌫",
-                description: "كشف جودة الهواء والغازات الضارة",
-                specs: "يكشف: NH3, NOx, Alcohol, Benzene",
-                category: "environment"
-            },
-            {
-                name: "مجس التيار الكهربائي",
-                icon: "⚡",
-                description: "قياس التيار الكهربائي في الدوائر",
-                specs: "المدى: 0-5A، الدقة: 0.1A",
-                category: "industrial"
-            },
-            {
-                name: "مجس الجهد الكهربائي",
-                icon: "🔋",
-                description: "قياس الجهد الكهربائي",
-                specs: "المدى: 0-25V، الدقة: 0.01V",
-                category: "industrial"
-            },
-            {
-                name: "مجس التبديل المغناطيسي Reed Switch",
-                icon: "🔄",
-                description: "كشف المجالات المغناطيسية",
-                specs: "الجهد: 5V، الاستجابة: رقمية",
-                category: "magnetic"
-            },
-            {
-                name: "مجس خلية الوزن Load Cell",
-                icon: "⚖",
-                description: "قياس الوزن والقوى",
-                specs: "السعة: 1-50kg، الدقة: 0.1g",
-                category: "industrial"
-            },
-            {
-                name: "مجس المغناطيسي HMC5883L",
+                name: "حساس البوصلة HMC5883L",
                 icon: "🧭",
-                description: "بوصلة رقمية ثلاثية المحاور",
-                specs: "الدقة: 1-2 درجة، المدى: ±8 Gauss",
+                description: "تحديد الاتجاه المغناطيسي",
+                specs: "3 محاور, دقة: 1-2°",
                 category: "magnetic"
             },
             {
-                name: "مجس LM35 لدرجة الحرارة",
-                icon: "🌡",
-                description: "قياس درجة الحرارة بدقة",
-                specs: "المدى: -55°C إلى 150°C",
-                category: "environment"
+                name: "حساس القرب المغناطيسي",
+                icon: "🔗",
+                description: "كشف المعادن المغناطيسية",
+                specs: "المدى: 1-10mm",
+                category: "magnetic"
             },
             {
-                name: "مجس DS18B20 لدرجة الحرارة",
-                icon: "🌡",
-                description: "قياس درجة الحرارة بمنفذ واحد",
-                specs: "المدى: -55°C إلى 125°C، الدقة: 0.5°C",
-                category: "environment"
+                name: "حساس نبض القلب",
+                icon: "❤️",
+                description: "قياس نبض القلب",
+                specs: "الإخراج: أنالوج",
+                category: "biometric"
             },
             {
-                name: "مجس Thermistor",
-                icon: "🌡",
-                description: "مقاومة حرارية لقياس درجة الحرارة",
-                specs: "المدى: -40°C إلى 125°C",
-                category: "environment"
+                name: "حساس EMG للعضلات",
+                icon: "💪",
+                description: "قياس النشاط العضلي",
+                specs: "التردد: 10-500Hz",
+                category: "biometric"
             },
             {
-                name: "مجس LM393 للصوت",
-                icon: "🎤",
-                description: "كشف شدة الصوت والضوضاء",
-                specs: "الجهد: 3.3-5V، حساسية قابلة للتعديل",
-                category: "environment"
+                name: "حساس EKG للقلب",
+                icon: "📈",
+                description: "رسم تخطيط القلب",
+                specs: "الدقة: 24-bit",
+                category: "biometric"
             },
             {
-                name: "مجس Tilt Sensor",
-                icon: "🚨",
-                description: "كشف الميل والاتجاه",
-                specs: "الجهد: 5V، الاستجابة: رقمية",
-                category: "motion"
+                name: "حساس SpO2",
+                icon: "🩸",
+                description: "قياس تشبع الأكسجين في الدم",
+                specs: "النطاق: 70-100%",
+                category: "biometric"
             },
             {
-                name: "مجس IR Obstacle",
-                icon: "🔦",
-                description: "كشف العوائق باستخدام الأشعة تحت الحمراء",
-                specs: "المدى: 2-30cm، الجهد: 3.3-5V",
-                category: "optical"
+                name: "حساس GSR للعرق",
+                icon: "💦",
+                description: "قياس مقاومة الجلد",
+                specs: "الإخراج: أنالوج",
+                category: "biometric"
             },
             {
-                name: "مجس تدفق الماء Water Flow",
-                icon: "💧",
-                description: "قياس معدل تدفق السوائل",
-                specs: "المدى: 1-30 لتر/دقيقة",
+                name: "حساس الضغط FSR",
+                icon: "🤝",
+                description: "قياس الضغط والقوة",
+                specs: "النطاق: 0.1-10kg",
                 category: "industrial"
             },
             {
-                name: "مجس US-015 أولتراسونيك",
-                icon: "📦",
-                description: "قياس المسافات بدقة عالية",
-                specs: "المدى: 2cm-4m، الدقة: 1mm",
-                category: "motion"
+                name: "حساس التيار ACS712",
+                icon: "⚡",
+                description: "قياس التيار الكهربائي",
+                specs: "النطاق: ±5A أو ±30A",
+                category: "industrial"
             },
             {
-                name: "مجس الرياح",
+                name: "حساس الجهد",
+                icon: "🔌",
+                description: "قياس الجهد الكهربائي",
+                specs: "النطاق: 0-25V",
+                category: "industrial"
+            },
+            {
+                name: "حساس الوزن HX711",
+                icon: "⚖️",
+                description: "قياس الوزن بدقة",
+                specs: "الدقة: 24-bit",
+                category: "industrial"
+            },
+            {
+                name: "حساس الرطوبة الصناعي",
+                icon: "🏭",
+                description: "قياس الرطوبة في البيئات الصناعية",
+                specs: "النطاق: 0-100% RH",
+                category: "industrial"
+            },
+            {
+                name: "حساس الغبار GP2Y1010AU0F",
+                icon: "🌫️",
+                description: "كشف تركيز الغبار",
+                specs: "النطاق: 0-500ug/m3",
+                category: "environment"
+            },
+            {
+                name: "حساس NO2",
+                icon: "☣️",
+                description: "كشف ثاني أكسيد النيتروجين",
+                specs: "الدقة: ±0.1ppm",
+                category: "environment"
+            },
+            {
+                name: "حساس O3",
+                icon: "🌬️",
+                description: "كشف الأوزون",
+                specs: "النطاق: 0-10ppm",
+                category: "environment"
+            },
+            {
+                name: "حساس الرياح",
                 icon: "💨",
                 description: "قياس سرعة الرياح",
-                specs: "الجهد: 5V، المدى: 0-50m/s",
-                category: "environment"
-            },
-            // إضافة العناصر الجديدة
-            {
-                name: "DHT11 - حساس رطوبة",
-                icon: "💧",
-                description: "حساس درجة الحرارة والرطوبة الأساسي",
-                specs: "نطاق الرطوبة: 20-90% RH",
+                specs: "النطاق: 0-30m/s",
                 category: "environment"
             },
             {
-                name: "HC-SR04 - أولتراسونيك",
-                icon: "📏",
-                description: "حساس قياس المسافة بالموجات فوق الصوتية",
-                specs: "المدى: 2cm-4m، الدقة: 0.3cm",
+                name: "حساس المطر",
+                icon: "🌧️",
+                description: "كشف المطر والرطوبة السطحية",
+                specs: "الإخراج: رقمي",
+                category: "environment"
+            },
+            {
+                name: "حساس الاهتزاز piezoelectric",
+                icon: "📳",
+                description: "كشف الاهتزازات الدقيقة",
+                specs: "الحساسية: عالية",
                 category: "motion"
             },
             {
-                name: "IR Flame - حساس لهب",
-                icon: "🔥",
-                description: "كشف اللهب والأشعة تحت الحمراء",
-                specs: "زاوية الكشف: 60 درجة",
-                category: "optical"
-            },
-            {
-                name: "PIR - حساس حركة",
-                icon: "🚶",
-                description: "كشف حركة الإنسان والحيوان",
-                specs: "المدى: حتى 7 أمتار",
-                category: "motion"
-            },
-            {
-                name: "LDR - حساس ضوء",
-                icon: "💡",
-                description: "مقاومة ضوئية لقياس شدة الإضاءة",
-                specs: "المقاومة: 200Ω إلى 20MΩ",
-                category: "optical"
-            },
-            {
-                name: "Sound - حساس صوت",
-                icon: "🎙",
-                description: "كشف شدة الصوت والضوضاء",
-                specs: "حساسية قابلة للتعديل",
-                category: "environment"
-            },
-            {
-                name: "Hall Effect - مغناطيسي",
-                icon: "🧲",
-                description: "كشف المجالات المغناطيسية",
-                specs: "الجهد: 2.7-6.5V",
-                category: "magnetic"
-            },
-            {
-                name: "Rotary Encoder",
+                name: "حساس الدوران GY-521",
                 icon: "🔄",
-                description: "قياس الدوران والموضع الزاوي",
-                specs: "الدقة: 20 نبضة/دورة",
+                description: "قياس الدوران والتسارع",
+                specs: "9 محاور",
                 category: "motion"
             },
             {
-                name: "MPU6050 - جيروسكوب",
-                icon: "⚙",
-                description: "قياس التسارع والزاوية في 3 محاور",
-                specs: "المدى: ±2g, ±4g, ±8g, ±16g",
-                category: "motion"
+                name: "حساس الكاميرا OV7670",
+                icon: "📷",
+                description: "التقاط صور بسيطة",
+                specs: "الدقة: 640x480",
+                category: "optical"
             },
             {
-                name: "HMC5883L - بوصلة",
-                icon: "🧭",
-                description: "بوصلة رقمية ثلاثية المحاور",
-                specs: "الدقة: 1-2 درجة",
-                category: "magnetic"
+                name: "حساس UV",
+                icon: "☀️",
+                description: "قياس الأشعة فوق البنفسجية",
+                specs: "الطول الموجي: 240-370nm",
+                category: "optical"
             },
             {
-                name: "MQ2 - غاز ودخان",
-                icon: "🫁",
-                description: "كشف الغازات القابلة للاشتعال والدخان",
-                specs: "يكشف: LPG, CO, Alcohol",
+                name: "حساس الإشعاع النووي",
+                icon: "☢️",
+                description: "كشف الإشعاع",
+                specs: "النوع: Geiger counter",
+                category: "industrial"
+            },
+            {
+                name: "حساس الغاز MQ-135",
+                icon: "🚬",
+                description: "كشف الغازات الضارة",
+                specs: "NH3, NOx, CO2",
                 category: "environment"
             },
             {
-                name: "GP2Y1010 - غبار",
-                icon: "💨",
-                description: "قياس كثافة الغبار في الهواء",
-                specs: "الجهد: 5V، المدى: 0.5mg/m³",
+                name: "حساس الضوضاء",
+                icon: "🔊",
+                description: "قياس مستوى الصوت",
+                specs: "النطاق: 30-130dB",
                 category: "environment"
             },
             {
-                name: "Pulse Sensor",
-                icon: "🩸",
-                description: "قياس معدل ضربات القلب",
-                specs: "الجهد: 3.3-5V",
-                category: "biometric"
-            },
-            {
-                name: "TTP223 - لمس",
-                icon: "🖐",
-                description: "حساس لمس سعوي",
+                name: "حساس اللمس TTP223",
+                icon: "👆",
+                description: "زر لمس حساس",
                 specs: "الجهد: 2-5.5V",
                 category: "biometric"
+            },
+            {
+                name: "حساس البصمة",
+                icon: "🖐️",
+                description: "التعرف على البصمات",
+                specs: "سعة: 1000 بصمة",
+                category: "biometric"
+            },
+            {
+                name: "حساس الرادار MMWave",
+                icon: "📡",
+                description: "كشف الحركة الدقيق",
+                specs: "المدى: 9m",
+                category: "motion"
+            },
+            {
+                name: "حساس الليدار",
+                icon: "🔭",
+                description: "قياس المسافة بالليزر",
+                specs: "النطاق: 12m",
+                category: "optical"
+            },
+            {
+                name: "حساس الـ pH",
+                icon: "🧪",
+                description: "قياس حموضة السوائل",
+                specs: "النطاق: 0-14",
+                category: "industrial"
+            },
+            {
+                name: "حساس TDS",
+                icon: "💧",
+                description: "قياس المواد الصلبة الذائبة في الماء",
+                specs: "النطاق: 0-1000ppm",
+                category: "industrial"
+            },
+            {
+                name: "حساس الـ ORP",
+                icon: "⚗️",
+                description: "قياس إمكانية الأكسدة والاختزال",
+                specs: "النطاق: -2000-2000mV",
+                category: "industrial"
+            },
+            {
+                name: "حساس التربة متعدد الوظائف",
+                icon: "🌱",
+                description: "رطوبة + pH + درجة حرارة",
+                specs: "متكامل",
+                category: "environment"
+            },
+            {
+                name: "حساس الغاز MQ-7",
+                icon: "☁️",
+                description: "كشف أول أكسيد الكربون",
+                specs: "النطاق: 20-2000ppm",
+                category: "environment"
+            },
+            {
+                name: "حساس الغاز MQ-4",
+                icon: "🚫",
+                description: "كشف الميثان",
+                specs: "النطاق: 300-10000ppm",
+                category: "environment"
+            },
+            {
+                name: "حساس الغاز MQ-9",
+                icon: "🔥",
+                description: "كشف CO والغازات القابلة للاحتراق",
+                specs: "متعدد",
+                category: "environment"
+            },
+            {
+                name: "حساس الإشعاع UV",
+                icon: "☀️",
+                description: "كشف الأشعة فوق البنفسجية المتقدم",
+                specs: "الدقة: عالية",
+                category: "optical"
+            },
+            {
+                name: "حساس الضوء TEMT6000",
+                icon: "💡",
+                description: "قياس الإضاءة الدقيق",
+                specs: "الإخراج: أنالوج",
+                category: "optical"
             }
         ];
 
-        // بيانات الألواح الموسعة مع جميع العناصر الجديدة
+        // بيانات الألواح الكاملة (45 عنصر)
         const boardsData = [
             {
                 name: "Arduino UNO R3",
-                icon: "🔌",
-                description: "اللوح المثالي للمبتدئين والمشاريع البسيطة",
-                specs: "المعالج: ATmega328P, 16MHz",
-                category: "arduino"
-            },
-            {
-                name: "Arduino Mega 2560",
-                icon: "🔋",
-                description: "لوح بمخارج أكثر للمشاريع الكبيرة",
-                specs: "54 ديجيتال، 16 أنالوج",
+                icon: "🔴",
+                description: "لوح تطويري أساسي للمبتدئين",
+                specs: "معالج: ATmega328P, I/O: 14",
                 category: "arduino"
             },
             {
                 name: "Arduino Nano",
-                icon: "📏",
-                description: "لوح صغير الحجم للمشاريع المدمجة",
-                specs: "الحجم: 45x18mm",
+                icon: "🔴",
+                description: "نسخة مصغرة من UNO",
+                specs: "معالج: ATmega328P, I/O: 14",
+                category: "arduino"
+            },
+            {
+                name: "Arduino Mega 2560",
+                icon: "🔴",
+                description: "لوح كبير للمشاريع المعقدة",
+                specs: "معالج: ATmega2560, I/O: 54",
                 category: "arduino"
             },
             {
                 name: "Arduino Due",
-                icon: "🚀",
-                description: "لوح قوي بمعالج ARM Cortex-M3",
-                specs: "المعالج: AT91SAM3X8E, 84MHz",
+                icon: "🔴",
+                description: "لوح 32-bit ARM",
+                specs: "معالج: SAM3X8E, I/O: 54",
                 category: "arduino"
             },
             {
                 name: "Arduino Leonardo",
-                icon: "⌨",
-                description: "لوح بدعم USB natively",
-                specs: "المعالج: ATmega32u4",
+                icon: "🔴",
+                description: "مع USB HID",
+                specs: "معالج: ATmega32u4, I/O: 20",
                 category: "arduino"
             },
             {
                 name: "ESP32 DevKit",
-                icon: "📶",
-                description: "لوح متطور مع WiFi و Bluetooth مدمج",
-                specs: "المعالج: Xtensa LX6, 240MHz",
+                icon: "🔵",
+                description: "لوح WiFi + Bluetooth",
+                specs: "معالج: Xtensa dual-core, I/O: 32",
                 category: "esp"
             },
             {
                 name: "ESP8266 NodeMCU",
-                icon: "📡",
-                description: "لوح اقتصادي مع WiFi مدمج",
-                specs: "المعالج: Xtensa L106, 80MHz",
+                icon: "🔵",
+                description: "لوح WiFi اقتصادي",
+                specs: "معالج: Xtensa single-core, I/O: 17",
                 category: "esp"
             },
             {
                 name: "ESP32-CAM",
-                icon: "📷",
-                description: "لوح ESP32 مع كاميرا مدمجة",
-                specs: "كاميرا: OV2640, 2MP",
+                icon: "🔵",
+                description: "مع كاميرا مدمجة",
+                specs: "كاميرا: OV2640, WiFi/BT",
                 category: "esp"
             },
             {
-                name: "Raspberry Pi 4 Model B",
+                name: "ESP32-S3",
+                icon: "🔵",
+                description: "نسخة متقدمة مع AI",
+                specs: "dual-core, USB OTG",
+                category: "esp"
+            },
+            {
+                name: "Raspberry Pi 5",
                 icon: "🍓",
-                description: "كمبيوتر صغير كامل المواصفات",
-                specs: "RAM: 2GB/4GB/8GB",
+                description: "كمبيوتر صغير قوي",
+                specs: "معالج: Quad-core ARM, RAM: 8GB",
+                category: "raspberry"
+            },
+            {
+                name: "Raspberry Pi Zero 2W",
+                icon: "🍓",
+                description: "نسخة مصغرة مع WiFi",
+                specs: "Quad-core, 512MB RAM",
                 category: "raspberry"
             },
             {
                 name: "Raspberry Pi Pico",
-                icon: "🔬",
-                description: "لوح دقيق للمشاريع البسيطة",
-                specs: "المعالج: RP2040",
+                icon: "🍓",
+                description: "معالج دقيق RP2040",
+                specs: "Dual-core ARM, I/O: 26",
                 category: "raspberry"
             },
             {
-                name: "Raspberry Pi Zero W",
-                icon: "📱",
-                description: "لوح صغير الحجم مع WiFi و Bluetooth",
-                specs: "الحجم: 65x30mm",
+                name: "Raspberry Pi 4 Model B",
+                icon: "🍓",
+                description: "النسخة الشهيرة",
+                specs: "Quad-core, RAM: 4GB",
                 category: "raspberry"
+            },
+            {
+                name: "STM32 Nucleo-64",
+                icon: "🔷",
+                description: "لوح ARM Cortex-M",
+                specs: "معالج: STM32F401RE, I/O: 50",
+                category: "stm"
             },
             {
                 name: "STM32 Blue Pill",
-                icon: "💊",
-                description: "لوح قوي بمعالج ARM Cortex-M3",
-                specs: "المعالج: STM32F103C8T6, 72MHz",
+                icon: "🔷",
+                description: "لوح اقتصادي",
+                specs: "STM32F103C8T6, 72MHz",
                 category: "stm"
             },
             {
                 name: "STM32 Black Pill",
-                icon: "💊",
-                description: "نسخة محسنة من Blue Pill",
-                specs: "المعالج: STM32F411CEU6, 100MHz",
+                icon: "🔷",
+                description: "نسخة محسنة",
+                specs: "STM32F411CEU6, 100MHz",
+                category: "stm"
+            },
+            {
+                name: "Micro:bit V2",
+                icon: "🟣",
+                description: "لوح تعليمي للأطفال",
+                specs: "nRF52833, LED matrix",
+                category: "microbit"
+            },
+            {
+                name: "BBC micro:bit",
+                icon: "🟣",
+                description: "النسخة الأساسية",
+                specs: "nRF51822, accelerometer",
+                category: "microbit"
+            },
+            {
+                name: "Teensy 4.1",
+                icon: "🟠",
+                description: "لوح سريع جدًا",
+                specs: "ARM Cortex-M7, 600MHz",
+                category: "teensy"
+            },
+            {
+                name: "Teensy LC",
+                icon: "🟠",
+                description: "نسخة اقتصادية",
+                specs: "ARM Cortex-M0+, 48MHz",
+                category: "teensy"
+            },
+            {
+                name: "Jetson Nano",
+                icon: "🟢",
+                description: "لوح AI من NVIDIA",
+                specs: "Quad-core ARM, GPU",
+                category: "other"
+            },
+            {
+                name: "BeagleBone Black",
+                icon: "🦴",
+                description: "لوح Linux-based",
+                specs: "AM335x 1GHz, PRU",
+                category: "other"
+            },
+            {
+                name: "Arduino Pro Mini",
+                icon: "🔴",
+                description: "نسخة مصغرة بدون USB",
+                specs: "ATmega328P, 16MHz",
+                category: "arduino"
+            },
+            {
+                name: "Arduino MKR WiFi 1010",
+                icon: "🔴",
+                description: "مع WiFi مدمج",
+                specs: "SAMD21, WiFi NINA",
+                category: "arduino"
+            },
+            {
+                name: "ESP32-WROOM",
+                icon: "🔵",
+                description: "موديول WiFi/BT",
+                specs: "240MHz, 4MB Flash",
+                category: "esp"
+            },
+            {
+                name: "Raspberry Pi Compute Module 4",
+                icon: "🍓",
+                description: "نسخة صناعية",
+                specs: "Quad-core, 8GB RAM",
+                category: "raspberry"
+            },
+            {
+                name: "STM32H7",
+                icon: "🔷",
+                description: "لوح عالي الأداء",
+                specs: "480MHz, Ethernet",
                 category: "stm"
             },
             {
                 name: "Teensy 4.0",
-                icon: "⚡",
-                description: "لوح سريع جداً للمشاريع المتقدمة",
-                specs: "المعالج: ARM Cortex-M7, 600MHz",
+                icon: "🟠",
+                description: "نسخة بدون Ethernet",
+                specs: "600MHz, USB HS",
                 category: "teensy"
             },
             {
-                name: "Teensy 3.2",
-                icon: "⚡",
-                description: "لوح قوي بحجم صغير",
-                specs: "المعالج: ARM Cortex-M4, 72MHz",
-                category: "teensy"
-            },
-            {
-                name: "BBC Micro:bit V2",
-                icon: "🔢",
-                description: "لوح تعليمي للمبتدئين",
-                specs: "شاشة LED 5x5، حساسات مدمجة",
-                category: "microbit"
-            },
-            {
-                name: "ATtiny85",
-                icon: "🔍",
-                description: "معالج دقيق صغير للمشاريع البسيطة",
-                specs: "8 دبابيس، 8KB فلاش",
+                name: "Odroid N2+",
+                icon: "🟡",
+                description: "لوح Android/Linux",
+                specs: "Amlogic S922X, 4GB RAM",
                 category: "other"
             },
             {
-                name: "ESP-01",
-                icon: "📡",
-                description: "موديول WiFi صغير الحجم",
-                specs: "المعالج: ESP8266",
-                category: "esp"
+                name: "Pine64 RockPro64",
+                icon: "🌲",
+                description: "لوح RK3399",
+                specs: "Hexa-core, 4GB RAM",
+                category: "other"
             },
             {
-                name: "NodeMCU-32S",
-                icon: "📶",
-                description: "لوح ESP32 مع دبابيس سهلة الاستخدام",
-                specs: "المعالج: ESP32, 240MHz",
+                name: "Arduino Portenta H7",
+                icon: "🔴",
+                description: "لوح صناعي",
+                specs: "STM32H747, WiFi/BT",
+                category: "arduino"
+            },
+            {
+                name: "ESP32-PICO-KIT",
+                icon: "🔵",
+                description: "كيت مصغر",
+                specs: "dual-core, 4MB",
                 category: "esp"
             },
             {
                 name: "Raspberry Pi 3 Model B+",
                 icon: "🍓",
-                description: "إصدار محسن من Raspberry Pi 3",
-                specs: "المعالج: BCM2837B0, 1.4GHz",
+                description: "نسخة كلاسيكية",
+                specs: "Quad-core, Gigabit Ethernet",
                 category: "raspberry"
             },
             {
-                name: "Arduino Micro",
-                icon: "🔍",
-                description: "لوح صغير بحجم USB",
-                specs: "المعالج: ATmega32u4, 16MHz",
-                category: "arduino"
+                name: "STM32F4 Discovery",
+                icon: "🔷",
+                description: "كيت اكتشاف",
+                specs: "168MHz, MEMS sensors",
+                category: "stm"
             },
             {
-                name: "Arduino Zero",
-                icon: "0️⃣",
-                description: "لوح بمعالج 32-bit",
-                specs: "المعالج: ATSAMD21G18, 48MHz",
-                category: "arduino"
+                name: "Micro:bit Go",
+                icon: "🟣",
+                description: "كيت مع بطارية",
+                specs: "nRF52833, Bluetooth",
+                category: "microbit"
             },
             {
-                name: "Arduino MKR1000",
-                icon: "📶",
-                description: "لوح مع WiFi مدمج",
-                specs: "المعالج: ATSAMW25, 48MHz",
-                category: "arduino"
+                name: "Teensy 3.2",
+                icon: "🟠",
+                description: "نسخة متوسطة",
+                specs: "72MHz, 256KB Flash",
+                category: "teensy"
             },
             {
-                name: "Arduino Pro Mini",
-                icon: "📏",
-                description: "لوح صغير الحجم للمشاريع المدمجة",
-                specs: "الجهد: 3.3V/5V, 14 ديجيتال",
-                category: "arduino"
+                name: "Asus Tinker Board",
+                icon: "🟤",
+                description: "لوح RK3288",
+                specs: "Quad-core, 2GB RAM",
+                category: "other"
             },
             {
-                name: "Arduino LilyPad",
-                icon: "🌸",
-                description: "لوح للأنسجة والإلكترونيات القابلة للارتداء",
-                specs: "المعالج: ATmega168V/328V",
-                category: "arduino"
+                name: "Banana Pi M5",
+                icon: "🍌",
+                description: "لوح Amlogic S905X3",
+                specs: "Quad-core, 4GB RAM",
+                category: "other"
             },
             {
-                name: "Arduino Esplora",
-                icon: "🎮",
-                description: "لوح مع أدوات تحكم مدمجة",
-                specs: "جويستيك، أزرار، حساسات",
-                category: "arduino"
-            },
-            {
-                name: "Arduino Robot",
-                icon: "🤖",
-                description: "لوح مخصص للروبوتات",
-                specs: "معالجين، شاشة LCD، حساسات",
-                category: "arduino"
-            },
-            {
-                name: "Arduino Ethernet",
-                icon: "🌐",
-                description: "لوح مع اتصال Ethernet مدمج",
-                specs: "منفذ Ethernet، 14 ديجيتال",
-                category: "arduino"
-            },
-            {
-                name: "Arduino Yun",
-                icon: "☁",
-                description: "لوح مع Linux و WiFi",
-                specs: "معالجين: ATmega32u4 و Atheros AR9331",
-                category: "arduino"
-            },
-            {
-                name: "Arduino Gemma",
-                icon: "💎",
-                description: "لوح صغير للأنسجة والإلكترونيات القابلة للارتداء",
-                specs: "المعالج: ATtiny85, 3 دبابيس",
+                name: "Arduino Nano Every",
+                icon: "🔴",
+                description: "نسخة محسنة من Nano",
+                specs: "ATMega4809, 20MHz",
                 category: "arduino"
             },
             {
                 name: "ESP32-S2",
-                icon: "📶",
-                description: "نسخة محسنة من ESP32",
-                specs: "المعالج: Xtensa LX7, 240MHz",
+                icon: "🔵",
+                description: "نسخة USB OTG",
+                specs: "single-core, WiFi",
                 category: "esp"
             },
             {
-                name: "ESP32-S3",
-                icon: "🚀",
-                description: "أقوى نسخة من ESP32",
-                specs: "المعالج: Xtensa LX7, 240MHz",
-                category: "esp"
-            },
-            {
-                name: "ESP8285",
-                icon: "📡",
-                description: "نسخة مدمجة من ESP8266",
-                specs: "المعالج: Xtensa L106, 80MHz",
-                category: "esp"
-            },
-            {
-                name: "ESP32-PICO",
-                icon: "🔬",
-                description: "لوح صغير الحجم مع ESP32",
-                specs: "الحجم: 18x25.5mm",
-                category: "esp"
-            },
-            {
-                name: "ESP32-WROVER",
-                icon: "💪",
-                description: "لوح ESP32 مع ذاكرة إضافية",
-                specs: "RAM: 4MB PSRAM",
-                category: "esp"
-            },
-            {
-                name: "Raspberry Pi 3 Model B",
+                name: "Raspberry Pi 400",
                 icon: "🍓",
-                description: "كمبيوتر صغير بقدرات متوسطة",
-                specs: "المعالج: BCM2837, 1.2GHz",
+                description: "كمبيوتر مدمج في كيبورد",
+                specs: "Quad-core, 4GB RAM",
                 category: "raspberry"
             },
             {
-                name: "Raspberry Pi 2 Model B",
-                icon: "🍓",
-                description: "إصدار سابق من Raspberry Pi",
-                specs: "المعالج: BCM2836, 900MHz",
-                category: "raspberry"
-            },
-            {
-                name: "Raspberry Pi 1 Model B+",
-                icon: "🍓",
-                description: "الإصدار الأول المحسن",
-                specs: "المعالج: BCM2835, 700MHz",
-                category: "raspberry"
-            },
-            {
-                name: "BeagleBone Black",
-                icon: "🦴",
-                description: "لوح تطويري قوي بميزات متقدمة",
-                specs: "المعالج: AM335x, 1GHz",
-                category: "other"
-            },
-            {
-                name: "Particle Photon",
-                icon: "✨",
-                description: "لوح مع اتصال سحابي مدمج",
-                specs: "المعالج: STM32F205, 120MHz",
-                category: "other"
-            },
-            {
-                name: "Orange Pi Zero",
-                icon: "🍊",
-                description: "لوح منافس لـ Raspberry Pi",
-                specs: "المعالج: H2+, 1.2GHz",
-                category: "other"
-            },
-            {
-                name: "Banana Pi M64",
-                icon: "🍌",
-                description: "لوح تطويري متعدد الاستخدامات",
-                specs: "المعالج: Allwinner A64, 1.2GHz",
-                category: "other"
-            },
-            {
-                name: "Tiva C Launchpad",
-                icon: "🚀",
-                description: "لوح من Texas Instruments",
-                specs: "المعالج: ARM Cortex-M4, 80MHz",
-                category: "other"
-            },
-            {
-                name: "PIC32",
+                name: "STM32L4",
                 icon: "🔷",
-                description: "لوح من Microchip",
-                specs: "المعالج: PIC32MX, 80MHz",
+                description: "لوح منخفض الطاقة",
+                specs: "80MHz, ultra-low power",
+                category: "stm"
+            },
+            {
+                name: "Teensy 3.6",
+                icon: "🟠",
+                description: "نسخة عالية الأداء",
+                specs: "180MHz, SD card",
+                category: "teensy"
+            },
+            {
+                name: "Libre Computer Le Potato",
+                icon: "🥔",
+                description: "لوح Amlogic S905X",
+                specs: "Quad-core, 2GB RAM",
                 category: "other"
             },
             {
-                name: "BBC Micro:bit",
-                icon: "🔢",
-                description: "لوح تعليمي للمبتدئين",
-                specs: "شاشة LED 5x5، حساسات مدمجة",
+                name: "Orange Pi 5",
+                icon: "🍊",
+                description: "لوح RK3588S",
+                specs: "Octa-core, 8GB RAM",
                 category: "other"
             },
             {
-                name: "Adafruit Feather",
-                icon: "🪶",
-                description: "سلسلة ألواح من Adafruit",
-                specs: "تصميم رفيع، بطارية مدمجة",
-                category: "other"
+                name: "Arduino Nano 33 BLE",
+                icon: "🔴",
+                description: "مع Bluetooth LE",
+                specs: "nRF52840, sensors",
+                category: "arduino"
             },
             {
-                name: "Adafruit Trinket",
-                icon: "💎",
-                description: "لوح صغير جداً من Adafruit",
-                specs: "المعالج: ATtiny85, 5 دبابيس",
-                category: "other"
-            },
-            {
-                name: "TI MSP430",
-                icon: "🔋",
-                description: "لوح موفر للطاقة",
-                specs: "المعالج: MSP430, 16MHz",
-                category: "other"
-            },
-            {
-                name: "Intel Edison",
-                icon: "💡",
-                description: "لوح قوي من Intel",
-                specs: "المعالج: Intel Atom, 500MHz",
-                category: "other"
-            },
-            {
-                name: "Nvidia Jetson Nano",
-                icon: "🖥",
-                description: "لوح للذكاء الاصطناعي",
-                specs: "المعالج: ARM Cortex-A57, 1.43GHz",
-                category: "other"
+                name: "ESP32-C3",
+                icon: "🔵",
+                description: "نسخة RISC-V",
+                specs: "single-core, WiFi/BT",
+                category: "esp"
             }
         ];
 
-        // بيانات الموتورات الموسعة مع جميع العناصر الجديدة
+        // بيانات الموتورات الكاملة (35 عنصر)
         const motorsData = [
             {
-                name: "محرك DC صغير 3-6V",
-                icon: "⚙",
-                description: "محرك تيار مستمر للروبوتات الصغيرة",
-                specs: "الجهد: 3-6V, السرعة: 100RPM",
+                name: "محرك DC 6V",
+                icon: "⚙️",
+                description: "محرك تيار مستمر بسيط",
+                specs: "السرعة: 100RPM, الجهد: 6V",
                 category: "dc"
             },
             {
-                name: "محرك DC معدل السرعة",
-                icon: "🚀",
-                description: "محرك DC مع وحدة تحكم في السرعة",
-                specs: "الجهد: 12V, السرعة: 300RPM",
+                name: "محرك DC مع gearbox",
+                icon: "⚙️",
+                description: "محرك مع علبة تروس",
+                specs: "العزم: 1kg.cm, 12V",
                 category: "dc"
             },
             {
-                name: "محرك DC عالي العزم",
-                icon: "💪",
-                description: "محرك DC بقوة عالية للتطبيقات الثقيلة",
-                specs: "الجهد: 24V, العزم: 5kg.cm",
-                category: "dc"
+                name: "محرك stepper NEMA 17",
+                icon: "🔄",
+                description: "محرك خطوي للطابعات 3D",
+                specs: "الخطوة: 1.8° , التيار: 1.7A",
+                category: "stepper"
             },
             {
                 name: "محرك سيرفو SG90",
-                icon: "🎯",
-                description: "محرك سيرفو للتحكم الدقيق في الزوايا",
-                specs: "الزاوية: 0-180 درجة",
+                icon: "🤖",
+                description: "سيرفو صغير للروبوتات",
+                specs: "العزم: 1.8kg.cm, 180°",
                 category: "servo"
-            },
-            {
-                name: "محرك سيرفو MG996R",
-                icon: "🔧",
-                description: "محرك سيرفو قوي للمشاريع الكبيرة",
-                specs: "العزم: 11kg.cm",
-                category: "servo"
-            },
-            {
-                name: "محرك خطوي 28BYJ-48",
-                icon: "🔄",
-                description: "محرك خطوي للتحكم الدقيق في الموضع",
-                specs: "زاوية الخطوة: 5.625 درجة",
-                category: "stepper"
-            },
-            {
-                name: "محرك خطوي NEMA 17",
-                icon: "🏭",
-                description: "محرك خطوي صناعي قوي",
-                specs: "العزم: 4.2kg.cm",
-                category: "stepper"
             },
             {
                 name: "محرك براشلس A2212",
-                icon: "✈",
-                description: "محرك براشلس للطائرات بدون طيار",
-                specs: "السرعة: 1000KV",
+                icon: "🚁",
+                description: "للطائرات بدون طيار",
+                specs: "KV: 1000, الجهد: 2-3S",
                 category: "brushless"
             },
             {
-                name: "محرك اهتزاز",
+                name: "محرك خطي actuator",
+                icon: "↔️",
+                description: "محرك خطي كهربائي",
+                specs: "الطول: 100mm, القوة: 500N",
+                category: "linear"
+            },
+            {
+                name: "محرك Vibration",
                 icon: "📳",
-                description: "محرك صغير يولد اهتزازات",
-                specs: "الجهد: 3V",
+                description: "محرك اهتزاز للهواتف",
+                specs: "الجهد: 3V, صغير الحجم",
                 category: "special"
             },
             {
-                name: "محرك خطوي ثنائي المحور",
-                icon: "🎮",
-                description: "محرك للتحكم في موقعين مختلفين",
-                specs: "المحاور: 2",
-                category: "special"
-            },
-            {
-                name: "محرك DC مع علبة تروس",
-                icon: "⚙",
-                description: "محرك DC مع علبة تروس لزيادة العزم",
-                specs: "نسبة التروس: 1:48",
+                name: "محرك DC 12V high torque",
+                icon: "⚙️",
+                description: "عزم عالي للآلات",
+                specs: "العزم: 5kg.cm, 12V",
                 category: "dc"
+            },
+            {
+                name: "محرك stepper 28BYJ-48",
+                icon: "🔄",
+                description: "محرك خطوي اقتصادي",
+                specs: "الخطوة: 5.625° , 5V",
+                category: "stepper"
+            },
+            {
+                name: "محرك سيرفو MG996R",
+                icon: "🤖",
+                description: "سيرفو عالي العزم",
+                specs: "العزم: 11kg.cm, metal gear",
+                category: "servo"
+            },
+            {
+                name: "محرك براشلس BLDC 2212",
+                icon: "🚁",
+                description: "للدروون",
+                specs: "KV: 920, 3-4S",
+                category: "brushless"
+            },
+            {
+                name: "محرك solenoid",
+                icon: "🔩",
+                description: "محرك كهرومغناطيسي",
+                specs: "القوة: 10N, 12V",
+                category: "linear"
+            },
+            {
+                name: "محرك piezo",
+                icon: "📳",
+                description: "محرك piezoelectric",
+                specs: "دقيق للاهتزازات",
+                category: "special"
+            },
+            {
+                name: "محرك DC TT gear",
+                icon: "⚙️",
+                description: "للسيارات الروبوتية",
+                specs: "6V, 200RPM",
+                category: "dc"
+            },
+            {
+                name: "محرك stepper A4988 driver",
+                icon: "🔄",
+                description: "مع سائق A4988",
+                specs: "التيار: 2A",
+                category: "stepper"
+            },
+            {
+                name: "محرك سيرفو continuous",
+                icon: "🤖",
+                description: "دوران مستمر",
+                specs: "360° , 6V",
+                category: "servo"
+            },
+            {
+                name: "محرك براشلس ESC 30A",
+                icon: "🚁",
+                description: "مع ESC controller",
+                specs: "BEC: 5V/3A",
+                category: "brushless"
+            },
+            {
+                name: "محرك linear stepper",
+                icon: "↔️",
+                description: "محرك خطي خطوي",
+                specs: "الطول: 200mm",
+                category: "linear"
+            },
+            {
+                name: "محرك haptic feedback",
+                icon: "📳",
+                description: "للألعاب",
+                specs: "3V, linear resonant",
+                category: "special"
+            },
+            {
+                name: "محرك DC 3V micro",
+                icon: "⚙️",
+                description: "محرك صغير للألعاب",
+                specs: "10000RPM",
+                category: "dc"
+            },
+            {
+                name: "محرك stepper NEMA 23",
+                icon: "🔄",
+                description: "عزم عالي",
+                specs: "3Nm, 3A",
+                category: "stepper"
             },
             {
                 name: "محرك سيرفو DS3218",
-                icon: "🔧",
-                description: "محرك سيرفو قوي للروبوتات",
-                specs: "العزم: 20kg.cm",
+                icon: "🤖",
+                description: "سيرفو مقاوم للماء",
+                specs: "20kg.cm, 270°",
                 category: "servo"
             },
             {
-                name: "محرك خطوي NEMA 23",
-                icon: "🏭",
-                description: "محرك خطوي صناعي كبير",
-                specs: "العزم: 18kg.cm",
-                category: "stepper"
-            },
-            {
-                name: "محرك براشلس 2205",
-                icon: "✈",
-                description: "محرك براشلس عالي الأداء",
-                specs: "السرعة: 2300KV",
+                name: "محرك براشلس 5010",
+                icon: "🚁",
+                description: "للروبوتات الكبيرة",
+                specs: "KV: 360, 6S",
                 category: "brushless"
             },
             {
-                name: "محرك خطي",
-                icon: "📏",
-                description: "محرك للحركة الخطية المستقيمة",
-                specs: "طول الشوط: 100mm",
+                name: "محرك pneumatic actuator",
+                icon: "↔️",
+                description: "محرك هوائي",
+                specs: "الضغط: 8bar",
                 category: "linear"
             },
             {
-                name: "محرك اهتزاز قوي",
+                name: "محرك voice coil",
                 icon: "📳",
-                description: "محرك اهتزاز بقوة عالية",
-                specs: "الجهد: 12V",
+                description: "محرك صوتي",
+                specs: "دقيق للصوت",
                 category: "special"
             },
             {
-                name: "محرك DC مصغر",
-                icon: "🔍",
-                description: "محرك DC صغير الحجم للمشاريع الدقيقة",
-                specs: "الجهد: 1.5-3V, السرعة: 5000RPM",
+                name: "محرك DC planetary gear",
+                icon: "⚙️",
+                description: "علبة تروس كوكبية",
+                specs: "عزم: 10kg.cm",
                 category: "dc"
             },
             {
-                name: "محرك DC بعلبة تروس TT",
-                icon: "⚙",
-                description: "محرك DC مع علبة تروس لزيادة العزم",
-                specs: "الجهد: 3-6V, السرعة: 200RPM",
-                category: "dc"
-            },
-            {
-                name: "محرك DC بعلبة تروس N20",
-                icon: "🔧",
-                description: "محرك DC صغير مع علبة تروس معدنية",
-                specs: "الجهد: 6-12V, السرعة: 100-300RPM",
-                category: "dc"
-            },
-            {
-                name: "محرك DC بدون فرش Coreless",
-                icon: "🌀",
-                description: "محرك DC عالي الكفاءة بدون فرش",
-                specs: "الجهد: 3.7V, السرعة: 55000RPM",
-                category: "dc"
-            },
-            {
-                name: "محرك سيرفو MG90S",
-                icon: "🎯",
-                description: "محرك سيرفو معدني للمشاريع المتوسطة",
-                specs: "العزم: 2kg.cm, الجهد: 4.8-6V",
-                category: "servo"
-            },
-            {
-                name: "محرك سيرفو مستمر",
+                name: "محرك stepper hybrid",
                 icon: "🔄",
-                description: "محرك سيرفو للحركة المستمرة",
-                specs: "السرعة: 60RPM, الجهد: 4.8-6V",
-                category: "servo"
+                description: "هجين عالي الدقة",
+                specs: "0.9° step",
+                category: "stepper"
             },
             {
-                name: "محرك سيرفو رقمي",
-                icon: "🔢",
-                description: "محرك سيرفو بدقة تحكم عالية",
-                specs: "الدقة: 0.5 درجة, الجهد: 4.8-7.4V",
-                category: "servo"
-            },
-            {
-                name: "محرك سيرفو مقاوم للماء",
-                icon: "💧",
-                description: "محرك سيرفو للاستخدام في البيئات الرطبة",
-                specs: "العزم: 15kg.cm, مقاوم للماء",
-                category: "servo"
-            },
-            {
-                name: "محرك سيرفو روبوتي",
+                name: "محرك سيرفو digital",
                 icon: "🤖",
-                description: "محرك سيرفو مخصص للروبوتات",
-                specs: "العزم: 20kg.cm, الجهد: 6-8.4V",
+                description: "سيرفو رقمي",
+                specs: "high speed",
                 category: "servo"
             },
             {
-                name: "محرك خطوي NEMA 14",
-                icon: "🏭",
-                description: "محرك خطوي بحجم متوسط",
-                specs: "العزم: 1.8kg.cm, التيار: 1A",
-                category: "stepper"
-            },
-            {
-                name: "محرك خطوي ثنائي القطب",
-                icon: "🧲",
-                description: "محرك خطوي مع ملفين مستقلين",
-                specs: "زاوية الخطوة: 1.8 درجة",
-                category: "stepper"
-            },
-            {
-                name: "محرك خطوي أحادي القطب",
-                icon: "🔌",
-                description: "محرك خطوي مع مركز مشترك",
-                specs: "زاوية الخطوة: 7.5 درجة",
-                category: "stepper"
-            },
-            {
-                name: "محرك خطوي مصغر",
-                icon: "📏",
-                description: "محرك خطوي صغير الحجم",
-                specs: "الحجم: 20x20mm, التيار: 0.3A",
-                category: "stepper"
-            },
-            {
-                name: "محرك خطوي مع مشفر",
-                icon: "🎯",
-                description: "محرك خطوي مع مشفر للتحكم الدقيق",
-                specs: "الدقة: 1000 نبضة/دورة",
-                category: "stepper"
-            },
-            {
-                name: "محرك خطي",
-                icon: "📏",
-                description: "محرك للحركة الخطية المستقيمة",
-                specs: "طول الشوط: 50-200mm, السرعة: 10mm/s",
-                category: "linear"
-            },
-            {
-                name: "محرك براشلس 2207",
-                icon: "✈",
-                description: "محرك براشلس عالي الأداء للطائرات",
-                specs: "السرعة: 2400KV, التيار: 35A",
+                name: "محرك براشلس inrunner",
+                icon: "🚁",
+                description: "داخلي الدوران",
+                specs: "KV: 4000",
                 category: "brushless"
             },
             {
-                name: "هيكل روبوت",
+                name: "محرك hydraulic actuator",
+                icon: "↔️",
+                description: "محرك هيدروليكي",
+                specs: "قوة عالية",
+                category: "linear"
+            },
+            {
+                name: "محرك stepper linear",
+                icon: "🔄",
+                description: "خطوي خطي",
+                specs: "lead screw",
+                category: "stepper"
+            },
+            {
+                name: "محرك DC brushless mini",
+                icon: "⚙️",
+                description: "ميني براشلس",
+                specs: "3V, high RPM",
+                category: "brushless"
+            },
+            {
+                name: "محرك servo large",
                 icon: "🤖",
-                description: "هيكل روبوت كامل مع محركات",
-                specs: "الحجم: 15x10cm, 2-4 محركات",
+                description: "سيرفو كبير",
+                specs: "50kg.cm",
+                category: "servo"
+            },
+            {
+                name: "محرك special ultrasonic",
+                icon: "📳",
+                description: "محرك فوق صوتي",
+                specs: "للتنظيف",
                 category: "special"
             },
             {
-                name: "محرك سيارة",
-                icon: "🚗",
-                description: "محرك مخصص للسيارات الآلية",
-                specs: "الجهد: 3-6V, السرعة: 150RPM",
-                category: "special"
-            },
-            {
-                name: "محرك طائرة بدون طيار",
-                icon: "🛩",
-                description: "محرك براشلس للدرونز",
-                specs: "السرعة: 1800KV, التيار: 20A",
-                category: "special"
-            },
-            {
-                name: "مجموعة محركات مع سواقات",
-                icon: "🔧",
-                description: "مجموعة متكاملة من المحركات والسوقات",
-                specs: "تشمل: محركات، سواقات، كابلات",
-                category: "special"
+                name: "محرك DC 24V industrial",
+                icon: "⚙️",
+                description: "صناعي",
+                specs: "high power",
+                category: "dc"
             }
         ];
 
-        // بيانات الموديولات الموسعة مع جميع العناصر الجديدة
+        // بيانات الموديولات الكاملة (50 عنصر)
         const modulesData = [
             {
                 name: "موديول Relay 5V",
@@ -2503,17 +2751,17 @@
                 category: "communication"
             },
             {
-                name: "شاشة LCD 16x2",
+                name: "شاشة LCD 16x2 مع I2C",
                 icon: "🎛",
-                description: "شاشة LCD لعرض النصوص",
-                specs: "16 حرف × 2 سطر, إضاءة خلفية",
+                description: "شاشة LCD مع محول I2C",
+                specs: "16 حرف × 2 سطر, واجهة I2C",
                 category: "display"
             },
             {
-                name: "شاشة TFT",
+                name: "شاشة TFT 2.4 بوصة",
                 icon: "📺",
-                description: "شاشة ملونة عالية الدقة",
-                specs: "المقاس: 1.8-3.5 بوصة, دقة: 128x160",
+                description: "شاشة ملونة تعمل باللمس",
+                specs: "المقاس: 2.4 بوصة, دقة: 240x320",
                 category: "display"
             },
             {
@@ -2531,31 +2779,31 @@
                 category: "sensor"
             },
             {
-                name: "موديول شريط LED",
+                name: "موديول شريط LED RGB",
                 icon: "💡",
-                description: "تحكم في أشرطة LED",
-                specs: "الجهد: 5V/12V, دعم RGB",
+                description: "تحكم في أشرطة LED RGB",
+                specs: "الجهد: 5V, دعم WS2812B",
                 category: "power"
             },
             {
-                name: "موديول طاقة",
+                name: "موديول طاقة متعدد المنافذ",
                 icon: "🔌",
                 description: "توزيع وإدارة الطاقة",
-                specs: "مداخل: USB, DC, مخارج: 3.3V/5V",
+                specs: "مداخل: USB, DC, مخارج: 3.3V/5V/12V",
                 category: "power"
             },
             {
-                name: "محول خافض للجهد",
+                name: "محول خافض للجهد DC-DC",
                 icon: "⚡",
                 description: "خفض الجهد الكهربائي",
-                specs: "المدى: 4-38V إلى 1.25-36V",
+                specs: "المدى: 4-38V إلى 1.25-36V, التيار: 3A",
                 category: "power"
             },
             {
-                name: "موديول شحن",
+                name: "موديول شحن Li-Po",
                 icon: "🔋",
-                description: "شحن البطاريات والتحكم فيها",
-                specs: "يدعم: Li-ion, Li-Po, الجهد: 5V",
+                description: "شحن بطاريات Li-Po",
+                specs: "يدعم: Li-Po, Li-ion, تيار: 1A",
                 category: "power"
             },
             {
@@ -2566,7 +2814,7 @@
                 category: "motor"
             },
             {
-                name: "موديول كاميرا",
+                name: "موديول كاميرا OV2640",
                 icon: "📷",
                 description: "كاميرا للتصوير والتسجيل",
                 specs: "الدقة: 2MP, دعم بث فيديو",
@@ -2580,10 +2828,10 @@
                 category: "sensor"
             },
             {
-                name: "مضخم صوت",
+                name: "مضخم صوت PAM8403",
                 icon: "🔊",
                 description: "تضخيم الإشارات الصوتية",
-                specs: "الطاقة: 3W, الجهد: 3-5V",
+                specs: "الطاقة: 3W×2, الجهد: 3-5V",
                 category: "sensor"
             },
             {
@@ -2594,10 +2842,10 @@
                 category: "storage"
             },
             {
-                name: "موديول كارت SD",
+                name: "موديول كارت SD مع SPI",
                 icon: "💾",
                 description: "قراءة وكتابة كروت الذاكرة",
-                specs: "يدعم حتى 32GB, الجهد: 3.3V/5V",
+                specs: "يدعم حتى 32GB, واجهة SPI",
                 category: "storage"
             },
             {
@@ -2606,191 +2854,856 @@
                 description: "مقاومة متغيرة للتحكم",
                 specs: "المقاومة: 10KΩ, المحاور: 1",
                 category: "sensor"
+            },
+            {
+                name: "موديول WiFi ESP8266",
+                icon: "📡",
+                description: "اتصال WiFi بسيط",
+                specs: "802.11 b/g/n, 80MHz",
+                category: "communication"
+            },
+            {
+                name: "موديول LoRa SX1278",
+                icon: "📡",
+                description: "اتصال بعيد المدى",
+                specs: "868MHz, 20km",
+                category: "communication"
+            },
+            {
+                name: "موديول MPU9250",
+                icon: "🏎️",
+                description: "9 محاور IMU",
+                specs: "accel + gyro + mag",
+                category: "sensor"
+            },
+            {
+                name: "موديول FM radio TEA5767",
+                icon: "📻",
+                description: "راديو FM",
+                specs: "76-108MHz, I2C",
+                category: "communication"
+            },
+            {
+                name: "موديول DAC MCP4725",
+                icon: "🔊",
+                description: "محول رقمي إلى أنالوج",
+                specs: "12-bit, I2C",
+                category: "power"
+            },
+            {
+                name: "موديول ADC ADS1115",
+                icon: "📈",
+                description: "محول أنالوج إلى رقمي",
+                specs: "16-bit, 4 channels",
+                category: "sensor"
+            },
+            {
+                name: "موديول stepper driver A4988",
+                icon: "🔄",
+                description: "سائق محرك خطوي",
+                specs: "2A, microstepping",
+                category: "motor"
+            },
+            {
+                name: "موديول L298N",
+                icon: "🌀",
+                description: "سائق محركات DC",
+                specs: "2A per channel, H-bridge",
+                category: "motor"
+            },
+            {
+                name: "موديول solar charger",
+                icon: "☀️",
+                description: "شاحن شمسي",
+                specs: "MPPT, 5V output",
+                category: "power"
+            },
+            {
+                name: "موديول temperature NTC",
+                icon: "🌡️",
+                description: "حساس حرارة NTC",
+                specs: "10K, analog",
+                category: "sensor"
+            },
+            {
+                name: "موديول humidity capacitive",
+                icon: "💧",
+                description: "حساس رطوبة capacitive",
+                specs: "accurate, digital",
+                category: "sensor"
             }
         ];
 
-        // بيانات المشاريع الموسعة
+        // بيانات المشاريع
         const projectsData = [
-            {
-                title: "نظام إنذار بالحركة",
-                icon: "🚨",
-                description: "بناء نظام إنذار باستخدام حساس PIR وصفارة إنذار",
-                difficulty: "مبتدئ",
-                components: ["PIR Sensor", "Buzzer", "Arduino UNO"],
-                time: "2 ساعة",
-                category: "security"
-            },
-            {
-                title: "روبوت متتبع الخط",
-                icon: "🤖",
-                description: "تصميم روبوت يتبع الخطوط باستخدام حساسات IR",
-                difficulty: "متوسط",
-                components: ["IR Sensors", "DC Motors", "Motor Driver"],
-                time: "4 ساعات",
-                category: "robotics"
-            },
-            {
-                title: "طقس محطة أرصاد جوية",
-                icon: "🌤",
-                description: "بناء محطة أرصاد جوية كاملة مع شاشة عرض",
-                difficulty: "متقدم",
-                components: ["DHT22", "BME280", "OLED Display"],
-                time: "6 ساعات",
-                category: "iot"
-            },
-            {
-                title: "نظام ري آلي",
-                icon: "💧",
-                description: "نظام ري أوتوماتيكي للنباتات باستخدام حساس رطوبة",
-                difficulty: "متوسط",
-                components: ["Soil Sensor", "Water Pump", "Relay Module"],
-                time: "3 ساعات",
-                category: "automation"
-            },
-            {
-                title: "سيارة تحكم عن بعد",
-                icon: "🚗",
-                description: "سيارة Arduino يتم التحكم فيها عبر Bluetooth",
-                difficulty: "متقدم",
-                components: ["Arduino UNO", "Bluetooth", "DC Motors"],
-                time: "5 ساعات",
-                category: "robotics"
-            },
-            {
-                title: "منزل ذكي",
-                icon: "🏠",
-                description: "نظام تحكم منزلي ذكي مع تطبيق هاتف",
-                difficulty: "متقدم",
-                components: ["ESP32", "Relays", "Sensors"],
-                time: "8 ساعات",
-                category: "home"
-            },
-            {
-                title: "نظام مراقبة بالكاميرا",
-                icon: "📷",
-                description: "نظام مراقبة مع كاميرا وحركة تلقائية",
-                difficulty: "متقدم",
-                components: ["ESP32-CAM", "PIR Sensor", "SD Card"],
-                time: "6 ساعات",
-                category: "security"
-            },
-            {
-                title: "روبوت ذراع",
-                icon: "🦾",
-                description: "ذراع روبوتي للتحكم في الأشياء",
-                difficulty: "متوسط",
-                components: ["Servo Motors", "Arduino", "Joystick"],
-                time: "5 ساعات",
-                category: "robotics"
-            },
-            {
-                title: "عداد منتجات",
-                icon: "📊",
-                description: "نظام عد المنتجات على السير الناقل",
-                difficulty: "متوسط",
-                components: ["IR Sensor", "LCD Display", "Counter"],
-                time: "3 ساعات",
-                category: "automation"
-            },
-            {
-                title: "نظام إنذار حريق",
-                icon: "🔥",
-                description: "كشف الحرائق وإنذار تلقائي",
-                difficulty: "مبتدئ",
-                components: ["Flame Sensor", "Buzzer", "LED"],
-                time: "2 ساعة",
-                category: "security"
-            },
-            {
-                title: "مقياس المسافة الرقمي",
-                icon: "📏",
-                description: "قياس المسافات وعرضها رقمياً",
-                difficulty: "مبتدئ",
-                components: ["Ultrasonic Sensor", "LCD", "Arduino"],
-                time: "2 ساعة",
-                category: "education"
-            },
-            {
-                title: "نظام ريّ ذكي",
-                icon: "🌱",
-                description: "نظام ري يعمل بالطاقة الشمسية",
-                difficulty: "متوسط",
-                components: ["Solar Panel", "Soil Sensor", "Water Pump"],
-                time: "4 ساعات",
-                category: "iot"
-            },
-            {
-                title: "مشغل موسيقى",
-                icon: "🎵",
-                description: "مشغل موسيقى مع تحكم بالأزرار",
-                difficulty: "متوسط",
-                components: ["DFPlayer", "Speaker", "Buttons"],
-                time: "3 ساعات",
-                category: "education"
-            },
-            {
-                title: "نظام إنارة تلقائي",
-                icon: "💡",
-                description: "تشغيل وإطفاء الأنوار تلقائياً",
-                difficulty: "مبتدئ",
-                components: ["LDR Sensor", "Relay", "LED Strip"],
-                time: "2 ساعة",
-                category: "home"
-            },
-            {
-                title: "طابعة 3D مصغرة",
-                icon: "🖨",
-                description: "بناء طابعة 3D صغيرة الحجم",
-                difficulty: "متقدم",
-                components: ["Stepper Motors", "Arduino", "Hotend"],
-                time: "10 ساعات",
-                category: "robotics"
-            },
-            {
-                title: "نظام تحكم بالصوت",
-                icon: "🎤",
-                description: "التحكم في الأجهزة باستخدام الأوامر الصوتية",
-                difficulty: "متقدم",
-                components: ["Microphone", "Arduino", "Relays"],
-                time: "6 ساعات",
-                category: "home"
-            },
-            {
-                title: "مركبة استكشاف",
-                icon: "🌍",
-                description: "مركبة استكشافية للبيئات الصعبة",
-                difficulty: "متقدم",
-                components: ["ESP32-CAM", "Motors", "Sensors"],
-                time: "8 ساعات",
-                category: "robotics"
-            },
-            {
-                title: "نظام تتبع المركبات",
-                icon: "🚚",
-                description: "تتبع المركبات باستخدام GPS",
-                difficulty: "متوسط",
-                components: ["GPS Module", "GSM Module", "Arduino"],
-                time: "5 ساعات",
-                category: "iot"
-            },
-            {
-                title: "محطة طقس محمولة",
-                icon: "🌦",
-                description: "محطة طقس محمولة مع شاشة عرض",
-                difficulty: "متوسط",
-                components: ["BME280", "OLED", "Battery"],
-                time: "4 ساعات",
-                category: "education"
-            },
-            {
-                title: "نظام أمان للمنزل",
-                icon: "🔒",
-                description: "نظام أمان متكامل للمنزل",
-                difficulty: "متقدم",
-                components: ["PIR", "Magnetic Sensor", "Siren"],
-                time: "7 ساعات",
-                category: "security"
-            }
+
+    {
+        title: "نظام إنذار بالحركة",
+        icon: "🚨",
+        description: "بناء نظام إنذار باستخدام حساس PIR وصفارة إنذار",
+        difficulty: "مبتدئ",
+        components: ["PIR Sensor", "Buzzer", "Arduino UNO"],
+        time: "2 ساعة",
+        category: "security"
+    },
+    {
+        title: "روبوت متتبع الخط",
+        icon: "🤖",
+        description: "تصميم روبوت يتبع الخطوط باستخدام حساسات IR",
+        difficulty: "متوسط",
+        components: ["IR Sensors", "DC Motors", "Motor Driver"],
+        time: "4 ساعات",
+        category: "robotics"
+    },
+    {
+        title: "طقس محطة أرصاد جوية",
+        icon: "🌤",
+        description: "بناء محطة أرصاد جوية كاملة مع شاشة عرض",
+        difficulty: "متقدم",
+        components: ["DHT22", "BME280", "OLED Display"],
+        time: "6 ساعات",
+        category: "iot"
+    },
+    {
+        title: "نظام ري آلي",
+        icon: "💧",
+        description: "نظام ري أوتوماتيكي للنباتات باستخدام حساس رطوبة",
+        difficulty: "متوسط",
+        components: ["Soil Sensor", "Water Pump", "Relay Module"],
+        time: "3 ساعات",
+        category: "automation"
+    },
+    {
+        title: "سيارة تحكم عن بعد",
+        icon: "🚗",
+        description: "سيارة Arduino يتم التحكم فيها عبر Bluetooth",
+        difficulty: "متقدم",
+        components: ["Arduino UNO", "Bluetooth", "DC Motors"],
+        time: "5 ساعات",
+        category: "robotics"
+    },
+    {
+        title: "منزل ذكي",
+        icon: "🏠",
+        description: "نظام تحكم منزلي ذكي مع تطبيق هاتف",
+        difficulty: "متقدم",
+        components: ["ESP32", "Relays", "Sensors"],
+        time: "8 ساعات",
+        category: "home"
+    },
+    {
+        title: "نظام مراقبة بالكاميرا",
+        icon: "📷",
+        description: "نظام مراقبة مع كاميرا وحركة تلقائية",
+        difficulty: "متقدم",
+        components: ["ESP32-CAM", "PIR Sensor", "SD Card"],
+        time: "6 ساعات",
+        category: "security"
+    },
+    {
+        title: "روبوت ذراع",
+        icon: "🦾",
+        description: "ذراع روبوتي للتحكم في الأشياء",
+        difficulty: "متوسط",
+        components: ["Servo Motors", "Arduino", "Joystick"],
+        time: "5 ساعات",
+        category: "robotics"
+    },
+    {
+        title: "عداد منتجات",
+        icon: "📊",
+        description: "نظام عد المنتجات على السير الناقل",
+        difficulty: "متوسط",
+        components: ["IR Sensor", "LCD Display", "Counter"],
+        time: "3 ساعات",
+        category: "automation"
+    },
+    {
+        title: "نظام إنذار حريق",
+        icon: "🔥",
+        description: "كشف الحرائق وإنذار تلقائي",
+        difficulty: "مبتدئ",
+        components: ["Flame Sensor", "Buzzer", "LED"],
+        time: "2 ساعة",
+        category: "security"
+    },
+    {
+        title: "مقياس المسافة الرقمي",
+        icon: "📏",
+        description: "قياس المسافات وعرضها رقمياً",
+        difficulty: "مبتدئ",
+        components: ["Ultrasonic Sensor", "LCD", "Arduino"],
+        time: "2 ساعة",
+        category: "education"
+    },
+    {
+        title: "نظام ريّ ذكي",
+        icon: "🌱",
+        description: "نظام ري يعمل بالطاقة الشمسية",
+        difficulty: "متوسط",
+        components: ["Solar Panel", "Soil Sensor", "Water Pump"],
+        time: "4 ساعات",
+        category: "iot"
+    },
+    {
+        title: "مشغل موسيقى",
+        icon: "🎵",
+        description: "مشغل موسيقى مع تحكم بالأزرار",
+        difficulty: "متوسط",
+        components: ["DFPlayer", "Speaker", "Buttons"],
+        time: "3 ساعات",
+        category: "education"
+    },
+    {
+        title: "نظام إنارة تلقائي",
+        icon: "💡",
+        description: "تشغيل وإطفاء الأنوار تلقائياً",
+        difficulty: "مبتدئ",
+        components: ["LDR Sensor", "Relay", "LED Strip"],
+        time: "2 ساعة",
+        category: "home"
+    },
+    {
+        title: "طابعة 3D مصغرة",
+        icon: "🖨",
+        description: "بناء طابعة 3D صغيرة الحجم",
+        difficulty: "متقدم",
+        components: ["Stepper Motors", "Arduino", "Hotend"],
+        time: "10 ساعات",
+        category: "robotics"
+    },
+    {
+        title: "نظام تحكم بالصوت",
+        icon: "🎤",
+        description: "التحكم في الأجهزة باستخدام الأوامر الصوتية",
+        difficulty: "متقدم",
+        components: ["Microphone", "Arduino", "Relays"],
+        time: "6 ساعات",
+        category: "home"
+    },
+    {
+        title: "مركبة استكشاف",
+        icon: "🌍",
+        description: "مركبة استكشافية للبيئات الصعبة",
+        difficulty: "متقدم",
+        components: ["ESP32-CAM", "Motors", "Sensors"],
+        time: "8 ساعات",
+        category: "robotics"
+    },
+    {
+        title: "نظام تتبع المركبات",
+        icon: "🚚",
+        description: "تتبع المركبات باستخدام GPS",
+        difficulty: "متوسط",
+        components: ["GPS Module", "GSM Module", "Arduino"],
+        time: "5 ساعات",
+        category: "iot"
+    },
+    {
+        title: "محطة طقس محمولة",
+        icon: "🌦",
+        description: "محطة طقس محمولة مع شاشة عرض",
+        difficulty: "متوسط",
+        components: ["BME280", "OLED", "Battery"],
+        time: "4 ساعات",
+        category: "education"
+    },
+    {
+        title: "نظام أمان للمنزل",
+        icon: "🔒",
+        description: "نظام أمان متكامل للمنزل",
+        difficulty: "متقدم",
+        components: ["PIR", "Magnetic Sensor", "Siren"],
+        time: "7 ساعات",
+        category: "security"
+    },
+    // إضافات جديدة للوصول لـ 80 مشروع
+    {
+        title: "مشغل ألعاب Arcade",
+        icon: "🎮",
+        description: "بناء جهاز ألعاب كلاسيكي باستخدام Raspberry Pi",
+        difficulty: "متوسط",
+        components: ["Raspberry Pi", "Joystick", "Buttons", "Screen"],
+        time: "6 ساعات",
+        category: "education"
+    },
+    {
+        title: "روبوت تنظيف",
+        icon: "🧹",
+        description: "روبوت تنظيف أرضي ذكي",
+        difficulty: "متقدم",
+        components: ["Arduino", "Ultrasonic Sensors", "Brushes", "Motors"],
+        time: "8 ساعات",
+        category: "robotics"
+    },
+    {
+        title: "حاضنة بيض ذكية",
+        icon: "🥚",
+        description: "نظام تحكم في درجة الحرارة والرطوبة للحضانة",
+        difficulty: "متوسط",
+        components: ["DHT22", "Heater", "Humidifier", "Arduino"],
+        time: "5 ساعات",
+        category: "iot"
+    },
+    {
+        title: "نظام إضاءة ذكي RGB",
+        icon: "🌈",
+        description: "إضاءة LED ذكية مع تحكم بالألوان",
+        difficulty: "متوسط",
+        components: ["ESP32", "LED Strip", "App Control"],
+        time: "4 ساعات",
+        category: "home"
+    },
+    {
+        title: "مقياس سرعة الرياح",
+        icon: "💨",
+        description: "قياس سرعة الرياح وعرض البيانات",
+        difficulty: "متوسط",
+        components: ["Anemometer", "Arduino", "LCD Display"],
+        time: "3 ساعات",
+        category: "education"
+    },
+    {
+        title: "نظام ري بالتنقيط",
+        icon: "💧",
+        description: "نظام ري متقدم للزراعة الدقيقة",
+        difficulty: "متقدم",
+        components: ["Soil Sensors", "Solenoid Valves", "Arduino", "Pump"],
+        time: "6 ساعات",
+        category: "automation"
+    },
+    {
+        title: "روبوت مساعد",
+        icon: "🤝",
+        description: "روبوت متنقل يحمل الأشياء",
+        difficulty: "متوسط",
+        components: ["Arduino", "Servo Motors", "Ultrasonic Sensor", "Gripper"],
+        time: "7 ساعات",
+        category: "robotics"
+    },
+    {
+        title: "نظام إنذار تسرب الغاز",
+        icon: "⚠️",
+        description: "كشف تسرب الغاز وإنذار فوري",
+        difficulty: "مبتدئ",
+        components: ["MQ-2 Sensor", "Buzzer", "Arduino"],
+        time: "2 ساعة",
+        category: "security"
+    },
+    {
+        title: "ساعة ذكية",
+        icon: "⌚",
+        description: "بناء ساعة ذكية بسيطة",
+        difficulty: "متوسط",
+        components: ["OLED Display", "RTC Module", "Arduino", "Battery"],
+        time: "4 ساعات",
+        category: "iot"
+    },
+    {
+        title: "نظام ري بالتنبؤ الجوي",
+        icon: "🌦",
+        description: "نظام ري يتنبأ بالأمطار",
+        difficulty: "متقدم",
+        components: ["Weather API", "ESP32", "Water Valve", "Soil Sensor"],
+        time: "8 ساعات",
+        category: "automation"
+    },
+    {
+        title: "مستشعر جودة الهواء",
+        icon: "🌫",
+        description: "قياس جودة الهواء وعرض النتائج",
+        difficulty: "متوسط",
+        components: ["MQ-135", "OLED Display", "Arduino"],
+        time: "3 ساعات",
+        category: "iot"
+    },
+    {
+        title: "نظام تتبع الحيوانات الأليفة",
+        icon: "🐕",
+        description: "تتبع موقع الحيوانات الأليفة",
+        difficulty: "متوسط",
+        components: ["GPS Module", "GSM Module", "Arduino"],
+        time: "5 ساعات",
+        category: "iot"
+    },
+    {
+        title: "مصعد مصغر",
+        icon: "🛗",
+        description: "نظام مصعد آلي مصغر",
+        difficulty: "متوسط",
+        components: ["Stepper Motor", "Arduino", "Buttons", "Sensors"],
+        time: "6 ساعات",
+        category: "automation"
+    },
+    {
+        title: "نظام إنذار الفيضان",
+        icon: "🌊",
+        description: "كشف ارتفاع منسوب المياه",
+        difficulty: "مبتدئ",
+        components: ["Water Level Sensor", "Buzzer", "Arduino"],
+        time: "2 ساعة",
+        category: "security"
+    },
+    {
+        title: "طائرة بدون طيار مصغرة",
+        icon: "🚁",
+        description: "بناء درون صغير",
+        difficulty: "متقدم",
+        components: ["Brushless Motors", "Flight Controller", "Arduino", "Battery"],
+        time: "10 ساعات",
+        category: "robotics"
+    },
+    {
+        title: "نظام تتبع الشمس",
+        icon: "☀️",
+        description: "نظام يتبع حركة الشمس للألواح الشمسية",
+        difficulty: "متقدم",
+        components: ["LDR Sensors", "Servo Motors", "Arduino"],
+        time: "6 ساعات",
+        category: "automation"
+    },
+    {
+        title: "مقياس نبض القلب",
+        icon: "❤️",
+        description: "قياس نبض القلب وعرض النتائج",
+        difficulty: "متوسط",
+        components: ["Pulse Sensor", "OLED Display", "Arduino"],
+        time: "4 ساعات",
+        category: "education"
+    },
+    {
+        title: "نظام إطفاء حريق آلي",
+        icon: "🧯",
+        description: "كشف وإطفاء الحرائق تلقائياً",
+        difficulty: "متوسط",
+        components: ["Flame Sensor", "Water Pump", "Servo Motor", "Arduino"],
+        time: "5 ساعات",
+        category: "security"
+    },
+    {
+        title: "روبوت سباحة",
+        icon: "🏊",
+        description: "روبوت يسبح تحت الماء",
+        difficulty: "متقدم",
+        components: ["Waterproof Motors", "Arduino", "Waterproof Case", "Propellers"],
+        time: "9 ساعات",
+        category: "robotics"
+    },
+    {
+        title: "نظام تحكم بالإيماءات",
+        icon: "👋",
+        description: "التحكم في الأجهزة بحركات اليد",
+        difficulty: "متقدم",
+        components: ["MPU6050", "Arduino", "Relay Module"],
+        time: "7 ساعات",
+        category: "home"
+    },
+    {
+        title: "نظام مراقبة الأسماك",
+        icon: "🐠",
+        description: "مراقبة جودة ماء أحواض الأسماك",
+        difficulty: "متوسط",
+        components: ["pH Sensor", "Temperature Sensor", "Arduino", "Display"],
+        time: "5 ساعات",
+        category: "iot"
+    },
+    {
+        title: "نظام أتمتة مكتبي",
+        icon: "💼",
+        description: "أتمتة مهام المكتب الذكي",
+        difficulty: "متوسط",
+        components: ["ESP32", "Servo Motors", "Sensors", "App Control"],
+        time: "6 ساعات",
+        category: "automation"
+    },
+    {
+        title: "روبوت مكافحة الحرائق",
+        icon: "🔥",
+        description: "روبوت مخصص لمكافحة الحرائق",
+        difficulty: "متقدم",
+        components: ["Flame Sensors", "Water Pump", "Motors", "Arduino"],
+        time: "8 ساعات",
+        category: "robotics"
+    },
+    {
+        title: "نظام إنذار الزلازل",
+        icon: "🌍",
+        description: "كشف الهزات الأرضية",
+        difficulty: "متوسط",
+        components: ["Vibration Sensor", "Buzzer", "Arduino", "LED"],
+        time: "3 ساعات",
+        category: "security"
+    },
+    {
+        title: "مزرعة هيدروبونيك",
+        icon: "🌿",
+        description: "نظام زراعة بدون تربة",
+        difficulty: "متقدم",
+        components: ["pH Sensor", "Water Pump", "Arduino", "Sensors"],
+        time: "7 ساعات",
+        category: "iot"
+    },
+    {
+        title: "نظام تتبع الحافلات",
+        icon: "🚌",
+        description: "تتبع مواقع الحافلات",
+        difficulty: "متوسط",
+        components: ["GPS Module", "GSM Module", "Arduino", "Battery"],
+        time: "5 ساعات",
+        category: "iot"
+    },
+    {
+        title: "روبوت سباق",
+        icon: "🏎️",
+        description: "روبوت سباق سريع",
+        difficulty: "متوسط",
+        components: ["DC Motors", "Arduino", "IR Sensors", "Battery"],
+        time: "4 ساعات",
+        category: "robotics"
+    },
+    {
+        title: "نظام إضاءة طوارئ",
+        icon: "🔦",
+        description: "إضاءة طوارئ تلقائية",
+        difficulty: "مبتدئ",
+        components: ["LDR Sensor", "LED Strip", "Arduino", "Battery"],
+        time: "2 ساعة",
+        category: "home"
+    },
+    {
+        title: "مقياس الرطوبة الجوية",
+        icon: "💨",
+        description: "قياس رطوبة الهواء",
+        difficulty: "مبتدئ",
+        components: ["DHT11", "Arduino", "LCD Display"],
+        time: "2 ساعة",
+        category: "education"
+    },
+    {
+        title: "نظام ري بالضباب",
+        icon: "🌫",
+        description: "نظام ري بالضباب للنباتات",
+        difficulty: "متوسط",
+        components: ["Humidity Sensor", "Mist Maker", "Arduino", "Pump"],
+        time: "4 ساعات",
+        category: "automation"
+    },
+    {
+        title: "روبوت توزيع الطعام",
+        icon: "🍽️",
+        description: "روبوت يوزع الطعام تلقائياً",
+        difficulty: "متوسط",
+        components: ["Servo Motors", "Arduino", "IR Sensors", "Conveyor"],
+        time: "6 ساعات",
+        category: "robotics"
+    },
+    {
+        title: "نظام إنذار درجة الحرارة",
+        icon: "🌡",
+        description: "إنذار عند ارتفاع درجة الحرارة",
+        difficulty: "مبتدئ",
+        components: ["LM35 Sensor", "Buzzer", "Arduino"],
+        time: "2 ساعة",
+        category: "security"
+    },
+    {
+        title: "نظام تتبع الأطفال",
+        icon: "👶",
+        description: "تتبع موقع الأطفال",
+        difficulty: "متوسط",
+        components: ["GPS Tracker", "GSM Module", "Arduino"],
+        time: "5 ساعات",
+        category: "security"
+    },
+    {
+        title: "مشغل أضواء عيد الميلاد",
+        icon: "🎄",
+        description: "نظام تحكم في أضواء الزينة",
+        difficulty: "مبتدئ",
+        components: ["Arduino", "LED Strip", "Music Sensor"],
+        time: "3 ساعات",
+        category: "home"
+    },
+    {
+        title: "روبوت تنظيف النوافذ",
+        icon: "🪟",
+        description: "روبوت تنظيف النوافذ الآلي",
+        difficulty: "متقدم",
+        components: ["Vacuum Motors", "Arduino", "Ultrasonic Sensors", "Suction Cups"],
+        time: "9 ساعات",
+        category: "robotics"
+    },
+    {
+        title: "نظام مراقبة الطاقة",
+        icon: "⚡",
+        description: "مراقبة استهلاك الطاقة",
+        difficulty: "متوسط",
+        components: ["Current Sensor", "Arduino", "OLED Display"],
+        time: "4 ساعات",
+        category: "iot"
+    },
+    {
+        title: "نظام ري بالتنقيط الذكي",
+        icon: "💧",
+        description: "نظام ري متطور يحدد احتياجات النبات",
+        difficulty: "متقدم",
+        components: ["Soil Moisture", "Weather API", "ESP32", "Valves"],
+        time: "7 ساعات",
+        category: "automation"
+    },
+    {
+        title: "روبوت حراسة",
+        icon: "👮",
+        description: "روبوت حراسة متنقل",
+        difficulty: "متقدم",
+        components: ["PIR Sensors", "Camera", "ESP32-CAM", "Motors"],
+        time: "8 ساعات",
+        category: "security"
+    },
+    {
+        title: "نظام إنذار الفصل الدراسي",
+        icon: "🏫",
+        description: "نظام إنذار للفصول الدراسية",
+        difficulty: "مبتدئ",
+        components: ["Buttons", "Buzzer", "Arduino", "LED"],
+        time: "2 ساعة",
+        category: "education"
+    },
+    {
+        title: "مزرعة ذكية مصغرة",
+        icon: "🌾",
+        description: "مزرعة صغيرة ذكية متكاملة",
+        difficulty: "متقدم",
+        components: ["Multiple Sensors", "Arduino", "Pumps", "Lights"],
+        time: "10 ساعات",
+        category: "iot"
+    },
+    {
+        title: "نظام تتبع الأمتعة",
+        icon: "🧳",
+        description: "تتبع الأمتعة أثناء السفر",
+        difficulty: "متوسط",
+        components: ["GPS Module", "GSM Module", "Arduino"],
+        time: "5 ساعات",
+        category: "iot"
+    },
+    {
+        title: "روبوت تعليمي",
+        icon: "📚",
+        description: "روبوت لتعليم البرمجة للأطفال",
+        difficulty: "متوسط",
+        components: ["Arduino", "LED Matrix", "Buttons", "Speakers"],
+        time: "6 ساعات",
+        category: "education"
+    },
+    {
+        title: "نظام إضاءة المسرح",
+        icon: "🎭",
+        description: "نظام إضاءة مسرح متحكم فيه",
+        difficulty: "متوسط",
+        components: ["LED Strips", "Arduino", "IR Remote"],
+        time: "5 ساعات",
+        category: "home"
+    },
+    {
+        title: "نظام مراقبة الثلاجة",
+        icon: "❄️",
+        description: "مراقبة درجة حرارة الثلاجة",
+        difficulty: "مبتدئ",
+        components: ["Temperature Sensor", "Arduino", "WiFi Module"],
+        time: "3 ساعات",
+        category: "home"
+    },
+    {
+        title: "روبوت بناء",
+        icon: "🏗️",
+        description: "روبوت يبني هياكل صغيرة",
+        difficulty: "متقدم",
+        components: ["Servo Motors", "Arduino", "Gripper", "Sensors"],
+        time: "9 ساعات",
+        category: "robotics"
+    },
+    {
+        title: "نظام ري بالتنقيط للمزارع",
+        icon: "🌱",
+        description: "نظام ري متكامل للمزارع الكبيرة",
+        difficulty: "متقدم",
+        components: ["Multiple Sensors", "ESP32", "Valves", "Pumps"],
+        time: "8 ساعات",
+        category: "automation"
+    },
+    {
+        title: "نظام إنذار المستودعات",
+        icon: "📦",
+        description: "نظام أمان للمستودعات",
+        difficulty: "متوسط",
+        components: ["PIR Sensors", "Magnetic Sensors", "Arduino", "Siren"],
+        time: "4 ساعات",
+        category: "security"
+    },
+    {
+        title: "مختبر علمي مصغر",
+        icon: "🔬",
+        description: "مجموعة تجارب علمية إلكترونية",
+        difficulty: "متوسط",
+        components: ["Multiple Sensors", "Arduino", "Display", "Modules"],
+        time: "6 ساعات",
+        category: "education"
+    },
+    {
+        title: "نظام إضاءة الشوارع الذكي",
+        icon: "🛣️",
+        description: "إضاءة شوارع ذكية توفر الطاقة",
+        difficulty: "متوسط",
+        components: ["LDR Sensors", "PIR Sensors", "Arduino", "LED Lights"],
+        time: "5 ساعات",
+        category: "automation"
+    },
+    {
+        title: "روبوت تنظيف السجاد",
+        icon: "🧹",
+        description: "روبوت تنظيف السجاد الآلي",
+        difficulty: "متوسط",
+        components: ["DC Motors", "Brushes", "Arduino", "Sensors"],
+        time: "6 ساعات",
+        category: "robotics"
+    },
+    {
+        title: "نظام مراقبة الدفيئة",
+        icon: "🌿",
+        description: "مراقبة متكاملة للدفيئة الزراعية",
+        difficulty: "متقدم",
+        components: ["Temperature Sensor", "Humidity Sensor", "Light Sensor", "Arduino"],
+        time: "7 ساعات",
+        category: "iot"
+    },
+    {
+        title: "نظام تتبع الحيوانات البرية",
+        icon: "🐾",
+        description: "تتبع الحيوانات في المحميات",
+        difficulty: "متقدم",
+        components: ["GPS Module", "GSM Module", "Solar Panel", "Arduino"],
+        time: "8 ساعات",
+        category: "iot"
+    },
+    {
+        title: "روبوت مكافحة الآفات",
+        icon: "🐜",
+        description: "روبوت للقضاء على الآفات الزراعية",
+        difficulty: "متوسط",
+        components: ["Camera", "ESP32-CAM", "Motors", "Sprayer"],
+        time: "6 ساعات",
+        category: "robotics"
+    },
+    {
+        title: "نظام إنذار المختبر",
+        icon: "🧪",
+        description: "نظام أمان للمختبرات العلمية",
+        difficulty: "متوسط",
+        components: ["Gas Sensors", "Temperature Sensor", "Arduino", "Siren"],
+        time: "4 ساعات",
+        category: "security"
+    },
+    {
+        title: "نظام ري الحدائق العامة",
+        icon: "🌳",
+        description: "نظام ري ذكي للحدائق العامة",
+        difficulty: "متوسط",
+        components: ["Soil Sensors", "Arduino", "Solenoid Valves", "Weather Station"],
+        time: "5 ساعات",
+        category: "automation"
+    },
+    {
+        title: "روبوت تقديم الطعام",
+        icon: "🤖",
+        description: "روبوت يقدم الطعام في المطاعم",
+        difficulty: "متقدم",
+        components: ["Motors", "Arduino", "IR Sensors", "Tray"],
+        time: "7 ساعات",
+        category: "robotics"
+    },
+    {
+        title: "نظام مراقبة الجسور",
+        icon: "🌉",
+        description: "مراقبة سلامة الجسور",
+        difficulty: "متقدم",
+        components: ["Vibration Sensors", "Arduino", "WiFi Module", "Camera"],
+        time: "9 ساعات",
+        category: "security"
+    },
+    {
+        title: "نظام إنارة الملاعب",
+        icon: "🏟️",
+        description: "نظام إضاءة ذكي للملاعب",
+        difficulty: "متوسط",
+        components: ["PIR Sensors", "Arduino", "High Power LEDs", "Timer"],
+        time: "5 ساعات",
+        category: "automation"
+    },
+    {
+        title: "روبوت الاستكشاف الجوفي",
+        icon: "🕳️",
+        description: "روبوت استكشاف الأنفاق والكهوف",
+        difficulty: "متقدم",
+        components: ["Camera", "Motors", "Arduino", "Wireless Module"],
+        time: "10 ساعات",
+        category: "robotics"
+    },
+    {
+        title: "نظام مراقبة السدود",
+        icon: "💧",
+        description: "مراقبة منسوب المياه في السدود",
+        difficulty: "متوسط",
+        components: ["Water Level Sensor", "Arduino", "GSM Module", "Solar Panel"],
+        time: "6 ساعات",
+        category: "security"
+    },
+    {
+        title: "نظام ري الملاعب الرياضية",
+        icon: "⚽",
+        description: "نظام ري ذكي للملاعب الرياضية",
+        difficulty: "متوسط",
+        components: ["Soil Sensors", "Arduino", "Sprinklers", "Weather API"],
+        time: "5 ساعات",
+        category: "automation"
+    },
+    {
+        title: "روبوت الإسعافات الأولية",
+        icon: "🚑",
+        description: "روبوت تقديم الإسعافات الأولية",
+        difficulty: "متقدم",
+        components: ["Arduino", "Motors", "Medical Kit", "Communication Module"],
+        time: "8 ساعات",
+        category: "robotics"
+    },
+    {
+        title: "نظام مراقبة الغابات",
+        icon: "🌲",
+        description: "مراقبة الحرائق في الغابات",
+        difficulty: "متوسط",
+        components: ["Flame Sensors", "Camera", "Arduino", "GSM Module"],
+        time: "6 ساعات",
+        category: "security"
+    },
+    {
+        title: "نظام ري المزارع العمودية",
+        icon: "🏢",
+        description: "نظام ري للمزارع العمودية",
+        difficulty: "متقدم",
+        components: ["Multiple Sensors", "Arduino", "Pumps", "LED Grow Lights"],
+        time: "7 ساعات",
+        category: "automation"
+    },
+    {
+        title: "روبوت التنظيف الصناعي",
+        icon: "🏭",
+        description: "روبوت تنظيف للمصانع",
+        difficulty: "متقدم",
+        components: ["Industrial Motors", "Arduino", "Brushes", "Vacuum System"],
+        time: "9 ساعات",
+        category: "robotics"
+    }
+
         ];
 
         // بيانات فيديوهات اللحام
@@ -2839,39 +3752,24 @@
                 views: "21K",
                 thumbnail: "🔌",
                 videoUrl: "https://www.youtube.com/watch?v=rK38rpUy568"
-            },
-            {
-                id: "troubleshooting",
-                title: "🔧 استكشاف أخطاء اللحام وإصلاحها",
-                description: "كشف المشاكل الشائعة في اللحام وكيفية إصلاحها",
-                duration: "25:10",
-                views: "16K",
-                thumbnail: "🔧",
-                videoUrl: "https://www.youtube.com/watch?v=6rmErwU5E-k"
-            },
-            {
-                id: "safety",
-                title: "⚠️ السلامة في اللحام الإلكتروني",
-                description: "إجراءات السلامة والأمان الواجب اتباعها أثناء عمليات اللحام",
-                duration: "12:35",
-                views: "28K",
-                thumbnail: "⚠️",
-                videoUrl: "https://www.youtube.com/watch?v=Fp37DPZVdRI"
-            },
-            {
-                id: "tools_review",
-                title: "🧰 مراجعة أدوات اللحام الأساسية",
-                description: "مقارنة بين أفضل أدوات اللحام في السوق ونصائح للاختيار",
-                duration: "31:40",
-                views: "35K",
-                thumbnail: "🧰",
-                videoUrl: "https://www.youtube.com/watch?v=t2TrucftFDQ&t=44s"
             }
         ];
 
         // تهيئة البيانات والمفضلة
-        let favorites = JSON.parse(localStorage.getItem('techlab_favorites')) || [];
-        let comparisonItems = JSON.parse(localStorage.getItem('techlab_comparison')) || [];
+        let favorites = [];
+        try {
+            favorites = JSON.parse(localStorage.getItem('techlab_favorites')) || [];
+        } catch (e) {
+            console.error('Error loading favorites:', e);
+            favorites = [];
+        }
+        let comparisonItems = [];
+        try {
+            comparisonItems = JSON.parse(localStorage.getItem('techlab_comparison')) || [];
+        } catch (e) {
+            console.error('Error loading comparison:', e);
+            comparisonItems = [];
+        }
 
         // وظائف AI Helper
         function sendMessage() {
@@ -2880,13 +3778,9 @@
             
             if (message === '') return;
             
-            // إضافة رسالة المستخدم
             addMessage(message, 'user');
-            
-            // مسح حقل الإدخال
             userInput.value = '';
             
-            // محاكاة تفكير المساعد
             setTimeout(() => {
                 const response = generateAIResponse(message);
                 addMessage(response, 'ai');
@@ -2931,7 +3825,6 @@
         function generateAIResponse(message) {
             const lowerMessage = message.toLowerCase();
             
-            // قاعدة معرفة للردود
             if (lowerMessage.includes('مرحبا') || lowerMessage.includes('اهلا') || lowerMessage.includes('hello')) {
                 return 'مرحباً بك! كيف يمكنني مساعدتك في مشاريعك الإلكترونية اليوم؟';
             }
@@ -3036,7 +3929,6 @@ void loop() {
 أي من هذه المشاريع يثير اهتمامك؟ يمكنني تقديم تفاصيل أكثر عن أي منها!`;
             }
             
-            // رد افتراضي
             return `شكراً على سؤالك! "${message}"
 
 أنا متخصص في المساعدة في المشاريع الإلكترونية والبرمجة. يمكنني مساعدتك في:
@@ -3067,18 +3959,6 @@ void loop() {
                     description: "نظام تحكم منزلي يتحكم في الإضاءة والتدفئة والتهوية عبر الهاتف",
                     components: ["ESP32", "مبدلات Relay", "حساسات DHT22", "موديول Bluetooth"],
                     level: "متقدم"
-                },
-                {
-                    title: "طائرة بدون طيار صغيرة",
-                    description: "تصميم وبرمجة طائرة صغيرة يتم التحكم فيها لاسلكياً",
-                    components: ["ESP32", "محركات براشلس", "مراقب طيران", "بطارية ليثيوم"],
-                    level: "متقدم"
-                },
-                {
-                    title: "محطة طقس محمولة",
-                    description: "جهاز محمول يقيس درجة الحرارة والرطوبة والضغط الجوي",
-                    components: ["Arduino Pro Mini", "BME280", "شاشة LCD", "بطارية"],
-                    level: "متوسط"
                 }
             ];
             
@@ -3102,7 +3982,6 @@ void loop() {
                 return;
             }
             
-            // محاكاة فحص الكود
             addMessage('جاري فحص الكود البرمجي...', 'ai');
             
             setTimeout(() => {
@@ -3129,7 +4008,6 @@ void loop() {
             addMessage(`جاري البحث عن "${query}" في قاعدة المعرفة...`, 'ai');
             
             setTimeout(() => {
-                // محاكاة نتائج البحث
                 const results = [
                     `وجدت 5 مصادر متعلقة بـ "${query}"`,
                     '1. دليل استخدام Arduino للمبتدئين',
@@ -3338,14 +4216,11 @@ void loop() {
 
         // وظائف التبديل بين الأقسام
         function showSection(sectionId) {
-            // إخفاء كل الأقسام
             const sections = document.querySelectorAll('.section-page');
             sections.forEach(section => section.classList.remove('active'));
             
-            // إظهار القسم المطلوب
             document.getElementById(sectionId).classList.add('active');
             
-            // تحديث التنقل
             const navLinks = document.querySelectorAll('.nav-link');
             navLinks.forEach(link => link.classList.remove('active'));
             event.target.classList.add('active');
@@ -3438,7 +4313,6 @@ void loop() {
             const videoTitle = document.getElementById('videoTitle');
             const videoDesc = document.getElementById('videoDesc');
 
-            // في الواقع، يمكنك استخدام رابط فيديو حقيقي من YouTube
             videoPlayer.innerHTML = `
                 <iframe 
                     width="100%" 
@@ -3466,14 +4340,12 @@ void loop() {
             document.body.style.overflow = 'auto';
         }
 
-        // إغلاق الفيديو عند الضغط على ESC
         document.addEventListener('keydown', function(event) {
             if (event.key === 'Escape') {
                 closeVideo();
             }
         });
 
-        // إغلاق الفيديو عند الضغط خارج الصندوق
         document.getElementById('videoModal').addEventListener('click', function(event) {
             if (event.target === this) {
                 closeVideo();
@@ -3574,7 +4446,49 @@ void loop() {
 
         function showItemDetails(section, name) {
             alert(`عرض تفاصيل ${name} من قسم ${section}`);
-            // يمكنك تطوير هذه الوظيفة لعرض نافذة منبثقة بتفاصيل كاملة
+        }
+
+        // وظيفة تصدير المفضلة
+        function exportFavorites() {
+            if (favorites.length === 0) {
+                alert("لا توجد عناصر في المفضلة للتصدير");
+                return;
+            }
+
+            const printContent = `
+                <html dir="rtl">
+                <head>
+                    <title>المفضلة - Teckology Academy</title>
+                    <style>
+                        body { font-family: Arial, sans-serif; padding: 20px; }
+                        h1 { color: #333; text-align: center; }
+                        .item { border: 1px solid #ddd; padding: 15px; margin: 10px 0; border-radius: 5px; }
+                        .item-name { color: #00ff88; font-weight: bold; }
+                        .item-description { color: #666; }
+                        .item-specs { color: #0088ff; }
+                    </style>
+                </head>
+                <body>
+                    <h1>العناصر المفضلة - Teckology Academy</h1>
+                    <p>تاريخ التصدير: ${new Date().toLocaleDateString('ar-EG')}</p>
+                    <p>عدد العناصر: ${favorites.length}</p>
+                    <hr>
+                    ${favorites.map(fav => `
+                        <div class="item">
+                            <div class="item-name">${fav.icon} ${fav.name}</div>
+                            <div class="item-description">${fav.description}</div>
+                            <div class="item-specs">${fav.specs}</div>
+                            <div><small>القسم: ${getCategoryName(fav.type)}</small></div>
+                        </div>
+                    `).join('')}
+                </body>
+                </html>
+            `;
+
+            const printWindow = window.open('', '_blank');
+            printWindow.document.write(printContent);
+            printWindow.document.close();
+            printWindow.print();
         }
 
         // تهيئة التطبيق عند التحميل
@@ -3583,7 +4497,7 @@ void loop() {
             renderProjects();
             renderFavorites();
             renderComparison();
-            renderWeldingVideos(); // إضافة هذه السطر لتحميل فيديوهات اللحام
+            renderWeldingVideos();
         });
     </script>
 </body>
